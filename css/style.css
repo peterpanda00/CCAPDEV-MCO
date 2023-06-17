@@ -4,8 +4,17 @@
 * Tempalte URI: https://untree.co/
 * License: https://creativecommons.org/licenses/by/3.0/
 */
+
+@import url();
+
+/* Fonts */
+:root {
+  --body-font           : "IBM Plex Sans", sans-serif;
+  --heading-font        : "Ogg", serif;
+}
+
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--body-font);
   background-color: #fff;
   font-weight: 300;
   color: rgba(0, 0, 0, 0.5);
@@ -242,8 +251,7 @@ a, a:hover {
   font-size: 5rem;
   color: #fff;
   line-height: 0;
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 900;
+  font-family: var(--heading-font);  
 }
 
 @media (max-width: 991.98px) {
@@ -289,7 +297,7 @@ a, a:hover {
   font-size: 5rem;
   color: #000;
   line-height: 0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--heading-font); 
   font-weight: 900;
 }
 
