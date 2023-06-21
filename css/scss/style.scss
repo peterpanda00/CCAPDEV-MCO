@@ -241,11 +241,11 @@ a {
 				font-weight: 300;
 			}
 			.hero-heading {
-				font-size: 5rem;
+				font-size: 3rem;
 				color: $black;
 				line-height: 0;
 				font-family: $font-family-serif;
-				font-weight: 900;
+				font-weight: 700;
 				@include media-breakpoint-down(md) {
 					font-size: 3.5rem;
 				}
@@ -255,7 +255,7 @@ a {
 						display: inline-block;
 
 						> span {
-							line-height: 1.2;
+							line-height: 1;
 							overflow: hidden;
 							display: inline-block;
 							margin-bottom: 0;
