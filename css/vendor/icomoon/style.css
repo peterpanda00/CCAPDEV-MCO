@@ -4920,10 +4920,9 @@
 .icon-gmail:before {
   content: "\f0e0";
 }
-.icon-agoda {
-  width: 24px; 
-  height: 24px;
-  background-image: url('images/agoda.png'); /* Replace with the actual path to your Agoda icon image */
-  background-size: cover;
-  border-radius: 50%
+.icon-booking:before {
+  content: "\e264"
+}
+.icon-agoda:before {
+  content: ""
 }
