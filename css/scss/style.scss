@@ -242,7 +242,7 @@ a {
 			}
 			.hero-heading {
 				font-size: 3rem;
-				color: $black;
+				color: $white;
 				line-height: 0;
 				font-family: $font-family-serif;
 				font-weight: 700;
@@ -273,6 +273,7 @@ a {
 .w-75 {
 	@include media-breakpoint-down(md) {
 		width: 100%!important;
+		color: $white;
 	}
 }
 .owl-hero {
