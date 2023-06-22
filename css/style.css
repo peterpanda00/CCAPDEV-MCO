@@ -250,6 +250,18 @@ a, a:hover {
   position: relative;
 }
 
+.untree_co--site-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.button-container {
+  margin-top: 0%; 
+  display: flex;
+  justify-content: center;
+}
+
 .untree_co--site-hero.overlay:before {
   content: "";
   position: absolute;
@@ -281,6 +293,7 @@ a, a:hover {
 @media (max-width: 991.98px) {
   .untree_co--site-hero .site-hero-contents .hero-heading {
     font-size: 3.5rem;
+    font-family: var(--heading-font);
   }
 }
 
@@ -1130,6 +1143,10 @@ a, a:hover {
 
 /* Booking */
 
+.book-now-btn{
+  padding: 10%;
+}
+
 .booking-form .booking-item {
   width: 25%;
 }
@@ -1290,6 +1307,9 @@ stroke-color: transparent;
 .btn-arrow:hover svg {
 opacity: 1;
 right: -2rem;
+}
+.book-now-btn:hover{
+  background-color: black;
 }
 
 
