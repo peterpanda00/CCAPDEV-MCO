@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memories</title>
+  <link rel="stylesheet" href="css/newstyle.css">
+</head>
+<body>
+  <h1>Memories</h1>
+
+  <div class="post-form">
+    <input type="text" placeholder="Your Name">
+    <textarea placeholder="Write your post here"></textarea>
+    <input type="file" accept="image/*" multiple>
+    <button onclick="submitPost()">Submit</button>
+  </div>
+
+  <div id="post-container">
+    <!-- Existing posts will be dynamically added here -->
+  </div>
+
+  <script>
+    function submitPost() {
+      var name = document.querySelector('input[type="text"]').value;
+      var postContent = document.querySelector('textarea').value;
+      var imageFiles = document.querySelector('input[type="file"]').files;
+
+      // Create new post element
+      var postElement = document.createElement('div');
+      postElement.className = 'post';
+      var contentElement = document.createElement('p');
+      contentElement.className = 'post-content';
+      contentElement.textContent = postContent;
+      var authorElement = document.createElement('span');
+      authorElement.className = 'post-author';
+      authorElement.textContent = 'Posted by: ' + name;
+      var dateElement = document.createElement('span');
+      dateElement.className = 'post-date';
+      dateElement.textContent = getCurrentDate(); // Add post date
+
+      postElement.appendChild(contentElement);
+      postElement.appendChild(authorElement);
+      postElement.appendChild(dateElement); // Append the date element
+
+
+      // Add images to the post
+      for (var i = 0; i < imageFiles.length; i++) {
+        var imageElement = document.createElement('img');
+        imageElement.className = 'post-image';
+        imageElement.src = URL.createObjectURL(imageFiles[i]);
+        postElement.appendChild(imageElement);
+      }
+
+      // Add the new post to the post container
+      var postContainer = document.getElementById('post-container');
+      postContainer.appendChild(postElement);
+
+      // Clear the post form
+      document.querySelector('input[type="text"]').value = '';
+      document.querySelector('textarea').value = '';
+      document.querySelector('input[type="file"]').value = '';
+     
+      // Create comments section
+      var commentsSection = document.createElement('div');
+      commentsSection.className = 'comments-section';
+
+      var commentsHeader = document.createElement('h3');
+      commentsHeader.textContent = 'Comments';
+      commentsSection.appendChild(commentsHeader);
+
+      var commentsForm = document.createElement('div');
+      commentsForm.className = 'comments-form';
+      var commentInput = document.createElement('input');
+      commentInput.type = 'text';
+      commentInput.placeholder = 'Your Name';
+      var commentTextarea = document.createElement('textarea');
+      commentTextarea.placeholder = 'Write your comment here';
+      var commentButton = document.createElement('button');
+      commentButton.textContent = 'Add Comment';
+      commentButton.onclick = function () {
+        addComment(commentInput.value, commentTextarea.value, commentsList);
+        commentInput.value = '';
+        commentTextarea.value = '';
+      };
+
+      commentsForm.appendChild(commentInput);
+      commentsForm.appendChild(commentTextarea);
+      commentsForm.appendChild(commentButton);
+      commentsSection.appendChild(commentsForm);
+
+      var commentsList = document.createElement('ul');
+      commentsList.className = 'comments-list';
+      commentsSection.appendChild(commentsList);
+
+      postElement.appendChild(commentsSection);
+
+      // Add the new post to the post container
+      var postContainer = document.getElementById('post-container');
+      postContainer.appendChild(postElement);
+
+      // Clear the post form
+      document.querySelector('input[type="text"]').value = '';
+      document.querySelector('textarea').value = '';
+      document.querySelector('input[type="file"]').value = '';
+    }
+
+    function addComment(name, comment, commentsList) {
+      var commentElement = document.createElement('li');
+      commentElement.className = 'comment';
+
+      var commentAuthor = document.createElement('span');
+      commentAuthor.className = 'comment-author';
+      commentAuthor.textContent = name;
+      
+      var lineBreak = document.createElement('br'); // Add line break element
+      commentElement.appendChild(commentAuthor);
+      commentElement.appendChild(lineBreak); // Append the line break element
+      
+      var commentContent = document.createElement('span');
+      commentContent.className = 'comment-content';
+      commentContent.textContent = comment;
+
+      var commentDate = document.createElement('span');
+      commentDate.className = 'comment-date';
+      commentDate.textContent = getCurrentDate(); // Add comment date
+      
+      commentElement.appendChild(commentContent);
+      commentElement.appendChild(commentDate); // Append the comment date
+      commentsList.appendChild(commentElement);
+    }
+   function getCurrentDate() {
+      var currentDate = new Date();
+      var options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return currentDate.toLocaleDateString('en-US', options);
+    }
+  </script>
+</body>
+</html>
