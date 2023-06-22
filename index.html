@@ -23,6 +23,10 @@
     <link rel="stylesheet" href="css/vendor/aos.css">
     <link rel="stylesheet" href="css/vendor/animate.min.css">
     <link rel="stylesheet" href="css/vendor/bootstrap.css">
+    <link href="css/css/bootstrap/date-time-picker-component.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/css/bootstrap/bootstrap.min.css">
+
+    <script src="js/modernizr.js"></script>
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
@@ -57,7 +61,7 @@
       <nav class="untree_co--site-nav js-sticky-nav">
         <div class="container d-flex align-items-center">
           <div class="logo-wrap">
-            <a href="index.html" class="untree_co--site-logo">Park Avenue 2443</a>
+            <a href="index.html" class="untree_co--site-logo"> Park Avenue 2443 </a>
           </div>
           <div class="site-nav-ul-wrap text-center d-none d-lg-block">
             <ul class="site-nav-ul js-clone-nav">
@@ -65,31 +69,26 @@
               <li class="has-children">
                 <a href="rooms.html">Rooms</a>
                 <ul class="dropdown">
-                  <li class="has-children">
-                    <a href="#">King Bedroom</a>
-                    <ul class="dropdown">
-                      <li>
-                        <a href="#">King Bedroom</a>
-                      </li>
-                      <li>
-                        <a href="#">Queen &amp; Double Bedroom</a>
-                      </li>
-                      <li>
-                        <a href="#">Le Voila Suite</a>
-                      </li>
-                    </ul>
+                  <li>
+                    <a href="rooms.html">Family Room</a>
                   </li>
                   <li>
-                    <a href="#">Queen &amp; Double Bedroom</a>
+                    <a href="rooms.html">Imperial King</a>
                   </li>
                   <li>
-                    <a href="#">Le Voila Suite</a>
+                    <a href="rooms.html">Deluxe Queen</a>
+                  </li>
+                  <li>
+                    <a href="rooms.html">Superior Twin</a>
+                  </li>
+                  <li>
+                    <a href="rooms.html">Single Room</a>
                   </li>
                 </ul>
               </li>
               <li><a href="amenities.html">Amenities</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="about.html">About Us</a></li>
+              <li><a href="gallery.html">Memories</a></li>
+              <li><a href="about.html">Our Story</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
@@ -165,6 +164,61 @@
 
         </div>
 
+        <section id="booking-wrap" class="padding-large">
+          <div class="container">
+            <div class="row">
+    
+              <form action="" class="booking-form d-flex flex-wrap align-items-center">
+                <div class="booking-content d-flex flex-wrap col-lg-8">
+                  <div class="booking-item">
+                    <label for="date-in" class="text-uppercase d-block">Arrival</label>
+                    <div class="date datetime-container" id="select-arrival-date">
+                      <div class="button-container">
+                        <button type="button" class="date start">
+                          <span class="week-day">Fri</span>
+                          <span class="month-day">23</span>
+                          <span class="month"><span data-i18n="jun">Jun</span><br>2023</span>
+                        </button>
+                      </div>
+                      <div class="picker">
+
+                      </div>
+                      <input type="hidden" name="select-arrival-date_value" class="date_output" value="2023-06-23">
+                    </div>
+                  </div> 
+
+                  <div class="booking-item">
+                    <label for="date-in" class="text-uppercase d-block">Departure</label>
+                    <div class="date datetime-container" id="select-departure-date"><div class="button-container">
+                      <button type="button" class="date start">
+                        <span class="week-day">Fri</span>
+                        <span class="month-day">23</span>
+                        <span class="month"><span data-i18n="jun">Jun</span><br>2023</span>
+                      </button>
+                    </div>
+                    <div class="picker"></div>
+                    <input type="hidden" name="select-departure-date_value" class="date_output" value="2023-06-23"></div>
+                  </div>
+
+                  <div class="booking-item"> 
+                    <label class="text-uppercase d-block">Rooms</label>
+                    <input type="number" class="booking" name="rooms" min="01" max="5" placeholder="01" value="01">
+                  </div>  
+                  <div class="booking-item"> 
+                    <label class="text-uppercase d-block">Guests</label>
+                    <input type="number" class="booking" name="guests" min="01" max="10" placeholder="01" value="01">
+                  </div>
+                </div>
+                <button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative">
+                  <span>Check availability<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enable-background="new 0 0 36.1 25.8" xml:space="preserve"><g><line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="0" y1="12.9" x2="34" y2="12.9"></line><polyline fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="22.2,1.1 34,12.9 22.2,24.7   "></polyline></g></svg></span>
+                </button>
+              </form>  
+    
+            </div>
+          </div>
+        </section>
+      
+
         <div class="untree_co--site-section float-left pb-0 featured-rooms">
 
           <div class="container pt-0 pb-5">
@@ -182,20 +236,20 @@
                 <div class="image-stack">
                   <div class="image-stack-item image-stack-item-top" data-jarallax-element="-50">
                     <div class="overlay"></div>
-                    <img src="images/room_1_a.jpg" alt="Image" class="img-fluid pic1">
+                    <img src="images/king_room1.jpg" alt="Image" class="img-fluid pic1">
                   </div>
                   <div class="image-stack-item image-stack-item-bottom">
                     <div class="overlay"></div>
-                    <img src="images/room_1_b.jpg" alt="Image" class="img-fluid pic2">
+                    <img src="images/king_room2.jpg" alt="Image" class="img-fluid pic2">
                   </div>
                 </div>
               </div> <!-- .suite -->
 
               <div class="suite-contents" data-jarallax-element="50">
-                <h2 class="suite-title">King Bedroom</h2>
+                <h2 class="suite-title">Imperial King</h2>
                 <div class="suite-excerpt">
-                  <p>A hotel is an establishment that provides paid lodging on a short-term basis. Facilities provided may range from a modest-quality mattress in a small room to large suites with bigger.</p>
-                  <p><a href="#" class="readmore">Room Details</a></p>
+                  <p>Indulge in the lavish King Bedroom at Park Avenue Guesthouse 2443. This elegant retreat features a spacious king-sized bed, tasteful decor, and modern amenities. Relax in style, enjoy stunning views, and experience the ultimate in comfort and luxury during your stay.</p>
+                  <p><a href="rooms.html" class="readmore">Room Details</a></p>
                 </div>
               </div>
             </div>
@@ -206,20 +260,20 @@
                 <div class="image-stack">
                   <div class="image-stack-item image-stack-item-top">
                     <div class="overlay"></div>
-                    <img src="images/room_2_a.jpg" alt="Image" class="img-fluid pic1">
+                    <img src="images/family_room1.jpg" alt="Image" class="img-fluid pic1">
                   </div>
                   <div class="image-stack-item image-stack-item-bottom" data-jarallax-element="-50">
                     <div class="overlay"></div>
-                    <img src="images/room_2_b.jpg" alt="Image" class="img-fluid pic2">
+                    <img src="images/family_room2.jpg" alt="Image" class="img-fluid pic2">
                   </div>
                 </div>
               </div>
 
               <div class="suite-contents" data-jarallax-element="50">
-                <h2 class="suite-title">Queen &amp; Double Bedroom</h2>
+                <h2 class="suite-title">Family Room</h2>
                 <div class="suite-excerpt pr-5">
-                  <p>A hotel is an establishment that provides paid lodging on a short-term basis. Facilities provided may range from a modest-quality mattress in a small room to large suites with bigger</p>
-                  <p><a href="#" class="readmore">Room Details</a></p>
+                  <p>Experience comfort and togetherness in the inviting Family Room at Park Avenue Guesthouse 2443. This spacious retreat is tastefully decorated and equipped with modern amenities, ensuring a delightful stay for your entire family.</p>
+                  <p><a href="rooms.html" class="readmore">Room Details</a></p>
                 </div>
               </div>
 
@@ -233,7 +287,7 @@
             <div class="container pt-0 pb-5">
             <div class="row justify-content-center text-center">  
               <div class="col-lg-6 section-heading" data-aos="fade-up">
-                <h3 class="text-center">Hotel Amenities</h3>
+                <h3 class="text-center">Guesthouse Amenities</h3>
               </div>
             </div>
           </div>
@@ -244,7 +298,7 @@
                     <img src="images/svg/parking.svg" alt="Image" class="img-fluid">
                   </div>
                   <h3>Free Self-Parking</h3>
-                  <p>A hotel is an establishment that provides paid lodging on a short-term basis. Facilities provided may range from a modest-quality.</p>
+                  <p>Enjoy the convenience of complimentary self-parking at Park Avenue Guesthouse 2443. Whether you're traveling by car or renting one during your stay, this amenity ensures a hassle-free experience, allowing you to easily come and go at your leisure.</p>
                   <p><p><a href="#" class="readmore reverse">Read More</a></p></p>
                 </div>
               </div>
@@ -252,10 +306,10 @@
               <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
                 <div class="media-29191 text-center h-100">
                   <div class="media-29191-icon">
-                    <img src="images/svg/internet.svg" alt="Image" class="img-fluid">
+                    <img src="images/svg/garden.svg" alt="Image" class="img-fluid">
                   </div>
-                  <h3>High speed Internet access</h3>
-                  <p>A hotel is an establishment that provides paid lodging on a short-term basis. Facilities provided may range from a modest-quality.</p>
+                  <h3>Hydrophonic Farm</h3>
+                  <p>Discover an innovative farming method that uses nutrient-rich water instead of soil to cultivate a variety of crops. Immerse yourself in this eco-friendly and fascinating agricultural adventure, where you can witness the growth of fresh, organic produce in a controlled and efficient environment.</p>
                   <p><p><a href="#" class="readmore reverse">Read More</a></p></p>
                 </div>
               </div>
@@ -265,7 +319,7 @@
                     <img src="images/svg/wifi.svg" alt="Image" class="img-fluid">
                   </div>
                   <h3>Complimentary WiFi in public areas</h3>
-                  <p>A hotel is an establishment that provides paid lodging on a short-term basis. Facilities provided may range from a modest-quality.</p>
+                  <p>Experience seamless connectivity throughout the public areas of the guesthouse with complimentary WiFi. Whether you're relaxing in the lobby, enjoying a meal in the dining area, or working in a shared space, stay connected and in touch with this convenient amenity.</p>
                   <p><p><a href="#" class="readmore reverse">Read More</a></p></p>
                 </div>
               </div>
@@ -273,10 +327,10 @@
               <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
                 <div class="media-29191 text-center h-100">
                   <div class="media-29191-icon">
-                    <img src="images/svg/elevator.svg" alt="Image" class="img-fluid">
+                    <img src="images/svg/food.svg" alt="Image" class="img-fluid">
                   </div>
-                  <h3>Elevators</h3>
-                  <p>A hotel is an establishment that provides paid lodging on a short-term basis. Facilities provided may range from a modest-quality.</p>
+                  <h3>Dining & Beverage Services</h3>
+                  <p>Indulge in delectable culinary experiences with the dining and beverage services offered at Park Avenue Guesthouse 2443. Savor delicious meals prepared by talented chefs, sip on refreshing beverages, and enjoy impeccable service without leaving the comfort of the guesthouse.</p>
                   <p><p><a href="#" class="readmore reverse">Read More</a></p></p>
                 </div>
               </div>
@@ -284,11 +338,11 @@
               <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
                 <div class="media-29191 text-center h-100">
                   <div class="media-29191-icon">
-                    <img src="images/svg/partners.svg" alt="Image" class="img-fluid">
+                    <img src="images/svg/airport.svg" alt="Image" class="img-fluid">
                   </div>
 
-                  <h3>Meeting rooms</h3>
-                  <p>A hotel is an establishment that provides paid lodging on a short-term basis. Facilities provided may range from a modest-quality.</p>
+                  <h3>Airport Transfer</h3>
+                  <p>Start your trip off right with the convenient airport transfer service available at Park Avenue Guesthouse 2443. Arrive and depart with ease as the guesthouse provides a seamless transportation experience, ensuring a smooth transition to and from the airport.</p>
                   <p><p><a href="#" class="readmore reverse">Read More</a></p></p>
                 </div>
               </div>
@@ -297,8 +351,8 @@
                   <div class="media-29191-icon">
                     <img src="images/svg/washing-machine.svg" alt="Image" class="img-fluid">
                   </div>
-                  <h3>Laundry and Valet service</h3>
-                  <p>A hotel is an establishment that provides paid lodging on a short-term basis. Facilities provided may range from a modest-quality.</p>
+                  <h3>Laundry Service</h3>
+                  <p>Travel light and maintain fresh attire throughout your stay with the convenient laundry service provided by Park Avenue Guesthouse 2443. Whether you need to refresh your clothes after a long journey or simply prefer to have your garments professionally cared for, this amenity offers convenience and peace of mind.</p>
                   <p><p><a href="#" class="readmore reverse">Read More</a></p></p>
                 </div>
               </div>
@@ -306,59 +360,45 @@
             </div>
           </div>
         </div>
-        
-
-        
-        
 
         <div class="untree_co--site-section">
           <div class="container">
             <div class="row">
               <div class="col-md-4 section-heading" data-aos="fade-up">
-                <h3 class="text-left">News &amp; Events</h3>
+                <h3 class="text-left">Featured Articles</h3>
                 <div class="w-75">
-                  <p>A hotel is an establishment that provides paid lodging on a short-term basis.</p>
+                  <p>Discover a collection of engaging and informative articles that showcase the unique features and offerings of our guesthouse.</p>
                   </div>
-                <p><a href="#" class="readmore">All Posts</a></p>
+
               </div>
               <div class="col-md-4">
                 <div class="post-entry" data-aos="fade-up" data-aos-delay="100">
-                  <a href="#" class="thumb"><img src="images/img_1.jpg" alt="Image" class="img-fluid"></a>
+                  <a href="#" class="thumb"><img src="images/article_1.jpeg" alt="Image" class="img-fluid"></a>
                   <div class="post-entry-contents">
-                    <h3><a href="#">How algorithms shape our world</a></h3>
-                    <div class="date">December 20, 2019 &bullet; by <a href="#">Joefrey Mahusay</a></div>
-                    <p>A hotel is an establishment that provides paid lodging on a short-term basis.</p>
-                    <p><a href="#" class="readmore">Read more</a></p>
+                    <h3><a href="#">11 Best Hostels in Manila, Philippines 2022</a></h3>
+                    <div class="date">April 15, 2020 &bullet; by <a href="#">Viktor Vincej</a></div>
+                    <p>When you go exploring the cities of Manila, Philippines, remove the options of experiencing the typical hotel stay and just join in on the melting pot of cultures that cross in the hostel scene.</p>
+                    <p><a href="https://www.travelinglifestyle.net/hostels-manila-backpackers/?fbclid=IwAR22Hev81WymBgiufVajrhRt4dhhNw4GgHZW4RhYmgTCiPZ4L0GABNrtKnk" class="readmore">Read more</a></p>
                   </div>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="post-entry" data-aos="fade-up" data-aos-delay="200">
-                  <a href="#" class="thumb"><img src="images/img_3.jpg" alt="Image" class="img-fluid"></a>
+                  <a href="#" class="thumb"><img src="images/article_2.png" alt="Image" class="img-fluid"></a>
                   <div class="post-entry-contents">
-                    <h3><a href="#">How algorithms shape our world</a></h3>
-                    <div class="date">December 20, 2019 &bullet; by <a href="#">Joefrey Mahusay</a></div>
-                    <p>A hotel is an establishment that provides paid lodging on a short-term basis.</p>
-                    <p><a href="#" class="readmore">Read more</a></p>
+                    <h3><a href="#">Chinoy TV Episode 9 of Season 27</a></h3>
+                    <div class="date">July 9, 2018 &bullet; by <a href="#">CHiNOY TV Online</a></div>
+                    <p>Turn back time as we take you on a Spanish-inspired guesthouse tour at Park Avenue Guesthouse.</p>
+                    <p><a href="https://www.youtube.com/watch?v=OoqQSY6kwck&ab_channel=CHiNOYTVOnline" class="readmore">Read more</a></p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-    
-        <div class="untree_co--site-section py-5 bg-body-darker cta">
-          <div class="container">
-            <div class="row">
-              <div class="col-12 text-center">
-                <h3 class="m-0 p-0">If you have any special requests, please feel free to call us. <a href="tel://+123456789012">+12.345.678.9012</a></h3>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        
+        
 
       </div>
       <footer class="untree_co--site-footer">
@@ -367,33 +407,33 @@
           <div class="row">
             <div class="col-md-4 pr-md-5">
               <h3>About Us</h3>
-              <p>A hotel is an establishment that provides paid lodging on a short-term basis. Facilities provided may range from a modest-quality.</p>
-              <p><a href="#" class="readmore">Read more</a></p>
+              <p>Situated in the heart of Manila, Park Avenue Guesthouse is not your typical guesthouse, with its Hispanic architecture and historical designs that draw a lot of thought and attention had been put into its creation.</p>
+              <p><a href="about.html" class="readmore">Read more</a></p>
             </div>
             <div class="col-md-8 ml-auto">
               <div class="row">
                 <div class="col-md-3">
                   <h3>Navigation</h3>
                   <ul class="list-unstyled">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Rooms</a></li>
-                    <li><a href="#">Amenities</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="gallery.html">Memories</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                   </ul>
                 </div>
                 <div class="col-md-9 ml-auto">
                   <div class="row mb-3">
                     <div class="col-md-6">
                       <h3>Address</h3>
-                      <address>273 South Riverview Rd. <br> New York, NY 10011</address>
+                      <address>2443, 1300 Park Avenue, Pasay <br> Manila, Philippines, 1300</address>
                     </div>
                     <div class="col-md-6">
                       <h3>Telephone</h3>
                       <p>
-                        <a href="#">+1 234 5678 910</a> <br>
-                        <a href="#">+2 234 5678 910</a>
+                        <a href="#">+63 917 833 3393</a> <br>
+                        <a href="#">+63 917 811 3243</a>
                       </p>
                     </div>
                   </div>
@@ -457,6 +497,17 @@
         </div>
       </div>
     </div>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/date-time-picker.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.10.1.min.js"><\/script>')</script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+   
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
 
     <script src="js/vendor/jquery-3.3.1.min.js"></script>
     <script src="js/vendor/popper.min.js"></script>

@@ -11,6 +11,20 @@
 :root {
   --body-font           : "IBM Plex Sans", sans-serif;
   --heading-font        : "Ogg", serif;
+  --accent-color:             #333;
+  --black-color:              #000;
+  --dark-color:               #111;
+  --gray-color-100:           #F9F7F5;
+  --gray-color-200:           #E1E1E1;
+  --gray-color-300:           #D1D1D1;
+  --gray-color-400:           #ced4da;
+  --gray-color-500:           #adb5bd;
+  --dark-gray-color:          #474341;
+  --bs-light-rgb:             rgba(255,255,255,1);
+  --light-color:              #fff;
+  --bs-light-rgb:             rgba(255,255,255,1);
+  --primary-color:            #ff8103;
+  --swiper-theme-color:       #807E7C !important;
 }
 
 body {
@@ -86,6 +100,16 @@ a, a:hover {
   .untree_co--site-section {
     padding: 4rem 0;
   }
+}
+
+.padding-large {
+  padding-top: 7em;
+  padding-bottom: 3em;
+}
+
+.padding-medium {
+  padding-top: 4em;
+  padding-bottom: 4em;
 }
 
 .search-wrap {
@@ -1103,6 +1127,172 @@ a, a:hover {
   background: #000;
 }
 
+
+/* Booking */
+
+.booking-form .booking-item {
+  width: 25%;
+}
+.booking-form .datetime-container button span.month-day {
+  font-size: 5em; 
+  font-family: var(--heading-font);
+  width: 50%;
+}
+.booking-form .datetime-container button>span {
+  display: inline;
+  font-size: 0;
+  text-transform: capitalize;
+}
+.booking-form .datetime-container span {
+  font-size: 18px;
+}
+.datetime-container button span.week-day {
+  display: none;
+}
+.booking-form .datetime-container button.date, 
+.booking-form .datetime-container button.time {
+  background-color: var(--light-color);
+  border-radius: 0;
+  display: flex;
+  align-items: baseline;
+}
+.booking-form .datetime-container button.active {
+  background-color: var(--light-color);
+}
+.booking-form .picker {
+  width: 500px;
+}
+.booking-form .picker table td.active, 
+.booking-form .picker table td.time-selected {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+.booking-form button:after{
+  content: "";
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" id="arrow-down" viewBox="0 0 24 24"> <path fill="currentColor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222l4.95 4.95Z"/> </svg>');
+  position: absolute;
+  top: 80px;
+  left: 153px;
+  width: 20px;
+  height: 20px;
+  z-index: 9;
+}
+
+.booking-form input.booking {
+  font-size: 5em;
+  font-family: var(--heading-font);
+  color: var(--dark-color) !important;
+  border: none;
+  width: 50%;
+  outline: none;
+  position: relative;
+}
+.booking-form input.booking::placeholder {
+  color: var(--dark-color);
+} 
+.booking-form input::-webkit-outer-spin-button,
+.booking-form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .booking-form .booking-item {
+    width: 50%;
+  }
+  .booking-form button:after {
+    left: 191px;
+ }
+}
+
+@media only screen and (max-width: 500px) {
+  .booking-form .booking-item {
+    width: 100%;
+  }
+  .booking-form button:after {
+    left: 265px;
+ }
+ .booking-form .datetime-container button span.month-day {
+    width: 30%;
+  }
+}
+
+/* Buttons */
+
+.btn.btn-rounded,
+.btn.btn-rounded::after {
+  border-radius: 6px;
+}
+.btn.btn-pill,
+.btn.btn-pill::after {
+  border-radius: 2em;
+}
+
+.btn.btn-medium {
+  padding: 1.2em 2.7em;
+  font-size: 1em;
+}
+
+.btn-dark {
+  color: var(--light-color);
+  background-color: var(--dark-color);
+  border-color: var(--dark-color);
+  transition: 0.5s ease-in-out;
+}
+
+@media only screen and (max-width: 1400px) {
+  #header-nav .btn-box {
+     display: none;
+   }
+  .justify-content-md-end {
+     justify-content: flex-end!important;
+   }
+ }
+
+ /* Button Design */
+
+ .btn.btn-arrow, button.btn-arrow{
+  color: var(--light-color);
+  letter-spacing: 1.5px;
+  overflow: hidden;
+  transition: color 0.1s cubic-bezier(0.16, 0.08, 0.355, 1), background 0.1s cubic-bezier(0.16, 0.08, 0.355, 1);
+}
+.btn.btn-arrow:hover, button.btn-arrow:hover {
+color: var(--light-color);
+}
+.btn-arrow {
+position: relative;
+transition: background-color 300ms ease-out;
+}
+.btn-arrow span {
+display: inline-block;
+position: relative;
+transition: all 300ms ease-out;
+will-change: transform;
+}
+.btn-arrow:hover span {
+transform: translate3d(-1rem, 0, 0);
+}
+.btn-arrow svg {
+position: absolute;
+width: 0.9em;
+right: 0;
+opacity: 0;
+top: 50%;
+transform: translateY(-50%);
+transition: all 300ms ease-out;
+will-change: right, opacity;
+}
+.btn-arrow svg * {
+stroke-width: 5;
+stroke-color: transparent;
+}
+.btn-arrow:hover svg {
+opacity: 1;
+right: -2rem;
+}
+
+
 /* Mobile nav */
 .untree_co--site-mobile-menu {
   position: fixed;
@@ -1675,6 +1865,7 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 .btn {
   font-size: 16px;
   font-weight: 700;
+  line-height: 0;
 }
 
 .btn.btn-black {
