@@ -659,55 +659,12 @@ a.text-hover:focus:after{
   }
 }
 
-/* 4.3 About
-------------------------------------------------------------- */
-#about .container {
-   max-width: 930px;
-}
-#about p {
-   font-size: 1.2em;
-}
-
-/* 4.4 Activities
-------------------------------------------------------------- */
-#activities .image-holder img {
-  width: 100%;
-}
-#activities .icon-box svg {
-  fill: var(--dark-color);
-  width: 40px;
-  height: 40px;
-}
-#activities .detail {
-  width: 60%;
-}
-
-@media only screen and (max-width: 1280px) {
-  #activities .detail {
-    width: 80%;
- }
-}
-
-@media only screen and (max-width: 991px) {
-  #activities .detail {
-    padding: 120px 0;
- }
-}
-
-/* 4.5 Acheivement
-------------------------------------------------------------- */
-#achievements .counter-number h5>.number-item {
-  font-size: 5.9em;
-}
-#achievements .counter-number span.digital-item {
-  font-size: 4.5em;
-}
-#achievements .counter-info p {
-  letter-spacing: 0.12em;
-}
 
 /* 4.6 Our Rooms
 ------------------------------------------------------------- */
+.display-none{
+  display:none;
+}
 #our-rooms .product-card .detail {
   width: 100%;
   height: 358px;
@@ -773,7 +730,7 @@ a.text-hover:focus:after{
 /* 4.8 Booking
 ------------------------------------------------------------- */
 .booking-form .booking-item {
-  width: 24%;
+  width: 25%;
 }
 .booking-form .datetime-container button span.month-day {
   font-size: 5.5em; 
@@ -859,42 +816,6 @@ a.text-hover:focus:after{
   }
 }
 
-/* 4.9 Video
-------------------------------------------------------------- */
-#video-player a.play-btn {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-#myModal .modal-dialog {
-  max-width: 980px;
-}
-
-@media only screen and (max-width: 901px) {
-  #video-player img {
-    height: 480px;
-    object-fit: cover;
-  }
-}
-
-/* 4.10 Latest Post
-------------------------------------------------------------- */
-.post-grid .meta-date {
-  line-height: 0;
-}
-.post-grid .meta-date span.meta-day {
-  font-size: 3.5em;
-  font-family: var(--heading-font);
-  line-height: 1;
-}
-.post-grid .card-detail h3.card-title {
-  line-height: 1.3;
-}
-.post-grid .card-detail p {
-  width: 90%;
-}
-
 /* 4.11 Contact
 ------------------------------------------------------------- */
 #contact .contact-detail {
@@ -910,45 +831,4 @@ a.text-hover:focus:after{
 .contact-detail textarea:focus,
 .contact-detail input:focus {
   outline: none;
-}
-
-/* 4.12 Newsletter
-------------------------------------------------------------- */
-#newsletter input[type="text"] {
-  width: 100%;
-  height: 75px;
-  border: 1px solid var(--gray-color-200) !important;
-  background: transparent;
-  border-radius: 35px;
-  font-family: var(--heading-font);
-}
-#newsletter .btn-subscribe {
-  top: 5px;
-  right: 5px;
-}
-
-@media only screen and (max-width: 530px) {
-  #newsletter .btn-subscribe {
-    top: 83px;
-    width: 100%;
-  }
-  #newsletter .btn-subscribe button {
-    width: 100%;
-  }
-}
-
-/* 4.13 Footer
-------------------------------------------------------------- */
-.footer-menu .social-links li {
-  width: 54px;
-  height: 54px;
-  cursor: pointer;
-  transition: 0.6s ease-in-out;
-}
-.footer-menu .social-links li:hover {
-  background-color: var(--gray-color-200);
-}
-
-.payment-methods img {
-  height: 24px;
 }

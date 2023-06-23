@@ -104,6 +104,13 @@
       </symbol>
     </svg>
 
+    <div id="untree_co--overlayer"></div>
+    <div class="loader">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
 
     <nav class="untree_co--site-mobile-menu">
       <div class="close-wrap d-flex">
@@ -180,7 +187,12 @@
         </div>
       </nav>
 
+
+     
+      
       <main class="untree_co--site-main">
+
+      
 
         <button id="scroll-top-btn">
           <svg class="arrow-up" width="20" height="40">
@@ -199,11 +211,14 @@
             </div>
           </div>
         </div>
-    
-    
       
         <section id="booking-wrap" class="padding-large">
           <div class="container">
+            <div class="row justify-content-center text-center pt-0 pb-5">  
+              <div class="col-lg-6 section-heading" data-aos="fade-up">
+                <h3 class="text-center">Search</h3>
+              </div>
+            </div>
             <div class="row">
     
               <form action="" class="booking-form d-flex flex-wrap align-items-center">
@@ -218,48 +233,58 @@
                   </div>
                   <div class="booking-item"> 
                     <label class="text-uppercase d-block">Rooms</label>
-                    <input type="number" class="booking" name="rooms" min="01" max="5" placeholder="01" value="01">
+                    <input type="number" class="booking" name="rooms" min="01" max="5" placeholder="0" value="0">
                   </div>  
                   <div class="booking-item"> 
                     <label class="text-uppercase d-block">Guests</label>
-                    <input type="number" class="booking" name="guests" min="01" max="10" placeholder="01" value="01">
+                    <input type="number" class="booking" name="guests" min="01" max="10" placeholder="0" value="0">
                   </div>
                 </div>
-                <button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative">
+                <button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative" id="checkAvailabilityButton">
                   <span>Check availability<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enable-background="new 0 0 36.1 25.8" xml:space="preserve"><g><line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="0" y1="12.9" x2="34" y2="12.9"></line><polyline fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="22.2,1.1 34,12.9 22.2,24.7   "></polyline></g></svg></span>
                 </button>
               </form>  
-    
             </div>
           </div>
         </section>
+
+     
         
-        <section id="our-rooms" class="position-relative padding-large pt-0">
+        <section id="our-rooms" class="display-none position-relative padding-large pt-0">
           <div class="container">
+            <div class="row justify-content-center text-center pt-0 pb-5">  
+              <div class="col-lg-6 section-heading" data-aos="fade-up">
+                <h3 class="text-center">Room & Rates</h3>
+              </div>
+            </div>
             <div class="row">
               <div class="display-header d-flex justify-content-between pb-3">
-                <h2 class="display-7 text-dark fw-normal">Explore Our Rooms</h2>
+                <h2 class="display-7 text-dark fw-normal">Available Rooms</h2>
               </div>          
               <div class="swiper-arrow">
                 <svg class="icon-arrow-left border rounded-circle position-absolute">
                   <use xlink:href="#icon-arrow-left" />
                 </svg>
               </div>
-              <div class="swiper product-swiper">
+              <div class="swiper product-swiper" id="room-type" value="single">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
                     <div class="product-card position-relative overflow-hidden">                  
                       <div class="image-holder">
-                        <img src="images/king_room1.jpg" alt="product-item" class="img-fluid overflow-hidden">
+                        <img src="images/single_room1.jpg" alt="product-item" class="img-fluid overflow-hidden">
                       </div>
                       <div class="product-detail mt-3">
-                        <h3><a href="#">Classic Rooms</a></h3>
+                        <h3><a href="#">Single Room</a></h3>
                           <div class="detail position-absolute">
                             <table>
                               <tbody>
                                 <tr>
                                   <td class="pe-2"><strong>Price:</strong></td>
-                                  <td class="price"><strong>299$</strong> /Pernight</td>
+                                  <td class="price"><strong>₱ 3,000</strong> /Per night</td>
+                                </tr>
+                                <tr>
+                                  <td class="pe-2"><strong>Additional:</strong></td>
+                                  <td class="price"><strong>₱ 800</strong> /Per person</td>
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Size:</strong></td>
@@ -267,37 +292,42 @@
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Capacity:</strong></td>
-                                  <td>Max persion 2</td>
+                                  <td>Max person 1</td>
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Bed:</strong></td>
-                                  <td>Normal Beds</td>
+                                  <td>1 Single Bed</td>
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Services:</strong></td>
-                                  <td>Wifi, Television, Bathroom,...</td>
+                                  <td>Wifi, Television, Safetybox</td>
                                 </tr>
+                                
                               </tbody>
                             </table>
-                            <a href="#" class="btn btn-small btn-black btn-pill mt-3">More Details</a>
+                            <a href="#contact" class="btn btn-small btn-black btn-pill mt-3" id="single-room-btn">Book Room</a>
                           </div>
                         </div>
                     </div>
                     <!-- product-card -->
                   </div>
-                  <div class="swiper-slide">
+                  <div class="swiper-slide" id="room-type" value="twin">
                     <div class="product-card position-relative overflow-hidden">                  
                       <div class="image-holder">
-                        <img src="images/king_room1.jpg" alt="product-item" class="img-fluid overflow-hidden">
+                        <img src="images/twin_room1.jpg" alt="product-item" class="img-fluid overflow-hidden">
                       </div>
                       <div class="product-detail mt-3">              
-                        <h3><a href="#">Grand Deluxe Rooms</a></h3>
+                        <h3><a href="#">Superior Twin</a></h3>
                           <div class="detail position-absolute">
                             <table>
                               <tbody>
                                 <tr>
                                   <td class="pe-2"><strong>Price:</strong></td>
-                                  <td class="price"><strong>399$</strong> /Pernight</td>
+                                  <td class="price"><strong>₱ 4,000</strong> /Per night</td>
+                                </tr>
+                                <tr>
+                                  <td class="pe-2"><strong>Additional:</strong></td>
+                                  <td class="price"><strong>₱ 800</strong> /Per person</td>
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Size:</strong></td>
@@ -305,37 +335,42 @@
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Capacity:</strong></td>
-                                  <td>Max persion 2</td>
+                                  <td>Max person 2</td>
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Bed:</strong></td>
-                                  <td>Normal Beds</td>
+                                  <td>2 Single Beds</td>
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Services:</strong></td>
-                                  <td>Wifi, Television, Bathroom,...</td>
+                                  <td>Wifi, Television, Safetybox</td>
                                 </tr>
+                                
                               </tbody>
                             </table>
-                            <a href="#" class="btn btn-small btn-black btn-pill mt-3">More Details</a>
+                            <a href="#contact" class="btn btn-small btn-black btn-pill mt-3" id="twin-room-btn">Book Room</a>
                           </div>
                         </div>
                     </div>
                     <!-- product-card -->
                   </div>
-                  <div class="swiper-slide">
+                  <div class="swiper-slide" id="room-type" value="queen">
                     <div class="product-card position-relative overflow-hidden">                  
                       <div class="image-holder">
-                        <img src="images/king_room1.jpg" alt="product-item" class="img-fluid overflow-hidden">
+                        <img src="images/queen_room1.jpg" alt="product-item" class="img-fluid overflow-hidden">
                       </div>
                       <div class="product-detail mt-3">   
-                        <h3><a href="#">Ultra Superior Rooms</a></h3>
+                        <h3><a href="#">Deluxe Queen</a></h3>
                           <div class="detail position-absolute">
                             <table>
                               <tbody>
                                 <tr>
                                   <td class="pe-2"><strong>Price:</strong></td>
-                                  <td class="price"><strong>399$</strong> /Pernight</td>
+                                  <td class="price"><strong>₱ 4,000</strong> /Per night</td>
+                                </tr>
+                                <tr>
+                                  <td class="pe-2"><strong>Additional:</strong></td>
+                                  <td class="price"><strong>₱ 800</strong> /Per person</td>
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Size:</strong></td>
@@ -343,37 +378,42 @@
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Capacity:</strong></td>
-                                  <td>Max persion 2</td>
+                                  <td>Max person 2</td>
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Bed:</strong></td>
-                                  <td>Normal Beds</td>
+                                  <td>1 Queen-sized Bed</td>
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Services:</strong></td>
-                                  <td>Wifi, Television, Bathroom,...</td>
+                                  <td>Wifi, Television, Safetybox</td>
                                 </tr>
+                                
                               </tbody>
                             </table>
-                            <a href="#" class="btn btn-small btn-black btn-pill mt-3">More Details</a>
+                            <a href="#contact" class="btn btn-small btn-black btn-pill mt-3" id="queen-room-btn">Book Room</a>
                           </div>
                         </div>
                     </div>
                     <!-- product-card -->
                   </div>
-                  <div class="swiper-slide">
+                  <div class="swiper-slide" id="room-type" value="king">
                     <div class="product-card position-relative overflow-hidden">                  
                       <div class="image-holder">
                         <img src="images/king_room1.jpg" alt="product-item" class="img-fluid overflow-hidden">
                       </div>
                       <div class="product-detail mt-3">
-                        <h3><a href="#">Ultra Superior Rooms</a></h3>
+                        <h3><a href="#">Imperial King</a></h3>
                           <div class="detail position-absolute">
                             <table>
                               <tbody>
                                 <tr>
                                   <td class="pe-2"><strong>Price:</strong></td>
-                                  <td class="price"><strong>399$</strong> /Pernight</td>
+                                  <td class="price"><strong>₱ 4,400</strong> /Per night</td>
+                                </tr>
+                                <tr>
+                                  <td class="pe-2"><strong>Additional:</strong></td>
+                                  <td class="price"><strong>₱ 800</strong> /Per person</td>
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Size:</strong></td>
@@ -381,24 +421,65 @@
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Capacity:</strong></td>
-                                  <td>Max persion 2</td>
+                                  <td>Max person 2</td>
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Bed:</strong></td>
-                                  <td>Normal Beds</td>
+                                  <td>1 King-sized Bed</td>
                                 </tr>
                                 <tr>
                                   <td class="pe-2"><strong>Services:</strong></td>
-                                  <td>Wifi, Television, Bathroom,...</td>
+                                  <td>Wifi, Television, Safetybox</td>
                                 </tr>
                               </tbody>
                             </table>
-                            <a href="#" class="btn btn-small btn-black btn-pill mt-3">More Details</a>
+                            <a href="#contact" class="btn btn-small btn-black btn-pill mt-3" id="king-room-btn">Book Room</a>
                           </div>
                         </div>
                     </div>
                     <!-- product-card -->
                   </div>
+                  <div class="swiper-slide" id="room-type" value="family">
+                    <div class="product-card position-relative overflow-hidden">                  
+                      <div class="image-holder">
+                        <img src="images/family_room1.jpg" alt="product-item" class="img-fluid overflow-hidden">
+                      </div>
+                      <div class="product-detail mt-3">              
+                        <h3><a href="#">Family Room</a></h3>
+                          <div class="detail position-absolute">
+                            <table>
+                              <tbody>
+                                <tr>
+                                  <td class="pe-2"><strong>Price:</strong></td>
+                                  <td class="price"><strong>₱ 4,800</strong> /Per night</td>
+                                </tr>
+                                <tr>
+                                  <td class="pe-2"><strong>Additional:</strong></td>
+                                  <td class="price"><strong>₱ 800</strong> /Per person</td>
+                                </tr>
+                                <tr>
+                                  <td class="pe-2"><strong>Size:</strong></td>
+                                  <td>10 ft</td>
+                                </tr>
+                                <tr>
+                                  <td class="pe-2"><strong>Capacity:</strong></td>
+                                  <td>Max person 4</td>
+                                </tr>
+                                <tr>
+                                  <td class="pe-2"><strong>Bed:</strong></td>
+                                  <td>4 Single Beds</td>
+                                </tr>
+                                <tr>
+                                  <td class="pe-2"><strong>Services:</strong></td>
+                                  <td>Wifi, Television, Safetybox</td>
+                                </tr>
+                                
+                              </tbody>
+                            </table>
+                            <a href="#contact" class="btn btn-small btn-black btn-pill mt-3" id="family-room-btn">Book Room</a>
+                          </div>
+                        </div>
+                    </div>
                 </div>
               </div>          
               <div class="swiper-arrow">
@@ -408,40 +489,38 @@
               </div>          
               <div class="btn-center mt-5">
     
-                <a href="#" class="btn btn-medium btn-outline-arrow dark-hover btn-pill position-relative"><span>View All Rooms</span>            
-                  <svg class="arrow-icon" width="18" height="20">
-                    <use xlink:href="#arrow-icon"></use>
-                  </svg>
-                </a>
-    
               </div>
             </div>
           </div>
         </section>
-        
-        
+
+       
     
-        <section id="contact" class="overflow-hidden"> 
+        <section id="contact" class="display-none overflow-hidden"> 
+          <div class="row justify-content-center text-center pt-0 pb-5">  
+            <div class="col-lg-6 section-heading" data-aos="fade-up">
+              <h3 class="text-center">Guest Details</h3>
+            </div>
+          </div>
           <div class="row">  
+
     
           <div class="col-lg-6 col-md-12 bg-gray-100 d-flex justify-content-center align-items-center g-0">
             <div class="contact-detail">
     
-              <h2>Get In Touch</h2>
-              <p>Ante sed dictum nisi suscipit ac ut faucibus pretium. Ultrices interdum viverra pharetra, tellus. Sapien eu diam ipsum volutpat, amet fringilla.</p>
-              <ul class="list-unstyled">
-                <li><strong>Address:</strong> Tea Berry, Marinette, USA</li>
-                <li><strong>Phone:</strong> +31 939 777 4546233 </li>
-                <li><strong>Email:</strong> <a href="mailto:">info@templatesjungle.com</a></li>
-              </ul>
+              <h2>Fill out the details</h2>
+              <p>Kindly complete all the necessary details.</p>
               <form action="" class="contact-form my-5">
-                <textarea name="text" placeholder="Write your message" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4"></textarea>
-                <input type="text" name="full name" placeholder="Write your full name" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
-                <input type="text" name="email address" placeholder="Write your email address" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
+                <input type="text" name="first name" placeholder="First Name" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
+                <input type="text" name="last name" placeholder="Last name" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
+                <input type="text" name="last name" placeholder="+63" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
+                <input type="text" name="email address" placeholder="Email Address" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
+                <textarea name="text" placeholder="Special Request" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4"></textarea>
+                <input type="text" name="payment method" placeholder="Payment Method" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
               </form>
     
               <button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative">
-                <span>Submit<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enable-background="new 0 0 36.1 25.8" xml:space="preserve"><g>
+                <span>Book Now<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enable-background="new 0 0 36.1 25.8" xml:space="preserve"><g>
                   <line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="0" y1="12.9" x2="34" y2="12.9"></line>
                   <polyline fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="22.2,1.1 34,12.9 22.2,24.7   ">                
                   </polyline></g></svg>
@@ -469,33 +548,33 @@
           <div class="row">
             <div class="col-md-4 pr-md-5">
               <h3>About Us</h3>
-              <p>A hotel is an establishment that provides paid lodging on a short-term basis. Facilities provided may range from a modest-quality.</p>
-              <p><a href="#" class="readmore">Read more</a></p>
+              <p>Situated in the heart of Manila, Park Avenue Guesthouse is not your typical guesthouse, with its Hispanic architecture and historical designs that draw a lot of thought and attention had been put into its creation.</p>
+              <p><a href="about.html" class="readmore">Read more</a></p>
             </div>
             <div class="col-md-8 ml-auto">
               <div class="row">
                 <div class="col-md-3">
                   <h3>Navigation</h3>
                   <ul class="list-unstyled">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Rooms</a></li>
-                    <li><a href="#">Amenities</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="gallery.html">Memories</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                   </ul>
                 </div>
                 <div class="col-md-9 ml-auto">
                   <div class="row mb-3">
                     <div class="col-md-6">
                       <h3>Address</h3>
-                      <address>273 South Riverview Rd. <br> New York, NY 10011</address>
+                      <address>2443, 1300 Park Avenue, Pasay <br> Manila, Philippines, 1300</address>
                     </div>
                     <div class="col-md-6">
                       <h3>Telephone</h3>
                       <p>
-                        <a href="#">+1 234 5678 910</a> <br>
-                        <a href="#">+2 234 5678 910</a>
+                        <a href="#">+63 917 833 3393</a> <br>
+                        <a href="#">+63 917 811 3243</a>
                       </p>
                     </div>
                   </div>
@@ -536,9 +615,11 @@
                 <a href="#"><span class="icon-tripadvisor"></span></a>
               </li>
             </ul>
+
             </div>
           </div>
         </div>
+        
       </footer>
     </div>
 

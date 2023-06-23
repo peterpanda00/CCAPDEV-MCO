@@ -86,3 +86,37 @@
 
 
     })(jQuery);
+
+
+
+
+const checkAvailabilityButton = document.getElementById('checkAvailabilityButton');
+checkAvailabilityButton.addEventListener('click', showAvailableRooms);
+
+function showAvailableRooms(event) {
+  event.preventDefault();
+
+  const arrivalDate = document.getElementById('select-arrival-date').value;
+  const departureDate = document.getElementById('select-departure-date').value;
+
+  const roomCount = document.getElementsByName('rooms')[0].value;
+  const guestCount = document.getElementsByName('guests')[0].value;
+
+
+  const availableRoomsSection = document.getElementById('our-rooms');
+  availableRoomsSection.style.display = 'block';
+}
+
+
+
+const bookRoomButton = document.getElementById('book-room-btn');
+bookRoomButton.addEventListener('click', showGuestForm);
+
+function showGuestForm(event) {
+  event.preventDefault();
+
+  const roomType= document.getElementById('room-type').value;
+
+  const guestDetailsSection = document.getElementById('contact');
+  guestDetailsSection.style.display = 'block';
+}
