@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
 
   <link rel="stylesheet" href="css/newstyle.css">
 
@@ -14,7 +19,10 @@
   <link rel="stylesheet" href="css/vendor/animate.min.css">
   <link rel="stylesheet" href="css/vendor/bootstrap.css">
 
-  <title>Memories - Park Avenue 2443</title>
+  <!-- Theme Style -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Our Story - Park Avenue 2443</title>
 </head>
 <body>
 
@@ -37,6 +45,7 @@
     </div>
     <div class="site-mobile-inner"></div>
   </nav>
+
 
   <div class="untree_co--site-wrap">
 
@@ -69,7 +78,7 @@
                 </li>
               </ul>
             </li>
-            <li><a href="gallery.html">Memories</a></li>
+            <li class="active"><a href="gallery.html">Memories</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="booking.html" class="font-weight-bolder">Book Now</a></li>
           </ul>
@@ -116,16 +125,26 @@
       </div>
     </div>
 
-  <div class="post-form">
-    <input type="text" placeholder="Your Name">
-    <textarea placeholder="Write your post here"></textarea>
-    <input type="file" accept="image/*" multiple>
-    <button onclick="submitPost()">Submit</button>
-  </div>
+    <div class="untree_co--site-section">
 
-  <div id="post-container">
-    <!-- Existing posts will be dynamically added here -->
-  </div>
+      <div class="container-fluid px-md-0">
+
+        <div class="row justify-content-center text-center pt-0 pb-5">  
+          <div class="col-lg-6 section-heading" data-aos="fade-up">
+            <h3 class="text-center">Memories</h3>
+          </div>
+        </div>
+
+        <div class="post-form">
+          <input type="text" placeholder="Your Name">
+          <textarea placeholder="Write your post here"></textarea>
+          <input type="file" accept="image/*" multiple>
+          <button onclick="submitPost()">Submit</button>
+        </div>
+
+        <div id="post-container">
+          <!-- Existing posts will be dynamically added here -->
+        </div>
 
   <script>
     function submitPost() {
@@ -242,6 +261,8 @@
       return currentDate.toLocaleDateString('en-US', options);
     }
   </script>
+  </div>
+  
   </main>
   <footer class="untree_co--site-footer">
 
