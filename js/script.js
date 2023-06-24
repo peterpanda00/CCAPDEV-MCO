@@ -155,6 +155,13 @@ var guestCount = document.getElementsByName("guests")[0].value;
 var roomTypeElement = document.getElementById('room-type');
 var roomType = roomTypeElement.textContent;
 
+var firstName = document.getElementsByName("first name")[0].value;
+var lastName = document.getElementsByName("last name")[0].value;
+var email = document.getElementsByName("email")[0].value;
+var contactNumber = document.getElementsByName("contact number")[0].value;
+var request = document.getElementsByName("request")[0].value;
+var payment= document.getElementsByName("payment")[0].value;
+
 
 var guestDetailButton = document.getElementById("guest-detail-btn");
 var bookingModal = document.getElementById("bookingModal");
@@ -221,6 +228,19 @@ var editModal = document.getElementById("editModal");
 var bookingModal = document.getElementById("bookingModal");
 
 saveChangesButton.addEventListener("click", function() {
+
+  var firstName = document.getElementsByName("first name")[0].value;
+  var lastName = document.getElementsByName("last name")[0].value;
+  var email = document.getElementsByName("email")[0].value;
+  var contactNumber = document.getElementsByName("contact number")[0].value;
+  var request = document.getElementsByName("request")[0].value;
+  var payment= document.getElementsByName("payment")[0].value;
+  
+  var arrivalDate = document.getElementById("select-arrival-date").innerText;
+  var departureDate = document.getElementById("select-departure-date").innerText;
+  var roomCount = document.getElementsByName("rooms")[0].value;
+  var guestCount = document.getElementsByName("guests")[0].value;
+
  
   var editedFirstName = document.querySelector("#editFirstName").value;
   var editedLastName = document.querySelector("#editLastName").value;
@@ -230,6 +250,25 @@ saveChangesButton.addEventListener("click", function() {
   var editedPayment = document.querySelector("#editPaymentMethod").value;
 
   $(editModal).modal("hide");
+
+  if (editedFirstName.trim() === "") {
+    editedFirstName = firstName;
+  }
+  if (editedLastName.trim() === "") {
+    editedLastName = lastName;
+  }
+  if (editedEmail.trim() === "") {
+    editedEmail = email;
+  }
+  if (editedContactNumber.trim() === "") {
+    editedContactNumber = contactNumber;
+  }
+  if (editedRequest.trim() === "") {
+    editedRequest = request;
+  }
+  if (editedPayment.trim() === "") {
+    editedPayment = payment;
+  }
 
   var modalBody = bookingModal.querySelector(".modal-body");
   modalBody.innerHTML = "<h4>Guest Details</h4>"+
