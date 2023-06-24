@@ -260,13 +260,16 @@
             <div class="row">
               <div class="display-header d-flex justify-content-between pb-3">
                 <h2 class="display-7 text-dark fw-normal">Available Rooms</h2>
-              </div>          
+                <h2 class="display-7 text-dark font-weight-bold" id="room-type"></h2>
+              </div>   
+
               <div class="swiper-arrow">
-                <svg class="icon-arrow-left border rounded-circle position-absolute">
+                <svg class="icon-arrow-left border rounded-circle position-absolute" style="top: 51%; left:16%">
                   <use xlink:href="#icon-arrow-left" />
                 </svg>
               </div>
-              <div class="swiper product-swiper" id="room-type" value="single">
+             
+              <div class="swiper product-swiper" value="single">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
                     <div class="product-card position-relative overflow-hidden">                  
@@ -274,7 +277,7 @@
                         <img src="images/single_room1.jpg" alt="product-item" class="img-fluid overflow-hidden">
                       </div>
                       <div class="product-detail mt-3">
-                        <h3><a href="#">Single Room</a></h3>
+                        <h3><a class="text-black font-weight-bolder">Single Room</a></h3>
                           <div class="detail position-absolute">
                             <table>
                               <tbody>
@@ -305,19 +308,19 @@
                                 
                               </tbody>
                             </table>
-                            <a href="#contact" class="btn btn-small btn-black btn-pill mt-3" id="single-room-btn">Book Room</a>
+                            <a href="#contact" name="Single Room" class="btn btn-small btn-black btn-pill mt-3" id="single-room-btn">Book Room</a>
                           </div>
                         </div>
                     </div>
                     <!-- product-card -->
                   </div>
-                  <div class="swiper-slide" id="room-type" value="twin">
+                  <div class="swiper-slide" value="twin">
                     <div class="product-card position-relative overflow-hidden">                  
                       <div class="image-holder">
                         <img src="images/twin_room1.jpg" alt="product-item" class="img-fluid overflow-hidden">
                       </div>
                       <div class="product-detail mt-3">              
-                        <h3><a href="#">Superior Twin</a></h3>
+                        <h3><a class="text-black font-weight-bolder">Superior Twin</a></h3>
                           <div class="detail position-absolute">
                             <table>
                               <tbody>
@@ -348,19 +351,19 @@
                                 
                               </tbody>
                             </table>
-                            <a href="#contact" class="btn btn-small btn-black btn-pill mt-3" id="twin-room-btn">Book Room</a>
+                            <a href="#contact" name="Superior Twin" class="btn btn-small btn-black btn-pill mt-3" id="twin-room-btn">Book Room</a>
                           </div>
                         </div>
                     </div>
                     <!-- product-card -->
                   </div>
-                  <div class="swiper-slide" id="room-type" value="queen">
+                  <div class="swiper-slide" value="queen">
                     <div class="product-card position-relative overflow-hidden">                  
                       <div class="image-holder">
                         <img src="images/queen_room1.jpg" alt="product-item" class="img-fluid overflow-hidden">
                       </div>
                       <div class="product-detail mt-3">   
-                        <h3><a href="#">Deluxe Queen</a></h3>
+                        <h3><a class="text-black font-weight-bolder">Deluxe Queen</a></h3>
                           <div class="detail position-absolute">
                             <table>
                               <tbody>
@@ -391,19 +394,19 @@
                                 
                               </tbody>
                             </table>
-                            <a href="#contact" class="btn btn-small btn-black btn-pill mt-3" id="queen-room-btn">Book Room</a>
+                            <a href="#contact" name="Deluxe Queen" class="btn btn-small btn-black btn-pill mt-3" id="queen-room-btn">Book Room</a>
                           </div>
                         </div>
                     </div>
                     <!-- product-card -->
                   </div>
-                  <div class="swiper-slide" id="room-type" value="king">
+                  <div class="swiper-slide" value="king">
                     <div class="product-card position-relative overflow-hidden">                  
                       <div class="image-holder">
                         <img src="images/king_room1.jpg" alt="product-item" class="img-fluid overflow-hidden">
                       </div>
                       <div class="product-detail mt-3">
-                        <h3><a href="#">Imperial King</a></h3>
+                        <h3><a class="text-black font-weight-bolder">Imperial King</a></h3>
                           <div class="detail position-absolute">
                             <table>
                               <tbody>
@@ -433,19 +436,19 @@
                                 </tr>
                               </tbody>
                             </table>
-                            <a href="#contact" class="btn btn-small btn-black btn-pill mt-3" id="king-room-btn">Book Room</a>
+                            <a href="#contact" name="Imperial King" class="btn btn-small btn-black btn-pill mt-3" id="king-room-btn">Book Room</a>
                           </div>
                         </div>
                     </div>
                     <!-- product-card -->
                   </div>
-                  <div class="swiper-slide" id="room-type" value="family">
+                  <div class="swiper-slide" value="family">
                     <div class="product-card position-relative overflow-hidden">                  
                       <div class="image-holder">
                         <img src="images/family_room1.jpg" alt="product-item" class="img-fluid overflow-hidden">
                       </div>
                       <div class="product-detail mt-3">              
-                        <h3><a href="#">Family Room</a></h3>
+                        <h3><a class="text-black font-weight-bolder">Family Room</a></h3>
                           <div class="detail position-absolute">
                             <table>
                               <tbody>
@@ -476,7 +479,7 @@
                                 
                               </tbody>
                             </table>
-                            <a href="#contact" class="btn btn-small btn-black btn-pill mt-3" id="family-room-btn">Book Room</a>
+                            <a href="#contact" name="Family Room" class="btn btn-small btn-black btn-pill mt-3" id="family-room-btn">Book Room</a>
                           </div>
                         </div>
                     </div>
@@ -487,8 +490,9 @@
                   <use xlink:href="#icon-arrow-right" />
                 </svg>
               </div>          
-              <div class="btn-center mt-5">
-    
+              <button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative">
+                <span>Room<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enable-background="new 0 0 36.1 25.8" xml:space="preserve"><g><line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="0" y1="12.9" x2="34" y2="12.9"></line><polyline fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="22.2,1.1 34,12.9 22.2,24.7   "></polyline></g></svg></span>
+              </button>
               </div>
             </div>
           </div>
@@ -513,13 +517,13 @@
               <form action="" class="contact-form my-5">
                 <input type="text" name="first name" placeholder="First Name" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
                 <input type="text" name="last name" placeholder="Last name" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
-                <input type="text" name="last name" placeholder="+63" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
-                <input type="text" name="email address" placeholder="Email Address" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
-                <textarea name="text" placeholder="Special Request" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4"></textarea>
-                <input type="text" name="payment method" placeholder="Payment Method" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
+                <input type="text" name="contact number" placeholder="+63" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
+                <input type="text" name="email" placeholder="Email Address" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
+                <textarea name="request" placeholder="Special Request" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4"></textarea>
+                <input type="text" name="payment" placeholder="Payment Method" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
               </form>
     
-              <button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative">
+              <button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative" id="guest-detail-btn" data-toggle="modal" data-target="#bookingModal">
                 <span>Book Now<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enable-background="new 0 0 36.1 25.8" xml:space="preserve"><g>
                   <line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="0" y1="12.9" x2="34" y2="12.9"></line>
                   <polyline fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="22.2,1.1 34,12.9 22.2,24.7   ">                
@@ -539,7 +543,97 @@
           </div>
         </section> 
 
+        <!-- Booking Summary Modal -->
+        <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="bookingModalLabel">Booking Confirmation</h5>
+                <button type="button" id="summary-close-btn" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p> </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="edit-btn" class="btn btn-secondary" data-dismiss="modal">Edit</button>
+                <button type="button" id="final-book-btn" class="btn btn-primary">Book Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+                <!-- Edit Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Details</h5>
+                <button type="button" id="edit-close-btn" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="editFirstName">First Name</label>
+                    <input type="text" class="form-control" id="editFirstName" placeholder="Enter first name">
+                  </div>
+                  <div class="form-group">
+                    <label for="editLastName">Last Name</label>
+                    <input type="text" class="form-control" id="editLastName" placeholder="Enter last name">
+                  </div>
+                  <div class="form-group">
+                    <label for="editEmail">Email</label>
+                    <input type="email" class="form-control" id="editEmail" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="editContactNumber">Contact Number</label>
+                    <input type="text" class="form-control" id="editContactNumber" placeholder="Enter contact number">
+                  </div>
+                  <div class="form-group">
+                    <label for="editSpecialRequests">Special Requests</label>
+                    <input type="text" class="form-control" id="editSpecialRequests" placeholder="Enter special requests">
+                  </div>
+                  <div class="form-group">
+                    <label for="editPaymentMethod">Payment Method</label>
+                    <input type="text" class="form-control" id="editPaymentMethod" placeholder="Enter payment method">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="save-btn">Save Changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel">Booking Confirmed</h5>
+                <button type="button" id="booking-close-btn" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Proceeding to Main Page in <span id="countdown">10</span> seconds</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="booking-close-btn-2" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+
       </main>
+
+      
 
 
       <footer class="untree_co--site-footer">

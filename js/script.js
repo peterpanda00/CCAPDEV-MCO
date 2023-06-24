@@ -96,12 +96,6 @@ checkAvailabilityButton.addEventListener('click', showAvailableRooms);
 function showAvailableRooms(event) {
   event.preventDefault();
 
-  const arrivalDate = document.getElementById('select-arrival-date').value;
-  const departureDate = document.getElementById('select-departure-date').value;
-
-  const roomCount = document.getElementsByName('rooms')[0].value;
-  const guestCount = document.getElementsByName('guests')[0].value;
-
 
   const availableRoomsSection = document.getElementById('our-rooms');
   availableRoomsSection.style.display = 'block';
@@ -109,14 +103,187 @@ function showAvailableRooms(event) {
 
 
 
-const bookRoomButton = document.getElementById('book-room-btn');
-bookRoomButton.addEventListener('click', showGuestForm);
+const singleRoomButton = document.getElementById('single-room-btn');
+singleRoomButton.addEventListener('click', function(event) {
+  showGuestForm(event, 'Single Room');
+});
 
-function showGuestForm(event) {
+
+const twinRoomButton = document.getElementById('twin-room-btn');
+twinRoomButton.addEventListener('click', function(event) {
+  showGuestForm(event, 'Twin Room');
+});
+
+
+const queenRoomButton = document.getElementById('queen-room-btn');
+queenRoomButton.addEventListener('click', function(event) {
+  showGuestForm(event, 'Queen Room');
+});
+
+
+const kingRoomButton = document.getElementById('king-room-btn');
+kingRoomButton.addEventListener('click', function(event) {
+  showGuestForm(event, 'King Room');
+});
+
+
+const familyRoomButton = document.getElementById('family-room-btn');
+familyRoomButton.addEventListener('click', function(event) {
+  showGuestForm(event, 'Family Room');
+});
+
+function showGuestForm(event, roomType) {
   event.preventDefault();
 
-  const roomType= document.getElementById('room-type').value;
+  const roomTypeElement = document.getElementById('room-type');
+  roomTypeElement.textContent = roomType;
 
   const guestDetailsSection = document.getElementById('contact');
   guestDetailsSection.style.display = 'block';
 }
+
+var summaryCloseButton = document.getElementById('summary-close-btn');
+summaryCloseButton.addEventListener('click', closeBookModal);
+function closeBookModal(event) {
+  $(bookingModal).modal("hide");
+}
+
+var arrivalDate = document.getElementById("select-arrival-date").innerText;
+var departureDate = document.getElementById("select-departure-date").innerText;
+var roomCount = document.getElementsByName("rooms")[0].value;
+var guestCount = document.getElementsByName("guests")[0].value;
+var roomTypeElement = document.getElementById('room-type');
+var roomType = roomTypeElement.textContent;
+
+
+var guestDetailButton = document.getElementById("guest-detail-btn");
+var bookingModal = document.getElementById("bookingModal");
+
+
+
+guestDetailButton.addEventListener("click", function(event) {
+  event.preventDefault(); 
+
+
+  var firstName = document.getElementsByName("first name")[0].value;
+  var lastName = document.getElementsByName("last name")[0].value;
+  var email = document.getElementsByName("email")[0].value;
+  var contactNumber = document.getElementsByName("contact number")[0].value;
+  var request = document.getElementsByName("request")[0].value;
+  var payment= document.getElementsByName("payment")[0].value;
+  
+  var arrivalDate = document.getElementById("select-arrival-date").innerText;
+  var departureDate = document.getElementById("select-departure-date").innerText;
+  var roomCount = document.getElementsByName("rooms")[0].value;
+  var guestCount = document.getElementsByName("guests")[0].value;
+
+
+  var roomTypeElement = document.getElementById('room-type');
+  var roomType = roomTypeElement.textContent;
+
+  
+  var modalBody = bookingModal.querySelector(".modal-body");
+  modalBody.innerHTML = "<h4>Guest Details</h4>"+
+                        "<p><strong> Guest Name: </strong>" + firstName + " " + lastName + "</p>" +
+                        "<p><strong> Email: </strong>"+ email + "</p>" +
+                        "<p><strong> Contact Number: </strong>"+ contactNumber + "</p>" +
+                        "<p><strong> Special Requests: </strong>"+ request + "</p>" +
+                        "<p><strong> Payment Method: </strong>"+ payment + "</p>" +
+                        "<br>"+
+                        "<h4>Booking Details</h4>"+
+                        "<p><strong> Arrival: </strong> " + arrivalDate + "</p>" +
+                        "<p><strong> Departure: </strong> " + departureDate + "</p>" +
+                        "<p><strong> Room Type: </strong> " + roomType  + "</p>" +
+                        "<p><strong> Rooms: </strong> " + roomCount  + " rooms</p>" +
+                        "<p><strong> Guests: </strong> " + guestCount + " guests</p>";
+
+  $(bookingModal).modal("show");
+});
+
+var editButton = document.getElementById("edit-btn");
+editButton.addEventListener("click", function() {
+  $(bookingModal).modal("hide");
+
+  $(editModal).modal("show");
+});
+
+var editCloseButton = document.getElementById('edit-close-btn');
+editCloseButton.addEventListener('click', closeEditModal);
+function closeEditModal(event) {
+  $(editModal).modal("hide");
+  $(bookingModal).modal("hide");
+  $(bookingModal).modal("show");
+}
+
+var bookButton = document.getElementById("final-book-btn");
+var saveChangesButton = document.getElementById("save-btn");
+var editModal = document.getElementById("editModal");
+var bookingModal = document.getElementById("bookingModal");
+
+saveChangesButton.addEventListener("click", function() {
+ 
+  var editedFirstName = document.querySelector("#editFirstName").value;
+  var editedLastName = document.querySelector("#editLastName").value;
+  var editedEmail = document.querySelector("#editEmail").value;
+  var editedContactNumber = document.querySelector("#editContactNumber").value;
+  var editedRequest = document.querySelector("#editSpecialRequests").value;
+  var editedPayment = document.querySelector("#editPaymentMethod").value;
+
+  $(editModal).modal("hide");
+
+  var modalBody = bookingModal.querySelector(".modal-body");
+  modalBody.innerHTML = "<h4>Guest Details</h4>"+
+                        "<p><strong> Guest Name: </strong>" + editedFirstName + " " + editedLastName + "</p>" +
+                        "<p><strong> Email: </strong>"+ editedEmail + "</p>" +
+                        "<p><strong> Contact Number: </strong>"+ editedContactNumber + "</p>" +
+                        "<p><strong> Special Requests: </strong>"+ editedRequest + "</p>" +
+                        "<p><strong> Payment Method: </strong>"+ editedPayment + "</p>" +
+                        "<br>"+
+                        "<h4>Booking Details</h4>"+
+                        "<p><strong> Arrival: </strong> " + arrivalDate + "</p>" +
+                        "<p><strong> Departure: </strong> " + departureDate + "</p>" +
+                        "<p><strong> Room Type: </strong> " + roomType  + "</p>" +
+                        "<p><strong> Rooms: </strong> " + roomCount  + " rooms</p>" +
+                        "<p><strong> Guests: </strong> " + guestCount + " guests</p>";
+
+ $(bookingModal).modal("show");
+
+  
+});
+
+
+bookButton.addEventListener("click", function() {
+ 
+  $(bookingModal).modal("hide");
+
+
+  $(confirmationModal).modal("show");
+
+
+  var countdown = 10; 
+  var countdownElement = document.getElementById("countdown");
+  countdownElement.textContent = countdown;
+
+  var countdownInterval = setInterval(function() {
+    countdown--;
+    countdownElement.textContent = countdown;
+
+    if (countdown === 0) {
+     
+      clearInterval(countdownInterval);
+      window.location.href = "index.html";
+    }
+  }, 1000);
+});
+
+var bookingCloseButton = document.getElementById('booking-close-btn');
+var bookingCloseButton2 = document.getElementById('booking-close-btn-2');
+bookingCloseButton.addEventListener('click', closeFinalBookModal);
+bookingCloseButton2.addEventListener('click', closeFinalBookModal);
+
+function closeFinalBookModal(event) {
+  window.location.href = "index.html";
+}
+
+
+
