@@ -836,6 +836,14 @@ a, a:hover {
   background: #ff896b;
 }
 
+/* Booking Nav */
+
+#navbarNav a.active {
+  color: #ffffff;        
+  background-color: #605753; 
+}
+
+
 /* Site Nav */
 .sticky-wrapper {
   z-index: 999;
