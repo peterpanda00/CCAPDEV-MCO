@@ -511,7 +511,16 @@
                 <input type="text" name="contact number" placeholder="+63" value="+63" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
                 <input type="text" name="email" placeholder="Email Address" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
                 <textarea name="request" placeholder="Special Request" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4"></textarea>
-                <input type="text" name="payment" placeholder="Payment Method" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
+                <div class="form-group">
+                  <label for="payment-method" class="h3">Payment Method</label>
+                  <p class="subheading">*Over the counter payment</p>
+                  <select class="form-control" id="payment-method">
+                    <option value="">Select a payment method</option>
+                    <option value="Credit/Debit Card">Credit/Debit Card</option>
+                    <option value="GCash">GCash</option>
+                    <option value="Cash">Cash</option>
+                  </select>
+                </div>
               </form>
     
               <button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative" id="guest-detail-btn" data-toggle="modal" data-target="#bookingModal">
@@ -589,8 +598,13 @@
                     <input type="text" class="form-control" id="editSpecialRequests" placeholder="Enter special requests">
                   </div>
                   <div class="form-group">
-                    <label for="editPaymentMethod">Payment Method</label>
-                    <input type="text" class="form-control" id="editPaymentMethod" placeholder="Enter payment method">
+                    <label for="edit-payment-method">Payment Method</label>
+                    <select class="form-control" id="edit-payment-method">
+                      <option value="">Select a payment method</option>
+                      <option value="Credit/Debit Card">Credit/Debit Card</option>
+                      <option value="GCash">GCash</option>
+                      <option value="Cash">Cash</option>
+                    </select>
                   </div>
                 </form>
               </div>

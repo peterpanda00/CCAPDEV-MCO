@@ -160,11 +160,15 @@ var lastName = document.getElementsByName("last name")[0].value;
 var email = document.getElementsByName("email")[0].value;
 var contactNumber = document.getElementsByName("contact number")[0].value;
 var request = document.getElementsByName("request")[0].value;
-var payment= document.getElementsByName("payment")[0].value;
+var paymentMethodSelect = document.getElementById('payment-method');
+var payment = paymentMethodSelect.value;
 
 
 var guestDetailButton = document.getElementById("guest-detail-btn");
 var bookingModal = document.getElementById("bookingModal");
+
+
+
 
 
 
@@ -177,7 +181,10 @@ guestDetailButton.addEventListener("click", function(event) {
   var email = document.getElementsByName("email")[0].value;
   var contactNumber = document.getElementsByName("contact number")[0].value;
   var request = document.getElementsByName("request")[0].value;
-  var payment= document.getElementsByName("payment")[0].value;
+
+  var paymentMethodSelect = document.getElementById('payment-method');
+  var payment = paymentMethodSelect.value;
+
   
   var arrivalDate = document.getElementById("select-arrival-date").innerText;
   var departureDate = document.getElementById("select-departure-date").innerText;
@@ -234,7 +241,8 @@ saveChangesButton.addEventListener("click", function() {
   var email = document.getElementsByName("email")[0].value;
   var contactNumber = document.getElementsByName("contact number")[0].value;
   var request = document.getElementsByName("request")[0].value;
-  var payment= document.getElementsByName("payment")[0].value;
+  var paymentMethodSelect = document.getElementById('payment-method');
+  var payment = paymentMethodSelect.value;
   
   var arrivalDate = document.getElementById("select-arrival-date").innerText;
   var departureDate = document.getElementById("select-departure-date").innerText;
@@ -247,7 +255,8 @@ saveChangesButton.addEventListener("click", function() {
   var editedEmail = document.querySelector("#editEmail").value;
   var editedContactNumber = document.querySelector("#editContactNumber").value;
   var editedRequest = document.querySelector("#editSpecialRequests").value;
-  var editedPayment = document.querySelector("#editPaymentMethod").value;
+  var editpaymentMethodSelect = document.getElementById('edit-payment-method');
+  var editedPayment = editpaymentMethodSelect.value;
 
   $(editModal).modal("hide");
 
