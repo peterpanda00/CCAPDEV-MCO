@@ -20,7 +20,7 @@ body {
 }
 
 ::selection {
-  background: #8a462d;
+  background: #605753;
   color: #fff;
 }
 
@@ -82,7 +82,7 @@ body {
   left: 0;
   z-index: 0;
   border-radius: 5px;
-  background: #8a462d;
+  background: #605753;
   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -155,7 +155,7 @@ input[type="radio"] {
 
 .form-inner form .field input[type="text"]:focus,
 .form-inner form .field input[type="password"]:focus {
-  border-color: #8a462d;
+  border-color: #605753;
 }
 
 .form-inner form .field input[type="submit"] {
@@ -168,12 +168,12 @@ input[type="radio"] {
   cursor: pointer;
   border-radius: 5px;
   border: none;
-  background: #8a462d;
+  background: #605753;
   transition: all 0.3s ease;
 }
 
 .form-inner form .field input[type="submit"]:hover {
-  background: #75381f;
+  background: #605753;
 }
 
 .form-inner form .field span {
@@ -193,7 +193,7 @@ input[type="radio"] {
 }
 .form-inner form .pass-link a,
 .form-inner form .signup-link a{
-  color: #8a462d;
+  color: #605753;
   text-decoration: none;
 }
 .form-inner form .pass-link a:hover,
@@ -202,7 +202,7 @@ input[type="radio"] {
 }
 
 .form-inner form .signup-link a {
-  color: #8a462d;
+  color: #605753;
   text-decoration: none;
 }
 
@@ -236,7 +236,7 @@ input[type="radio"] {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color:#8a462d;
+  background-color:#605753;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -298,7 +298,7 @@ input[type="radio"] {
 .comments-form button {
   display: block;
   padding: 10px;
-  background-color: #8a462d;
+  background-color: #605753;
   color: #fff;
   border: none;
   border-radius: 4px;
