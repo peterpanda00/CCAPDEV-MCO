@@ -90,6 +90,7 @@
 
 
 
+
 const checkAvailabilityButton = document.getElementById('checkAvailabilityButton');
 checkAvailabilityButton.addEventListener('click', showAvailableRooms);
 
@@ -101,7 +102,12 @@ function showAvailableRooms(event) {
   availableRoomsSection.style.display = 'block';
 }
 
-
+var input = document.querySelector("#phone");
+window.intlTelInput(input, {
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js",
+      nationalMode:false,
+      initialCountry:"ph",
+    });
 
 const singleRoomButton = document.getElementById('single-room-btn');
 singleRoomButton.addEventListener('click', function(event) {
@@ -138,6 +144,7 @@ function showGuestForm(event, roomType) {
   const roomTypeElement = document.getElementById('room-type');
   roomTypeElement.textContent = roomType;
 
+  
   const guestDetailsSection = document.getElementById('contact');
   guestDetailsSection.style.display = 'block';
 }
@@ -147,6 +154,8 @@ summaryCloseButton.addEventListener('click', closeBookModal);
 function closeBookModal(event) {
   $(bookingModal).modal("hide");
 }
+
+
 
 var arrivalDate = document.getElementById("select-arrival-date").innerText;
 var departureDate = document.getElementById("select-departure-date").innerText;
@@ -158,7 +167,11 @@ var roomType = roomTypeElement.textContent;
 var firstName = document.getElementsByName("first name")[0].value;
 var lastName = document.getElementsByName("last name")[0].value;
 var email = document.getElementsByName("email")[0].value;
-var contactNumber = document.getElementsByName("contact number")[0].value;
+
+var phoneInputField = document.querySelector("#phone");
+var phoneInput = window.intlTelInput(phoneInputField, { utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" });
+var contactNumber = phoneInput.getNumber();
+
 var request = document.getElementsByName("request")[0].value;
 var paymentMethodSelect = document.getElementById('payment-method');
 var payment = paymentMethodSelect.value;
@@ -179,7 +192,11 @@ guestDetailButton.addEventListener("click", function(event) {
   var firstName = document.getElementsByName("first name")[0].value;
   var lastName = document.getElementsByName("last name")[0].value;
   var email = document.getElementsByName("email")[0].value;
-  var contactNumber = document.getElementsByName("contact number")[0].value;
+
+  var phoneInputField = document.querySelector("#phone");
+  var phoneInput = window.intlTelInput(phoneInputField, { utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" });
+  var contactNumber = phoneInput.getNumber();
+
   var request = document.getElementsByName("request")[0].value;
 
   var paymentMethodSelect = document.getElementById('payment-method');

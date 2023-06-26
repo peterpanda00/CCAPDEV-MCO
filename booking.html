@@ -16,6 +16,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link href="css/css/bootstrap/date-time-picker-component.min.css" rel="stylesheet">
 
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+
+
+
+
+
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500i,700|Roboto:300,400,500,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/vendor/icomoon/style.css">
@@ -508,8 +516,11 @@
               <form action="" class="contact-form my-5">
                 <input type="text" name="first name" placeholder="First Name" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
                 <input type="text" name="last name" placeholder="Last name" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
-                <input type="text" name="contact number" placeholder="+63" value="+63" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
-                <input type="text" name="email" placeholder="Email Address" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
+               
+                <input type="tel" name="contact number" id="phone" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4">
+                
+
+                <input type="text" name="email" placeholder="Email Address" class="text-dark w-100 border-0 bg-transparent fs-4 mt-3 mb-4">
                 <textarea name="request" placeholder="Special Request" class="text-dark w-100 border-0 bg-transparent fs-4 mb-4"></textarea>
                 <div class="form-group">
                   <label for="payment-method" class="h3">Payment Method</label>
