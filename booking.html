@@ -145,18 +145,18 @@
           <div class="icons-wrap text-md-right">
 
             <ul class="icons-top d-none d-lg-block">
-              <li class="mr-4">
+              <li class="mr-5 mt-4" style="z-index:auto">
                 <a href="#" class="js-search-toggle"><span class="icon-search2"></span></a>
               </li>
-              
-<!-- REGISTER/LOGIN -->   
-<button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative" onclick="openPopup()" id="guest-detail-btn" data-toggle="modal" data-target="#bookingModal">
-  <span>Login<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enable-background="new 0 0 36.1 25.8" xml:space="preserve"><g>
-    <line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="0" y1="12.9" x2="34" y2="12.9"></line>
-    <polyline fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="22.2,1.1 34,12.9 22.2,24.7   ">                
-    </polyline></g></svg>
-  </span>
-</button>
+
+        <!-- REGISTER/LOGIN -->   
+        <button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative mb-3" style="height:0; border-color: #605753; background-color:#605753;" onclick="openPopup()">
+          <span>Login<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enable-background="new 0 0 36.1 25.8" xml:space="preserve"><g>
+            <line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="0" y1="12.9" x2="34" y2="12.9"></line>
+            <polyline fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="22.2,1.1 34,12.9 22.2,24.7   ">                
+            </polyline></g></svg>
+          </span>
+        </button>
       <!-- Pop-up container -->
       <div class="popup-container" id="popupContainer">
          <div class="popup-content">
@@ -249,26 +249,7 @@
           </div>
         </div>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container">
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="#booking-wrap" id="search-link" style="margin-right: 40px;">Search</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#our-rooms" id="room-link" style="margin-right: 40px;">Room & Rates</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#contact" id="guest-link" style="margin-right: 40px;">Guest Details</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        
-        
-        
+
       
         <section id="booking-wrap" class="padding-large">
           <div class="container">
@@ -298,7 +279,7 @@
                     <input type="number" class="booking" name="guests" min="01" max="10" placeholder="0" value="0">
                   </div>
                 </div>
-                <button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative" id="checkAvailabilityButton">
+                <button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative" style="background-color: #605753; border-color: #605753;" id="checkAvailabilityButton">
                   <span>Check availability<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enable-background="new 0 0 36.1 25.8" xml:space="preserve"><g><line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="0" y1="12.9" x2="34" y2="12.9"></line><polyline fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="22.2,1.1 34,12.9 22.2,24.7   "></polyline></g></svg></span>
                 </button>
               </form>  
@@ -366,7 +347,7 @@
                                 
                               </tbody>
                             </table>
-                            <a href="#contact" style="line-height:normal;" name="Single Room" class="btn btn-small btn-black btn-pill mt-3" id="single-room-btn">Book Room</a>
+                            <a href="#contact" style="line-height:normal; background-color: #605753; border-color: #605753;" name="Single Room" class="btn btn-small btn-black btn-pill mt-3" id="single-room-btn">Book Room</a>
                           </div>
                         </div>
                     </div>
@@ -409,7 +390,7 @@
                                 
                               </tbody>
                             </table>
-                            <a href="#contact" style="line-height:normal;" name="Superior Twin" class="btn btn-small btn-black btn-pill mt-3" id="twin-room-btn">Book Room</a>
+                            <a href="#contact" style="line-height:normal; background-color: #605753; border-color: #605753;" name="Superior Twin" class="btn btn-small btn-black btn-pill mt-3" id="twin-room-btn">Book Room</a>
                           </div>
                         </div>
                     </div>
@@ -452,7 +433,7 @@
                                 
                               </tbody>
                             </table>
-                            <a href="#contact" style="line-height:normal;" name="Deluxe Queen" class="btn btn-small btn-black btn-pill mt-3" id="queen-room-btn">Book Room</a>
+                            <a href="#contact" style="line-height:normal; background-color: #605753; border-color: #605753;" name="Deluxe Queen" class="btn btn-small btn-black btn-pill mt-3" id="queen-room-btn">Book Room</a>
                           </div>
                         </div>
                     </div>
@@ -494,7 +475,7 @@
                                 </tr>
                               </tbody>
                             </table>
-                            <a href="#contact" style="line-height:normal;" name="Imperial King" class="btn btn-small btn-black btn-pill mt-3" id="king-room-btn">Book Room</a>
+                            <a href="#contact" style="line-height:normal; background-color: #605753; border-color: #605753;" name="Imperial King" class="btn btn-small btn-black btn-pill mt-3" id="king-room-btn">Book Room</a>
                           </div>
                         </div>
                     </div>
@@ -537,7 +518,7 @@
                                 
                               </tbody>
                             </table>
-                            <a href="#contact" style="line-height:normal;" name="Family Room" class="btn btn-small btn-black btn-pill mt-3" id="family-room-btn">Book Room</a>
+                            <a href="#contact" style="line-height:normal; background-color: #605753; border-color: #605753;"  name="Family Room" class="btn btn-small btn-black btn-pill mt-3" id="family-room-btn">Book Room</a>
                           </div>
                         </div>
                     </div>
@@ -548,9 +529,7 @@
                   <use xlink:href="#icon-arrow-right" />
                 </svg>
               </div>          
-              <button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative">
-                <span>Room<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enable-background="new 0 0 36.1 25.8" xml:space="preserve"><g><line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="0" y1="12.9" x2="34" y2="12.9"></line><polyline fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="22.2,1.1 34,12.9 22.2,24.7   "></polyline></g></svg></span>
-              </button>
+  
               </div>
             </div>
           </div>
@@ -593,7 +572,7 @@
                 </div>
               </form>
     
-              <button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative" id="guest-detail-btn" data-toggle="modal" data-target="#bookingModal">
+              <button class="btn btn-arrow btn-pill btn-medium btn-dark position-relative" style="background-color: #605753; border-color: #605753;" id="guest-detail-btn" data-toggle="modal" data-target="#bookingModal">
                 <span>Book Now<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enable-background="new 0 0 36.1 25.8" xml:space="preserve"><g>
                   <line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="0" y1="12.9" x2="34" y2="12.9"></line>
                   <polyline fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="22.2,1.1 34,12.9 22.2,24.7   ">                
@@ -627,8 +606,8 @@
                 <p> </p>
               </div>
               <div class="modal-footer">
-                <button type="button" id="edit-btn" class="btn btn-secondary" data-dismiss="modal">Edit</button>
-                <button type="button" id="final-book-btn" class="btn btn-primary">Book Now</button>
+                <button type="button" id="edit-btn" class="btn btn-secondary btn-pill" style="color:white; background-color: #605753; border-color: #605753;" data-dismiss="modal">Edit</button>
+                <button type="button" id="final-book-btn" class="btn btn-primary btn-pill" style="color:white; background-color: #605753; border-color: #605753;">Book Now</button>
               </div>
             </div>
           </div>
@@ -679,7 +658,7 @@
                 </form>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="save-btn">Save Changes</button>
+                <button type="button" class="btn btn-primary btn-pill" style="color:white; background-color: #605753; border-color: #605753;" id="save-btn">Save Changes</button>
               </div>
             </div>
           </div>
@@ -698,7 +677,7 @@
                 <p>Proceeding to Main Page in <span id="countdown">10</span> seconds</p>
               </div>
               <div class="modal-footer">
-                <button type="button" id="booking-close-btn-2" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="booking-close-btn-2" class="btn btn-secondary btn-pill" style="color:white; background-color: #605753; border-color: #605753;" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
@@ -762,11 +741,7 @@
           </div>
           <div class="row mt-5 pt-5 align-items-center">
             <div class="col-md-6 text-md-left">
-              <!-- Link back to Untree.co can't be removed. Template is licensed under CC BY 3.0. If you purchased a license you can remove this. -->
-              <p>
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> <a href="index.html">Untree.co</a>. All Rights Reserved. Design by <a href="https://untree.co/" target="_blank" class="text-primary">Untree.co</a>
-              </p>
-            <!-- Link back to Untree.co can't be removed. Template is licensed under CC BY 3.0. If you purchased a license you can remove this. -->
+             
             </div>
             <div class="col-md-6 text-md-right">
               <ul class="icons-top icons-dark">

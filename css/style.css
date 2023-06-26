@@ -332,7 +332,7 @@ a, a:hover {
 
 .untree_co--site-hero.inner-page .site-hero-contents .hero-heading {
   font-size: 5rem;
-  color: #000;
+  color: #605753;
   line-height: 0;
   font-family: var(--heading-font); 
   font-weight: 900;
@@ -679,7 +679,7 @@ a, a:hover {
 .section-heading h3 {
   font-size: 3rem;
   font-weight: 700;
-  color: #000;
+  color: #605753;
   position: relative;
   padding-bottom: 20px;
   margin-bottom: 20px;
@@ -692,7 +692,7 @@ a, a:hover {
   content: '';
   width: 50px;
   height: 1px;
-  background: #000;
+  background: #605753;
   left: 50%;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
@@ -708,11 +708,11 @@ a, a:hover {
 }
 
 .section-heading.dark h3 {
-  color: #000;
+  color: #605753;
 }
 
 .section-heading.dark h3:after {
-  background: #000;
+  background: #605753;
 }
 
 .section-heading.dark p {
@@ -766,15 +766,15 @@ a, a:hover {
 }
 
 .readmore.primary {
-  color: #ff896b;
+  color: #605753;
 }
 
 .readmore.primary:before {
-  background: #ff896b;
+  background: #605753;
 }
 
 .readmore.primary:hover {
-  color: #ff896b;
+  color: #605753;
 }
 
 .readmore.reverse:before {
@@ -833,7 +833,7 @@ a, a:hover {
 }
 
 .icons-top.icons-dark li a:hover {
-  background: #ff896b;
+  background: #605753;
 }
 
 /* Booking Nav */
@@ -1101,7 +1101,7 @@ a, a:hover {
 }
 
 .sticky-wrapper .untree_co--site-nav.dark .site-nav-ul > li > a:before {
-  background: #ff896b;
+  background: #605753;
 }
 
 .sticky-wrapper .untree_co--site-nav.dark .burger:before, .sticky-wrapper .untree_co--site-nav.dark .burger span, .sticky-wrapper .untree_co--site-nav.dark .burger:after {
@@ -1130,7 +1130,7 @@ a, a:hover {
 }
 
 .sticky-wrapper.is-sticky .untree_co--site-nav .site-nav-ul > li > a:before {
-  background: #ff896b;
+  background: #605753;
 }
 
 .sticky-wrapper.is-sticky .icons-top li a {
@@ -1140,7 +1140,7 @@ a, a:hover {
 }
 
 .sticky-wrapper.is-sticky .icons-top li a:hover {
-  background: #ff896b;
+  background: #605753;
   color: #fff;
 }
 
@@ -1409,7 +1409,7 @@ right: -2rem;
 }
 
 .untree_co--site-mobile-menu ul a:hover, .untree_co--site-mobile-menu ul li a:hover {
-  color: #ff896b;
+  color: #605753;
 }
 
 .untree_co--site-mobile-menu ul > li > ul > li > a {
@@ -1679,7 +1679,7 @@ span[data-jarallax-element] {
 
 .cta h3 a:before {
   content: "";
-  background: #ff896b;
+  background: #605753;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1704,7 +1704,7 @@ span[data-jarallax-element] {
 .testimony-29101 .text {
   width: 60%;
   padding: 7rem 4rem;
-  background: #ff896b;
+  background: #605753;
 }
 
 .testimony-29101 .text blockquote {
@@ -1803,7 +1803,7 @@ span[data-jarallax-element] {
 
 .slide-one-item .owl-dots .owl-dot.active > span {
   width: 15px;
-  background: #ff896b;
+  background: #605753;
 }
 
 .thumbnail {
