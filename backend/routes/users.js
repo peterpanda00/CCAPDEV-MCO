@@ -1,5 +1,5 @@
 const express = require('express')
-const Booking = require('../models/userModel')
+const User = require('../models/userModel')
 
 const router = express.Router()
 
@@ -17,7 +17,7 @@ router.get('/:id', (req,res) => {
 router.post('/', async (req, res)=> {
     const {userName,password,firstName,lastName,contactNumber,emailAddress} = req.body
     try{
-        const user = await Booking.create({userName,password,firstName,lastName,contactNumber,emailAddress})
+        const user = await User.create({userName,password,firstName,lastName,contactNumber,emailAddress})
         res.status(200).json(user)
 
     }catch(error){
