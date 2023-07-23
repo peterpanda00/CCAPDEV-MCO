@@ -1,3 +1,5 @@
+import Navbar from "./components/Navbar"
+
 const Home = () => {
     return(
                 <div>
@@ -25,7 +27,7 @@ const Home = () => {
                     <div className="site-mobile-inner" />
                   </nav>
                   <div className="untree_co--site-wrap">
-                   
+                   <Navbar> </Navbar>
                     <div className="untree_co--site-main">
                       <div className="owl-carousel owl-hero">
                         <div className="untree_co--site-hero overlay" style={{backgroundImage: 'url("images/slider_1.png")'}}>
