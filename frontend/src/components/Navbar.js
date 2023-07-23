@@ -6,35 +6,35 @@ const Navbar = () => {
         <nav className="untree_co--site-nav js-sticky-nav">
         <div className="container d-flex align-items-center">
           <div className="logo-wrap">
-            <a href="index.html" className="untree_co--site-logo"> Park Avenue 2443 </a>
+            <Link to="/" className="untree_co--site-logo"> Park Avenue 2443 </Link>
           </div>
           <div className="site-nav-ul-wrap text-center d-none d-lg-block">
             <ul className="site-nav-ul js-clone-nav">
-              <li className="active"><Link to="/">Home</Link></li>
-              <li><a href="about.html">Our Story</a></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">Our Story</Link></li>
               <li className="has-children">
-                <Link to="/pages/Rooms">Rooms</Link>
+                <Link to="/rooms">Rooms</Link>
                 <ul className="dropdown">
                   <li>
-                    <Link to="/pages/Rooms">Single Room</Link>
+                    <Link to="/rooms">Single Room</Link>
                   </li>
                   <li>
-                    <Link to="/pages/Rooms">Superior Twin</Link>
+                    <Link to="/rooms">Superior Twin</Link>
                   </li>
                   <li>
-                    <Link to="/pages/Rooms">Deluxe Queen</Link>
+                    <Link to="/rooms">Deluxe Queen</Link>
                   </li>
                   <li>
-                    <Link to="/pages/Rooms">Imperial King</Link>
+                    <Link to="/rooms">Imperial King</Link>
                   </li>
                   <li>
-                    <Link to="/pages/Rooms">Family Room</Link>
+                    <Link to="/rooms">Family Room</Link>
                   </li>
                 </ul>
               </li>
-              <li><Link to="/pages/Memories">Memories</Link></li>
-            <li><Link to="/pages/Contact">Contact</Link></li>
-            <li><Link to="/pages/Booking" className="font-weight-bolder">Book Now</Link></li>
+              <li><Link to="/memories">Memories</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/booking" className="font-weight-bolder">Book Now</Link></li>
             </ul>
           </div>
           <div className="icons-wrap text-md-right">
