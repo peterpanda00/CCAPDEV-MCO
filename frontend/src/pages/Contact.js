@@ -13,13 +13,13 @@ const Contact = () => {
   </div>
   <nav className="untree_co--site-mobile-menu">
     <div className="close-wrap d-flex">
-      <a href="#" className="d-flex ml-auto js-menu-toggle">
+      <div className="d-flex ml-auto js-menu-toggle">
         <span className="close-label">Close</span>
         <div className="close-times">
           <span className="bar1" />
           <span className="bar2" />
         </div>
-      </a>
+      </div>
     </div>
     <div className="site-mobile-inner" />
   </nav>
@@ -41,34 +41,15 @@ const Contact = () => {
         </div>
       </div>
       <div className="untree_co--site-section">
+
+
+        
         <div className="container">
           <div className="row">
             <div className="col-12" data-aos="fade-up">
               <h2 className="display-4 mb-5">Fill the form</h2>
             </div>
-            <div className="col-md-6 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay={100}>
-              <form action="#">
-                <div className="form-group">
-                  <label htmlFor="name">Your Name *</label>
-                  <input type="text" className="form-control" id="name" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email2">Your Email *</label>
-                  <input type="text" className="form-control" id="email2" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="subject">Subject</label>
-                  <input type="text" className="form-control" id="subject" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="message">Message *</label>
-                  <textarea name="message" className="form-control" id="message" cols={30} rows={10} defaultValue={""} />
-                </div>
-                <div className="form-group">
-                  <input type="submit" defaultValue="Send" className="btn btn-pill px-5 text-white" style={{backgroundColor: '#605753', borderColor: '#605753'}} />
-                </div>
-              </form>
-            </div>
+            <ContactForm> </ContactForm>
             <div className="col-md-4 ml-auto" data-aos="fade-up" data-aos-delay={200}>
               <div className="media-29190">
                 <span className="label">Email</span>

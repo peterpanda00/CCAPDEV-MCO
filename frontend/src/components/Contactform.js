@@ -1,52 +1,59 @@
 import React, { useState } from 'react';
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    emailAddress: '',
-    subject: '',
-    message: '',
-  });
+  const [name, setName] = useState('')
+  const [emailAddress, setEmailAddress] = useState('')
+  const [subject, setSubject] = useState('')
+  const [message, setMessage] = useState('')
+  const [error, setError] = useState(null )
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault()
 
-    // Form data will be sent to the backend using the fetch API
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
+    const contact = {name,emailAddress,subject,message}
+
+    const response = await fetch('/api/contacts',{
+      method:'POST',
+      body:JSON.stringify(contact),  
+      headers:{
+        'Content-Type':'application/json'
+      }
     })
-      .then((response) => response.json())
-      .then((data) => {
-        // Handle the response data here, if needed
-        console.log(data);
-      })
-      .catch((error) => {
-        // Handle errors here, if needed
-        console.error(error);
-      });
-  };
+
+    const json = await response.json( )
+
+    if(!response.ok){
+
+      setError(json.error)
+
+    }
+    if(response.ok){
+      setName('')
+      setEmailAddress('')
+      setSubject('')
+      setMessage('')
+
+      setError(null)
+      console.log('Inquiry sent',json)
+    }
+    
+  }
 
   return (
+
     <div className="col-md-6 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
-      <form onSubmit={handleSubmit}>
+      <form className= "create" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Your Name *</label>
-          <input
+          <input   
             type="text"
             className="form-control"
             id="name"
             name="name"
-            value={formData.name}
-            onChange={handleChange}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
@@ -57,8 +64,8 @@ const ContactForm = () => {
             className="form-control"
             id="emailAddress"
             name="emailAddress"
-            value={formData.emailAddress}
-            onChange={handleChange}
+            value={emailAddress}
+            onChange={(e) => setEmailAddress(e.target.value)}
             required
           />
         </div>
@@ -69,8 +76,8 @@ const ContactForm = () => {
             className="form-control"
             id="subject"
             name="subject"
-            value={formData.subject}
-            onChange={handleChange}
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
           />
         </div>
         <div className="form-group">
@@ -81,8 +88,8 @@ const ContactForm = () => {
             id="message"
             cols="30"
             rows="10"
-            value={formData.message}
-            onChange={handleChange}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             required
           ></textarea>
         </div>
@@ -95,6 +102,8 @@ const ContactForm = () => {
           />
         </div>
       </form>
+
+      {error && <div className="text-black">{error}</div>}
     </div>
   );
 };
