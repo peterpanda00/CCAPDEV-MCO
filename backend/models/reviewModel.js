@@ -16,14 +16,6 @@ const reviewSchema = new Schema({
     reviewImg:{
         type: String,
     },
-    likes: {
-        type: Number, 
-        required: true
-    },
-    dislikes: {
-        type: Number, 
-        require: true
-    },
     responseDatePosted: {
         type: Number, 
     },
