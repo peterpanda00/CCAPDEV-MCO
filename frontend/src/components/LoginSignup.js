@@ -16,7 +16,7 @@ function LoginSignUpForm() {
     
     // Login API
     const loginUser = async (formData) => {
-    const response = await fetch('backend/api/login', {
+    const response = await fetch('/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ function LoginSignUpForm() {
   
    // Signup API
     const signupUser = async (formData) => {
-    const response = await fetch('backend/api/signup', {
+    const response = await fetch('/api/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
