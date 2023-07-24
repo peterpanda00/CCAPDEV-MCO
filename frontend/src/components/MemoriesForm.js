@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { setFlagsFromString } from "v8"
 //import reviewModel from "../../../backend/models/reviewModel"
 
 const MemoriesForm = () => {
@@ -18,6 +17,9 @@ const MemoriesForm = () => {
 
         const response = await fetch('/api/bookings/', {
             method: 'POST',
+            headers:{
+                'Content-Type':'application/json'
+              }
         })
         const json = await response.json()
 
@@ -29,8 +31,9 @@ const MemoriesForm = () => {
             content('')
             image('')
             setDate('')
-            setFlagsFromString
+
             setError(null)
+            console.log('Inquiry sent',json)
         }
     }
     return (
@@ -190,6 +193,7 @@ const MemoriesForm = () => {
                 </div>
                 </div>
             </div>
+            {error && <div className="text-black">{error}</div>}
         </div>
     )
 } 
