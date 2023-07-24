@@ -1,41 +1,11 @@
 import Navbar from "../components/Navbar";
+import BookingForm from "../components/BookingForm";
 
 const Booking = () => {
     return(
 
 <div>
-  <svg xmlns="http://www.w3.org/2000/svg" style={{display: 'none'}}> 
-    <symbol xmlns="http://www.w3.org/2000/svg" id="navbar-icon" viewBox="0 0 16 16">
-      <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="arrow-icon" viewBox="0 0 512 512">
-      <path fill="currentColor" d="m359.873 121.377l-22.627 22.627l95.997 95.997H16v32.001h417.24l-95.994 95.994l22.627 22.627L494.498 256L359.873 121.377z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="icon-arrow-left" viewBox="0 0 1024 1024">
-      <path fill="currentColor" d="M752.145 0c8.685 0 17.572 3.434 24.237 10.099c13.33 13.33 13.33 35.143 0 48.473L320.126 515.03l449.591 449.591c13.33 13.33 13.33 35.144 0 48.474c-13.33 13.33-35.142 13.33-48.472 0L247.418 539.268c-13.33-13.33-13.33-35.144 0-48.474L727.91 10.1C734.575 3.435 743.46.002 752.146.002z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="icon-arrow-right" viewBox="0 0 1024 1024">
-      <path fill="currentColor" d="M271.653 1023.192c-8.685 0-17.573-3.432-24.238-10.097c-13.33-13.33-13.33-35.144 0-48.474L703.67 508.163L254.08 58.573c-13.33-13.331-13.33-35.145 0-48.475c13.33-13.33 35.143-13.33 48.473 0L776.38 483.925c13.33 13.33 13.33 35.143 0 48.473l-480.492 480.694c-6.665 6.665-15.551 10.099-24.236 10.099z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="arrow-down" viewBox="0 0 24 24">
-      <path fill="currentColor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222l4.95 4.95Z" />
-    </symbol>     
-    <symbol id="player" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx={90} cy={90} r="89.5" stroke="white" strokeOpacity="0.65" />
-      <circle cx={90} cy={90} r="73.5" stroke="white" strokeOpacity="0.65" />
-      <circle cx={90} cy={90} r="57.5" stroke="white" strokeOpacity="0.65" />
-      <path d="M77.5625 67.634V112.366L80.7202 110.303L112.303 89.9998L80.7181 69.6965L77.5625 67.634ZM81.6875 75.1766L104.697 89.9998L81.6875 104.825V75.1766Z" fill="white" />
-    </symbol>   
-    <symbol xmlns="http://www.w3.org/2000/svg" id="btn-close" viewBox="0 0 16 16">
-      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="arrow-up" viewBox="0 0 16 16">
-      <path fillRule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="arrow-down" viewBox="0 0 16 16">
-      <path fillRule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
-    </symbol>
-  </svg>
+  
   <div id="untree_co--overlayer" />
   <div className="loader">
     <div className="spinner-border text-primary" role="status">
@@ -76,40 +46,10 @@ const Booking = () => {
           </div>
         </div>
       </div>
-      <section id="booking-wrap" className="padding-large">
-        <div className="container">
-          <div className="row justify-content-center text-center pt-0 pb-5">  
-            <div className="col-lg-6 section-heading" data-aos="fade-up">
-              <h3 className="text-center">Search</h3>
-            </div>
-          </div>
-          <div className="row">
-            <form action className="booking-form d-flex flex-wrap align-items-center">
-              <div className="booking-content d-flex flex-wrap col-lg-8">
-                <div className="booking-item">
-                  <label htmlFor="date-in" className="text-uppercase d-block">Arrival</label>
-                  <div className="date" id="select-arrival-date" />
-                </div>     
-                <div className="booking-item">
-                  <label htmlFor="date-in" className="text-uppercase d-block">Departure</label>
-                  <div className="date" id="select-departure-date" />
-                </div>
-                <div className="booking-item"> 
-                  <label className="text-uppercase d-block">Rooms</label>
-                  <input type="number" className="booking" name="rooms" min={1} max={5} placeholder={0} defaultValue={0} />
-                </div>  
-                <div className="booking-item"> 
-                  <label className="text-uppercase d-block">Guests</label>
-                  <input type="number" className="booking" name="guests" min={1} max={10} placeholder={0} defaultValue={0} />
-                </div>
-              </div>
-              <button className="btn btn-arrow btn-pill btn-medium btn-dark position-relative" style={{backgroundColor: '#605753', borderColor: '#605753'}} id="checkAvailabilityButton">
-                <span>Check availability<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enableBackground="new 0 0 36.1 25.8" xmlSpace="preserve"><g><line fill="none" stroke="#FFFFFF" strokeWidth={3} strokeMiterlimit={10} x1={0} y1="12.9" x2={34} y2="12.9" /><polyline fill="none" stroke="#FFFFFF" strokeWidth={3} strokeMiterlimit={10} points="22.2,1.1 34,12.9 22.2,24.7   " /></g></svg></span>
-              </button>
-            </form>  
-          </div>
-        </div>
-      </section>
+
+      <BookingForm></BookingForm>
+      
+      
       <section id="our-rooms" className="display-none position-relative padding-large pt-0">
         <div className="container">
           <div className="row justify-content-center text-center pt-0 pb-5 margin-small">  
