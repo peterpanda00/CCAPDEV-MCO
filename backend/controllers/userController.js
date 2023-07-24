@@ -30,16 +30,17 @@ const getUser = async(req,res)=>{
 //Create New User
 const createUser = async(req,res) => {
 
-    const {userName,password,firstName,lastName,contactNumber,emailAddress} = req.body
+    const {formType,userName,password,firstName,lastName,contactNumber,emailAddress,confirmPassword} = req.body
     
     // Add document to database
     try{
-        const user = await User.create({userName,
-                                        password,
+        const user = await User.create({formType,   
+                                        userName,password,
                                         firstName,
                                         lastName,
                                         contactNumber,
-                                        emailAddress})
+                                        emailAddress,
+                                        confirmPassword})
         res.status(200).json(user)
 
     }catch(error){

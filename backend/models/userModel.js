@@ -3,6 +3,10 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
+    formType: {
+        type: String, 
+        required: true
+    }, 
     userName: {
         type: String, 
         required: true
@@ -25,6 +29,10 @@ const userSchema = new Schema({
     },
     emailAddress: {
         type: Number, 
+        required: true
+    },
+    confirmPassword: {
+        type: String, 
         required: true
     }
     
