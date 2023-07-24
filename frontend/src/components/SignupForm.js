@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import 'css/newstyle.css';
 
 
 function LoginSignUpForm() {
   const [formType, setFormType] = useState('login');
-  const [email, setEmail] = useState('');
+  const [emailAddress, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -42,7 +41,7 @@ function LoginSignUpForm() {
     if (formType === 'login') {
         try {
             // Handle login form submission
-            const formData = { email, password };
+            const formData = { emailAddress, password };
             const response = await loginUser(formData);
             // Do something with the login response, e.g., redirect to a new page
             console.log('Logged in:', response);
@@ -59,7 +58,7 @@ function LoginSignUpForm() {
         try {
           // Handle signup form submission
           const formData = {
-            email,
+            emailAddress,
             password,
             firstName,
             lastName,
@@ -100,7 +99,7 @@ function LoginSignUpForm() {
         <div className="form-inner">
           <form onSubmit={handleFormSubmit} style={{ display: formType === 'login' ? 'block' : 'none' }}>
             <div className="field">
-              <input type="text" placeholder="Email Address" required value={email} onChange={(e) => setEmail(e.target.value)} />
+              <input type="text" placeholder="Email Address" required value={emailAddress} onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div className="field">
               <input type="password" placeholder="Password" required value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -118,7 +117,7 @@ function LoginSignUpForm() {
           </form>
           <form onSubmit={handleFormSubmit} style={{ display: formType === 'signup' ? 'block' : 'none' }}>
             <div className="field">
-              <input type="text" placeholder="Email Address" required value={email} onChange={(e) => setEmail(e.target.value)} />
+              <input type="text" placeholder="Email Address" required value={emailAddress} onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div className="field">
               <input type="text" placeholder="First Name" required value={firstName} onChange={(e) => setFirstName(e.target.value)} />
