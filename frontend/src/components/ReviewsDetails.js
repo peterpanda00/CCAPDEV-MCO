@@ -1,12 +1,14 @@
 const ReviewDetails = ({ review }) => {
     return (
-        <div className="post-form">
-            <input type="text" placeholder="Your Name">{review.Username}</input>
-            <textarea placeholder="Write your post here" defaultValue={""}>{review.revContent}</textarea>
-            <input type="file" accept="image/*" multiple>{review.reviewImg}</input> 
-            <p>{review.createdAt}</p>
-        </div>
-    )
-}
-
-export default ReviewDetails
+      <div id="post-container">
+        <h4>
+          <strong>{review.userName}</strong>
+        </h4>
+        <p>{review.revContent}</p>
+        <img width ={100} height={100} src={review.reviewImg}/> 
+        <p>{review.createdAt}</p>
+      </div>
+    );
+  };
+  
+  export default ReviewDetails;

@@ -72,9 +72,6 @@ const Memories = () => {
                     <ReviewsDetails key={review._id} review={review}></ReviewsDetails>
                 ))}
 
-                
-
-
               </div>
 
             </div>
