@@ -4,10 +4,11 @@ const Schema = mongoose.Schema
 
 
 const reviewSchema = new Schema({
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    userName: { type: String, 
+                required: true },
     datePosted:{
         type: Date,
-        required: true
+        required: false
     },
     revContent:{
         type: String,

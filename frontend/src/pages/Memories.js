@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import MemoriesForm from "../components/MemoriesForm";
 
 const Memories = () => {
     return(
@@ -45,15 +46,18 @@ const Memories = () => {
               <h3 className="text-center">Memories</h3>
             </div>
           </div>
-          <div className="post-form">
-            <input type="text" placeholder="Your Name" />
-            <textarea placeholder="Write your post here" defaultValue={""} />
-            <input type="file" accept="image/*" multiple />
-            <button onclick="submitPost()">Submit</button>
-          </div>
+
+          <MemoriesForm></MemoriesForm>
+          
+
           <div id="post-container">
-            {/* Existing posts will be dynamically added here */}
+
+
+            
+
+
           </div>
+
         </div>
       </div></main>
     <footer className="untree_co--site-footer">

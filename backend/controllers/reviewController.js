@@ -30,16 +30,14 @@ const getReview = async(req,res)=>{
 //Create New Review
 const createReview = async(req,res) => {
 
-    const {user,datePosted,revContent,reviewImg,likes,dislikes,responseDatePosted,responseContent} = req.body
+    const {userName,datePosted,revContent,reviewImg,responseDatePosted,responseContent} = req.body
     
     // Add document to database
     try{
-        const review = await Review.create({user,
+        const review = await Review.create({userName,
                                             datePosted,
                                             revContent,
                                             reviewImg,
-                                            likes,
-                                            dislikes,
                                             responseDatePosted,
                                             responseContent})
         res.status(200).json(review)

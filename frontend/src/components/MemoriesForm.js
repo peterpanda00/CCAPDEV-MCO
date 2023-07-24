@@ -1,8 +1,8 @@
 import { useState } from "react"
-//import reviewModel from "../../../backend/models/reviewModel"
+
 
 const MemoriesForm = () => {
-    const [user, setName] = useState('')
+    const [userName, setName] = useState('')
     const [datePosted, setDate] = useState('')
     const [revContent, content] = useState('')
     const [reviewImg, image] = useState('')
@@ -13,9 +13,9 @@ const MemoriesForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         
-        const review = {user, revContent, reviewImg}
+        const review = {userName, revContent, reviewImg}
 
-        const response = await fetch('/api/bookings/', {
+        const response = await fetch('/api/reviews/', {
             method: 'POST',
             body:JSON.stringify(review),  
             headers:{
@@ -25,7 +25,7 @@ const MemoriesForm = () => {
         const json = await response.json()
 
         if(!response.ok) {
-            setDefaultResultOrder(json.error)
+            setError(json.error)
         }
         if(response.ok) {
             setName('')
@@ -33,18 +33,20 @@ const MemoriesForm = () => {
             image('')
 
             setError(null)
-            console.log('Inquiry sent',json)
+            console.log('Post sent',json)
         }
     }
     return (
         <div className="post-form">
+        
+
             <form className="memForm" onSubmit={handleSubmit}>
                 <input 
                     type="text" 
                     placeholder="Your Name"
                     onChange={(e) => setName(e.target.value)}
-                    value={user}
-                    required
+                    value={userName}
+                    
                 />
                 <textarea 
                     placeholder="Write your post here" 
