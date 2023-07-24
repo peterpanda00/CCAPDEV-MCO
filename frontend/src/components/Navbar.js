@@ -36,7 +36,7 @@ const Navbar = () => {
               </li>
               <li><Link to="/memories">Memories</Link></li>
             <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/booking" className="font-weight-bolder">Book Now</Link></li>
+            
             </ul>
           </div>
           <div className="icons-wrap text-md-right">

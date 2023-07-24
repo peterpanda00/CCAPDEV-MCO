@@ -55,13 +55,7 @@ const MemoriesForm = () => {
                     value={revContent}
                     required
                 />
-                <input 
-                    type="file" 
-                    accept="image/*" 
-                    multiple 
-                    onChange={(e) => image(e.target.value)}
-                    value={reviewImg}
-                />
+
                 <button>Submit</button>
             </form>
             {error && <div className="text-black">{error}</div>}
