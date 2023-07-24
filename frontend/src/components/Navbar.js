@@ -45,7 +45,7 @@ const Navbar = () => {
                 <a href="#" className="js-search-toggle"><span className="icon-search2" /></a>
               </li>
 
-              <LoginSignup ></LoginSignup>
+            
               
              </ul>
             {/* Mobile Toggle */}

@@ -59,7 +59,7 @@ const deleteReview = async (req,res) =>{
 
     const review = await Review.findOneAndDelete({_id: id})
 
-    if(!booking){
+    if(!review){
         return res.status(404).json({error:'No such post'})
     }
 

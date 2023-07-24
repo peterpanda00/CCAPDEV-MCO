@@ -1,28 +1,28 @@
 const express = require('express')
 const {
-    createRooms,
     getRooms,
     getRoom,
     deleteRoom,
+    createRoom,
     updateRoom
 
-} = require('../controllers/reviewController')
+} = require('../controllers/roomController')
 
 const router = express.Router()
 
-// GET all reviews
-router.get('/', getReviews)
+// GET all rooms
+router.get('/', getRooms)
 
-// GET single review
-router.get('/:id', getReview)
+// GET single room
+router.get('/:id', getRoom)
 
-// POST a new review
-router.post('/', createReview)
+// POST a new room
+router.post('/', createRoom)
 
-// DELETE a review
-router.delete('/:id', deleteReview)
+// DELETE a room
+router.delete('/:id', deleteRoom)
 
-// UPDATE a review
-router.patch('/:id', updateReview)
+// UPDATE a room
+router.patch('/:id', updateRoom)
 
 module.exports = router

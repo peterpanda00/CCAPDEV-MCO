@@ -1,0 +1,82 @@
+/* custom-datepicker.css */
+.react-datepicker-wrapper .react-datepicker__input-container input {
+    width: 100px; /* Set the desired width here */
+  }
+
+.react-datepicker-wrapper .react-datepicker__input-container input {
+    font-family: "Ogg", serif;
+  }
+
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:"IBM Plex Sans", sans-serif;
+  margin:2rem;
+}
+ 
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(12rem, 20rem));
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  height:fit-content;
+  width:max-content;
+}
+
+  
+.card{
+  overflow:hidden;
+  border-color: white;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor:pointer; 
+  transition:transform 200ms ease-in;
+
+  &__image{
+    height: 12rem; /* Update the desired height */
+    width: 100%; /* Update the desired width */
+    object-fit: cover;
+  }
+
+  &__title{
+    padding:1rem;
+  }
+
+  &__description{
+    padding:0 1rem;
+
+  }
+
+  &__btn{
+    padding:1rem;
+    font-family: "Ogg","serif";
+    font-weight: bold;
+    font-size: 1rem;
+    margin:1rem;
+    border:2px solid black;
+    background:white;
+    color:black;
+    border-radius:2rem;
+    transition: background 200ms ease-in, color 200ms ease-in;
+
+  }
+
+  &:hover {
+    transform:scale(1.02);
+  }
+  
+  &:hover &__btn {
+    background:black;
+    color:white;
+  }
+}
+
