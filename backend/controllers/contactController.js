@@ -1,4 +1,4 @@
-const Booking = require('../models/contactModel')
+const Contact = require('../models/contactModel')
 const mongoose = require('mongoose')
 
 //Get all contact

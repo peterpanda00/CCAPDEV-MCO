@@ -4,6 +4,9 @@ const express = require('express')
 const mongoose = require('mongoose')
 
 const bookingRoutes = require('./routes/bookings')
+const contactRoutes = require('./routes/contacts')
+const usersRoutes = require('./routes/users')
+const reviewsRoutes = require('./routes/reviews')
 // express app
 const app = express()
 
@@ -25,6 +28,9 @@ app.get('/', (req, res) => {
 
 // routes
 app.use('/api/bookings/',bookingRoutes)
+app.use('/api/contacts/',contactRoutes)
+app.use('/api/users/',usersRoutes)
+app.use('/api/reviews/',reviewsRoutes)
 app.get('/')
 
 
