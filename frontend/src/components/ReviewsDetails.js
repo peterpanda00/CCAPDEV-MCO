@@ -5,7 +5,7 @@ const ReviewDetails = ({ review }) => {
           <strong>{review.userName}</strong>
         </h4>
         <p>{review.revContent}</p>
-        <img width ={100} height={100} src={review.reviewImg}/> 
+      
         <p>{review.createdAt}</p>
       </div>
     );
