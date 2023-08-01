@@ -1,3 +1,5 @@
+const { generateUploadURL } = require('./s3.js');
+
 require('dotenv').config()
 
 const express = require('express')
@@ -25,6 +27,11 @@ app.get('/', (req, res) => {
   res.json({mssg: 'Welcome to the app'})
 })
 
+app.get('/s3Url', async (req, res) => {
+  const url = await generateUploadURL()
+  res.send({url})
+  console.log({url})
+})
 
 
 // routes

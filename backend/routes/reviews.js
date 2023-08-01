@@ -1,3 +1,5 @@
+
+
 const express = require('express')
 const {
     createReview,
@@ -17,7 +19,7 @@ router.get('/', getReviews)
 router.get('/:id', getReview)
 
 // POST a new review
-router.post('/', createReview)
+router.post('/',createReview)
 
 // DELETE a review
 router.delete('/:id', deleteReview)

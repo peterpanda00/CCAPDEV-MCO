@@ -1,6 +1,7 @@
 const Review = require('../models/reviewModel')
 const mongoose = require('mongoose')
 
+
 //Get all reviews
 const getReviews = async(req,res)=>{
     const reviews = await Review.find({}).sort({createdAt: -1})
@@ -31,6 +32,7 @@ const getReview = async(req,res)=>{
 const createReview = async(req,res) => {
 
     const {userName,datePosted,revContent,reviewImg,responseDatePosted,responseContent} = req.body
+    console.log(req.file)
     
     // Add document to database
     try{

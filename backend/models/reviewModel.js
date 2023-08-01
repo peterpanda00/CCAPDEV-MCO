@@ -14,7 +14,7 @@ const reviewSchema = new Schema({
         required: true
     }, 
     reviewImg:{
-        type:String,
+        type: String,
     },
     responseDatePosted: {
         type: Number, 
