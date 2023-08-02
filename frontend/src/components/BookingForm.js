@@ -1,9 +1,13 @@
 import { useEffect, useState }from 'react';
-import DatePicker from 'react-datepicker'; 
 import "react-datepicker/dist/react-datepicker.css";
 import "../component-style.css"; 
 import RoomDetails from "../components/RoomDetails";
+import DateAvailability from "../components/DateAvailability";
+import Modal from 'react-modal';
 
+
+
+import React from 'react';
 
 
 
@@ -19,9 +23,19 @@ const BookingForm = () => {
   const [specialRequest, setSpecial] = useState('')
   const [paymentMethod, setPayment] = useState('')
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedRoom, setSelectedRoom] = useState(null);
+
+  const [showGuestDetailsForm, setShowGuestDetailsForm] = useState(false);
+  const [showWrapper, setShowWrapper] = useState(false);
+
   const [error, setError] = useState(null )
 
   const [rooms, setRooms] = useState(null)
+
+
+
+
   
   useEffect(() => {
     const fetchRooms= async () => {
@@ -39,7 +53,8 @@ const BookingForm = () => {
   
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+  
+    e.preventDefault();
 
     const booking = {check_in_date,check_out_date,room_type,num_of_guests,firstName,
       lastName,contactNumber,emailAddress,specialRequest,paymentMethod}
@@ -71,76 +86,82 @@ const BookingForm = () => {
       setSpecial('')
       setPayment('')
       setError(null)
-      console.log('Booking sucess',json)
+      console.log('Booking success',json)
+      window.location.reload(true);
+      
     }
+
+
+
     
   }
+
+  const handleRoomClick = (room) => {
+    setSelectedRoom(room);
+    setRoomType(room.roomName);
+    console.log(room);
+    console.log(room.roomName);
+    setShowGuestDetailsForm(true);
+  };
+
+  const handleCheckAvailability = (availabilityData) => {
+    const { check_in_date, check_out_date, num_of_guests } = availabilityData;
+
+    setCheckin(check_in_date);
+    setCheckout(check_out_date);
+    setNumofGuest(num_of_guests);
+    console.log({check_in_date,check_out_date,num_of_guests})
+    setShowWrapper(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleConfirmation =()=>{
+    setIsModalOpen(true);
+  }
+
+  const formatDate = (date) => {
+    if (date instanceof Date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return date.toLocaleDateString(undefined, options);
+    }
+    return ''; 
+  };
+
+  const containerStyle = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginTop: '20px', 
+  };
 
   return (
 
   
-    <div class="container">
+<div class="container">
 
-<section id="booking-wrap" className="padding-large">
-  <div className="container">
-    <div className="row justify-content-center text-center pt-0 pb-5">  
-      <div className="col-lg-6 section-heading" data-aos="fade-up">
-        <h3 className="text-center">Search</h3>
-      </div>
-    </div>
-    <div className="row">
-      <form action className="booking-form d-flex flex-wrap align-items-center">
-        <div className="booking-content d-flex flex-wrap col-lg-8">
-          <div className="booking-item">
-            <label htmlFor="date-in" className="text-uppercase d-block">Arrival</label>
-            <DatePicker
-              showIcon
-              selected={check_in_date}
-              onChange={(date) => setCheckin(date)}
-              selectsStart
-              startDate={check_in_date}
-              endDate={check_out_date}
-              dateFormat="dd MMMM" 
-            />
-          </div>     
-          <div className="booking-item">
-            <label htmlFor="date-in" className="text-uppercase d-block">Departure</label>
-            <DatePicker
-              showIcon
-              selected={check_out_date}
-              onChange={(date) => setCheckout(date)}
-              selectsEnd
-              startDate={check_in_date}
-              endDate={check_out_date}
-              minDate={check_in_date}
-              dateFormat="dd MMMM" 
-            />
 
+    
+  <DateAvailability onCheckAvailability={handleCheckAvailability} />
+
+    {showWrapper && (
+          <div className="wrapper">
+            {rooms &&
+              rooms.map((room) => (
+                <RoomDetails
+                  key={room._id}
+                  room={room}
+                  onRoomClick={() => handleRoomClick(room)}
+                ></RoomDetails>
+              ))}
           </div>
-          <div className="booking-item"> 
-            <label className="text-uppercase d-block">Rooms</label>
-            <input type="number" className="booking" name="rooms" min={1} max={5} placeholder={0} defaultValue={0} />
-          </div>  
-          <div className="booking-item"> 
-            <label className="text-uppercase d-block">Guests</label>
-            <input type="number" className="booking" name="guests" min={1} max={10} placeholder={0} defaultValue={0} />
-          </div>
-        </div>
-        <button className="btn btn-arrow btn-pill btn-medium btn-dark position-relative" style={{backgroundColor: '#605753', borderColor: '#605753'}} id="checkAvailabilityButton">
-          <span>Check availability<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enableBackground="new 0 0 36.1 25.8" xmlSpace="preserve"><g><line fill="none" stroke="#FFFFFF" strokeWidth={3} strokeMiterlimit={10} x1={0} y1="12.9" x2={34} y2="12.9" /><polyline fill="none" stroke="#FFFFFF" strokeWidth={3} strokeMiterlimit={10} points="22.2,1.1 34,12.9 22.2,24.7   " /></g></svg></span>
-        </button>
-      </form>  
-    </div>
-  </div>
-</section>
+        )}
 
-        <div className="wrapper">
-                {rooms && rooms.map((room) => (
-                    <RoomDetails key={room._id} room={room}></RoomDetails>
-                ))}
 
-          </div>
 
+      
+{showGuestDetailsForm && (
 
       <section id="contact" className="overflow-hidden margin-small"> 
         <div className="row justify-content-center text-center pt-0 pb-5">  
@@ -154,15 +175,15 @@ const BookingForm = () => {
               <h2>Fill out the details</h2>
               <p>Kindly complete all the necessary details.</p>
               <form action className="contact-form my-5">
-                <input type="text" name="first name" placeholder="First Name" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" />
-                <input type="text" name="last name" placeholder="Last name" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" />
-                <input type="tel" name="contact number" id="phone" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" />
-                <input type="text" name="email" placeholder="Email Address" className="text-dark w-100 border-0 bg-transparent fs-4 mt-3 mb-4" />
-                <textarea name="request" placeholder="Special Request" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" defaultValue={""} />
+                <input type="text" name="first name" placeholder="First Name" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" onChange={(e) => setFirst(e.target.value)}/>
+                <input type="text" name="last name" placeholder="Last name" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" onChange={(e) => setLast(e.target.value)}/>
+                <input type="tel" name="contact number" id="phone" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" onChange={(e) => setNumber(e.target.value)}/>
+                <input type="text" name="email" placeholder="Email Address" className="text-dark w-100 border-0 bg-transparent fs-4 mt-3 mb-4" onChange={(e) => setEmail(e.target.value)}/>
+                <textarea name="request" placeholder="Special Request" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" defaultValue={""} onChange={(e) => setSpecial(e.target.value)}/>
                 <div className="form-group">
                   <label htmlFor="payment-method" className="h3">Payment Method</label>
                   <p className="subheading">*Over the counter payment</p>
-                  <select className="form-control" id="payment-method">
+                  <select className="form-control" id="payment-method" onChange={(e) => setPayment(e.target.value)}>
                     <option value>Select a payment method</option>
                     <option value="Credit/Debit Card">Credit/Debit Card</option>
                     <option value="GCash">GCash</option>
@@ -170,7 +191,7 @@ const BookingForm = () => {
                   </select>
                 </div>
               </form>
-              <button className="btn btn-arrow btn-pill btn-medium btn-dark position-relative" style={{backgroundColor: '#605753', borderColor: '#605753'}} id="guest-detail-btn" data-toggle="modal" data-target="#bookingModal">
+              <button onClick={handleConfirmation} type="button" className="btn btn-arrow btn-pill btn-medium btn-dark position-relative" style={{backgroundColor: '#605753', borderColor: '#605753'}} id="guest-detail-btn" data-toggle="modal">
                 <span>Book Now<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enableBackground="new 0 0 36.1 25.8" xmlSpace="preserve"><g>
                       <line fill="none" stroke="#FFFFFF" strokeWidth={3} strokeMiterlimit={10} x1={0} y1="12.9" x2={34} y2="12.9" />
                       <polyline fill="none" stroke="#FFFFFF" strokeWidth={3} strokeMiterlimit={10} points="22.2,1.1 34,12.9 22.2,24.7   ">                
@@ -186,9 +207,68 @@ const BookingForm = () => {
           </div>
         </div>
       </section> 
-        
-        
+      )}
+
+
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Booking Details"
+        style={{
+          overlay: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'rgba(0, 0, 0, 0.75)'
+          },
+          content: {
+            maxHeight:'850px',
+            maxWidth: '500px', 
+            margin: 'auto',
+            padding: '20px'
+          }
+        }}
+      >
+        {selectedRoom ? (
+          <>
+            <h1>Booking Details</h1>
+            <hr />
+            <h3>Room Details</h3>
+            <hr />
+            <div>
+              <p><strong>Room Name: {selectedRoom.roomName}</strong></p>
+              <p>Room Capacity: {selectedRoom.capacity}</p>
+              <p>Room Description: {selectedRoom.desc}</p>
+              
+            </div>
+            <form onSubmit={handleSubmit}>
+              <hr />
+              <h3>Guest Details</h3>
+              <hr />
+              <div>
+                <p>Check-in Date: {formatDate(check_in_date)}</p>
+                <p>Check-out Date: {formatDate(check_out_date)}</p>
+                <p>Number of Guests: {num_of_guests}</p>
+                <p>Guest Name: {firstName}, {lastName}</p>
+                <p>Contact Number: {contactNumber}</p>
+                <p>Email Address: {emailAddress}</p>
+                <p>Special Request: {specialRequest}</p>
+                <p>Payment Method: {paymentMethod}</p>
+              </div>
+
+              
+              <div className="button-container" style={containerStyle}>
+                  <button className="btn btn-arrow btn-pill btn-medium btn-dark" type="submit">Book Now</button>
+              </div>
+             
       
+              
+            </form>
+          </>
+        ) : null}
+      </Modal>
+        
+        
     </div>
   );
 };

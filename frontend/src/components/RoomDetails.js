@@ -1,6 +1,9 @@
 import "../component-style.css"; 
 
-const RoomDetails = ({ room }) => {
+const RoomDetails = ({ room, onRoomClick}) => {
+
+
+
     return (
 
 
@@ -17,9 +20,9 @@ const RoomDetails = ({ room }) => {
           <p className="card__description">{room.desc}</p>
         </div>
 
-        <button className="card__btn">Book Room</button>
+        <button type="button" className="btn btn-arrow btn-pill btn-medium btn-dark" onClick={onRoomClick}>Book Room</button>
       </div>
-      
+ 
     )
     }
   
