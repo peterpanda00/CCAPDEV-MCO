@@ -50,7 +50,7 @@ const LoginForm = ({ onClose, onSignupClick }) => {
         <input type="submit" value="Login" />
       </div>
       <div className="signup-link">
-        Don't have an account yet? <button onClick={onSignupClick}>Signup now</button>
+        <p>Don't have an account yet?</p> <button onClick={onSignupClick}>Signup now</button>
       </div>
     </form>
   );

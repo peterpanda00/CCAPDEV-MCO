@@ -25,12 +25,14 @@ function LoginSignUpForm() {
       <button onClick={togglePopup} className='custom-button'>Login</button>
       {showPopup && (
         <div className="popup">
-          <div className="popup-inner">
-            {formType === 'login' ? (
-              <LoginForm onClose={togglePopup} onSignupClick={handleSignupClick} />
-            ) : (
-              <SignupForm onClose={togglePopup} onLoginClick={handleLoginClick} />
-            )}
+          <div className="popup-background">
+            <div className="popup-inner">
+              {formType === 'login' ? (
+                <LoginForm onClose={togglePopup} onSignupClick={handleSignupClick} />
+              ) : (
+                <SignupForm onClose={togglePopup} onLoginClick={handleLoginClick} />
+              )}
+            </div>
           </div>
         </div>
       )}

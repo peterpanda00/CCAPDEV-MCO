@@ -94,7 +94,7 @@ input[type="radio"] {
 #signup:checked ~ label.signup {
   color: #fff;
   cursor: default;
-  user-select: none;
+  -webkit-user-select: none;
 }
 
 #signup:checked ~ label.login {
@@ -107,7 +107,7 @@ input[type="radio"] {
 
 #login:checked ~ label.login {
   cursor: default;
-  user-select: none;
+  -webkit-user-select: none;
 }
 
 .wrapper .form-container {
@@ -329,35 +329,94 @@ input[type="radio"] {
 }
 
 
-         /* Additional styles for the pop-up */
-           
+/* Additional styles for the pop-up */
+.popup-container {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
-          .popup-container {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-         }
+.background-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
 
-         .popup-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-         }
+.popup-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Rest of your existing styles */
 
 .custom-button {
   font-size: 12px;
   padding: 5px 10px;
 }
+
+/* Add the following styles to your existing CSS */
+
+/* Style the form fields */
+.field {
+  margin-bottom: 15px;
+}
+
+.field input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style the login/signup buttons */
+.field input[type="submit"] {
+  background-color: #605753;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Style the signup/login link buttons */
+.login-link button,
+.signup-link button {
+  background-color: #605753;
+  color: #FFF;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.signup-link p {
+  color: #fff; 
+}
+
+.login-link p {
+  color: #fff; 
+}
+
+
+
      
 
 

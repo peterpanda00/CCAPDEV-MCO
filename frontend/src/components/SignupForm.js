@@ -77,7 +77,7 @@ useEffect(() => {
         <input type="submit" value="Signup" />
       </div>
       <div className="login-link">
-        Already have an account? <button onClick={onLoginClick}>Login</button>
+        <p>Already have an account?</p> <button onClick={onLoginClick}>Login</button>
       </div>
     </form>
   );
