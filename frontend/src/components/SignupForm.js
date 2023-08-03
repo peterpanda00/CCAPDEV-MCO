@@ -9,49 +9,37 @@ const SignupForm = ({ onClose, onLoginClick }) => {
   const [contactNumber, setContactNumber] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
+  const [error, setError] = useState(null )
   const handleSignup = async (event) => {
     event.preventDefault();
     // Perform signup logic here
-    console.log({
-      emailAddress,
-      password,
-      firstName,
-      lastName,
-      contactNumber,
-      confirmPassword,
-    });
-  };
-
-
-useEffect(() => {
-  // Implement signup logic using fetch 
-  
-  const signupUser = async (formData) => {
-    const response = await fetch('/api/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-    return response.json();
-  };
-
-  const formData = {
-    emailAddress,
-    password,
-    firstName,
-    lastName,
-    contactNumber,
-  };
-  signupUser(formData)
-    .then((response) => {
-      console.log('Signed up:', response);
+    const formData = { emailAddress, password, firstName, lastName, contactNumber,};
+    const response = await fetch('/api/signup',{
+      method:'POST',
+      body:JSON.stringify(formData),  
+      headers:{
+        'Content-Type':'application/json'
+      }
     })
-    .catch((error) => {
-      console.error('Signup failed:', error.message);
-    });
-}, [emailAddress, password, firstName, lastName, contactNumber, confirmPassword]);
+  const json = await response.json( )
+
+  if(!response.ok){
+       setError(json.error)
+      console.log('Signup failed',json)
+    }
+  if(response.ok){
+      setEmail('')
+      setPassword('')
+      setFirstName('')
+      setLastName('')
+      setContactNumber('')
+      setConfirmPassword('')
+      setError(null)
+      console.log('Signup success', json)
+    }
+  }
+
+
 
   return (
     <form onSubmit={handleSignup}>

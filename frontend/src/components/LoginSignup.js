@@ -32,6 +32,9 @@ function LoginSignUpForm() {
               ) : (
                 <SignupForm onClose={togglePopup} onLoginClick={handleLoginClick} />
               )}
+              <div className="field">
+              <button onClick={togglePopup} >Close</button>
+              </div>
             </div>
           </div>
         </div>

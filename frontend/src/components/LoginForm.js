@@ -8,35 +8,29 @@ const LoginForm = ({ onClose, onSignupClick }) => {
   const handleLogin = async (event) => {
     event.preventDefault();
     // Perform login logic here
-    console.log({ emailAddress, password });
-  };
-  useEffect(() => {
-    // Implement login logic using fetch 
+    const formData = {emailAddress,password};
+    const response = await fetch('/api/login',{
+        method:'POST',
+        body:JSON.stringify(formData),  
+        headers:{
+          'Content-Type':'application/json'
+        }
+    })
+    const json = await response.json( )
 
-    const loginUser = async (formData) => {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      return response.json();
-    };
+    if(!response.ok){
+        // setError(json.error)
+        console.log('Login failed',json)
+    }
+    if(response.ok){
+        setEmail('')
+        setPassword('')
+        console.log('Login success', json)
+    }
 
-    const formData = {
-      emailAddress,
-      password,
-    };
-    loginUser(formData)
-      .then((response) => {
-        console.log('Logged in:', response);
-      })
-      .catch((error) => {
-        console.error('Login failed:', error.message);
-      });
-  }, [emailAddress, password]);
+}
 
+  
 
   return (
     <form onSubmit={handleLogin}>

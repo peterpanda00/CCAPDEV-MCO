@@ -10,6 +10,9 @@ const contactRoutes = require('./routes/contacts')
 const usersRoutes = require('./routes/users')
 const reviewsRoutes = require('./routes/reviews')
 const roomRoutes = require('./routes/rooms')
+const loginRoutes = require('./routes/loginRoutes')
+const signupRoutes= require('./routes/signupRoutes')
+
 //const authRoutes = require('./routes/authRoutes');
 // express app
 const app = express()
@@ -41,7 +44,8 @@ app.use('/api/contacts/',contactRoutes)
 app.use('/api/users/',usersRoutes)
 app.use('/api/reviews/',reviewsRoutes)
 app.use('/api/rooms/',roomRoutes)
-//app.use('/api/auth', authRoutes);
+app.use('/api/login/', loginRoutes);
+app.use('/api/signup/', signupRoutes);
 app.get('/')
 
 
