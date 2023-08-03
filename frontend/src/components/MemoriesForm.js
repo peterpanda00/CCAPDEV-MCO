@@ -15,7 +15,8 @@ const MemoriesForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         
-        const review = {userName, revContent,reviewImg:imageUrl}
+        const currentDate = new Date();
+        const review = {userName, datePosted:currentDate.toISOString(), revContent, reviewImg:imageUrl}
 
         const response = await fetch('/api/reviews/', {
             method: 'POST',
@@ -31,6 +32,7 @@ const MemoriesForm = () => {
         }
         if(response.ok) {
             setName('')
+            setDate('')
             content('')
             setImage('')
             setImageUrl('')
@@ -38,6 +40,7 @@ const MemoriesForm = () => {
 
             setError(null)
             console.log('Post sent',json)
+            window.location.reload()
         }
 
       
