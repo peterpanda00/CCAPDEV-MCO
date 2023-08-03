@@ -1,8 +1,13 @@
 import {Link} from 'react-router-dom'
-
-import LoginSignup from "./SignupForm";
+import React, { useState } from 'react';
+import LoginSignUpForm from "./LoginSignup";
 
 const Navbar = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
     return(
 
         <nav className="untree_co--site-nav js-sticky-nav">
@@ -44,8 +49,12 @@ const Navbar = () => {
               <li className="mr-5 mt-4" style={{zIndex: 'auto'}}>
                 <a href="#" className="js-search-toggle"><span className="icon-search2" /></a>
               </li>
-
-            
+              {/* <li className="mr-5 mt-4" style={{ zIndex: 'auto' }}>
+                <button className="js-search-toggle" onClick={togglePopup}>Login</button>
+              </li> */}
+              <li >
+                    <LoginSignUpForm />
+              </li>
               
              </ul>
             {/* Mobile Toggle */}
@@ -54,6 +63,7 @@ const Navbar = () => {
             </a>
           </div>
         </div>
+        {showPopup && <LoginSignUpForm />}
       </nav>
 
         
