@@ -13,7 +13,7 @@ const ReviewDetails = ({ review }) => {
             justifyContent: 'center',
             alignItems: 'center',
             height: '300px', 
-            border: '1px solid #ddd',
+            border: '3px solid #F1F1F1',
             padding: '10px',
           }}
         >
