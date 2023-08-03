@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // Import your login and signup controller functions
-const { loginController, signupController } = require('./controllers/authController');
+const { loginController, signupController } = require('../controllers/authController');
 
 // Login route
 router.post('/login', loginController);

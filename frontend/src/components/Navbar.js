@@ -13,34 +13,35 @@ const Navbar = () => {
         <nav className="untree_co--site-nav js-sticky-nav">
         <div className="container d-flex align-items-center">
           <div className="logo-wrap">
-            <Link to="/" className="untree_co--site-logo"> Park Avenue 2443 </Link>
+            <a href="/" className="untree_co--site-logo"> Park Avenue 2443 </a>
           </div>
           <div className="site-nav-ul-wrap text-center d-none d-lg-block">
             <ul className="site-nav-ul js-clone-nav">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">Our Story</Link></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">Our Story</a></li>
               <li className="has-children">
-                <Link to="/rooms">Rooms</Link>
+                <a href="/rooms">Rooms</a>
                 <ul className="dropdown">
                   <li>
-                    <Link to="/rooms">Single Room</Link>
+                    <a href="/rooms">Single Room</a>
                   </li>
                   <li>
-                    <Link to="/rooms">Superior Twin</Link>
+                    <a href="/rooms">Superior Twin</a>
                   </li>
                   <li>
-                    <Link to="/rooms">Deluxe Queen</Link>
+                    <a href="/rooms">Deluxe Queen</a>
                   </li>
                   <li>
-                    <Link to="/rooms">Imperial King</Link>
+                    <a href="/rooms">Imperial King</a>
                   </li>
                   <li>
-                    <Link to="/rooms">Family Room</Link>
+                    <a href="/rooms">Family Room</a>
                   </li>
                 </ul>
               </li>
-              <li><Link to="/memories">Memories</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
+              <li><a href="/memories">Memories</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/booking">Booking</a></li>
             
             </ul>
           </div>
