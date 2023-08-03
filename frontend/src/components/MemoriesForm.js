@@ -14,9 +14,11 @@ const MemoriesForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+        const currentDate = new Date(); 
+        const formattedDate = currentDate.toISOString();
         
-        const currentDate = new Date();
-        const review = {userName, datePosted:currentDate.toISOString(), revContent, reviewImg:imageUrl}
+        const review = {userName, datePosted:formattedDate, revContent, reviewImg:imageUrl}
 
         const response = await fetch('/api/reviews/', {
             method: 'POST',
