@@ -43,6 +43,7 @@ const Navbar = () => {
             <li><a href="/contact">Contact</a></li>
             <li><a href="/booking">Booking</a></li>
             
+            
             </ul>
           </div>
           <div className="icons-wrap text-md-right">
@@ -50,11 +51,8 @@ const Navbar = () => {
               <li className="mr-5 mt-4" style={{zIndex: 'auto'}}>
                 <a href="#" className="js-search-toggle"><span className="icon-search2" /></a>
               </li>
-              {/* <li className="mr-5 mt-4" style={{ zIndex: 'auto' }}>
-                <button className="js-search-toggle" onClick={togglePopup}>Login</button>
-              </li> */}
-              <li >
-                    <LoginSignUpForm />
+              <li>
+                <LoginSignUpForm />
               </li>
               
              </ul>
