@@ -42,7 +42,7 @@ const loginController = async (req, res) => {
 const signupController = async (req, res) => {
   try {
     // Perform signup logic here using req.body
-    const { emailAddress, password, firstName, lastName, contactNumber } = req.body;
+    const { emailAddress, password, firstName, lastName, contactNumber, confirmPassword } = req.body;
 
     // Check if the user already exists in the database
     const existingUser = await User.findOne({ emailAddress });
@@ -60,11 +60,12 @@ const signupController = async (req, res) => {
       firstName,
       lastName,
       contactNumber,
+      confirmPassword
     });
 
     // If signup is successful, create a JWT token and send it back in the response
     const token = jwt.sign({ userId: newUser._id }, 'ccapdev');
-    res.json({ message: 'Signup successful', token, user: { emailAddress, firstName, lastName, contactNumber } });
+    res.json({ message: 'Signup successful', token, user: { emailAddress, firstName, lastName, contactNumber,confirmPassword } });
 
   } catch (error) {
     console.error('Signup failed:', error.message);
