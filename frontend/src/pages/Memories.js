@@ -19,6 +19,28 @@ const Memories = () => {
     fetchReviews()
   }, [])
 
+  const handleDeletePost = async (postId) => {
+    try {
+      
+      const response = await fetch(`/api/reviews/${postId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        
+        console.log('Post deleted successfully.');
+        window.location.reload()
+      } else {
+        console.log('Unable to delete the post.');
+      }
+    } catch (error) {
+      console.log('An error occurred while deleting the post.');
+    }
+  };
+
     return(
     <div>
       <div id="untree_co--overlayer" />
@@ -69,7 +91,7 @@ const Memories = () => {
 
               <div id="post-container">
                 {reviews && reviews.map((review) => (
-                    <ReviewsDetails key={review._id} review={review}></ReviewsDetails>
+                    <ReviewsDetails key={review.id} review={review} onDelete={handleDeletePost}></ReviewsDetails>
                 ))}
 
               </div>

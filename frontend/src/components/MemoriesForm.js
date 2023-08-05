@@ -83,6 +83,8 @@ const MemoriesForm = () => {
         fetchUser();
       },[]);
 
+
+
     const handleImage = async (event) => {
         event.preventDefault();
         const file = event.target.files[0];
@@ -106,7 +108,7 @@ const MemoriesForm = () => {
         setImage(imageUrl);
         console.log({reviewImg});
     
-        // You can post a request to your server here to store any extra data
+       
       };
     return (
         <div className="post-form">

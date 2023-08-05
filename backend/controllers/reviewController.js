@@ -94,11 +94,40 @@ const updateReview = async(req,res) =>{
 }
 
 
+//Comment Review
+const createComment = async (req, res) => {
+    const { id } = req.params 
+  
+    const { responseContent } = req.body;
+    console.log(req.file);
+  
+    try {
+      
+      const review = await Review.findById(id);
+  
+      if (!review) {
+        return res.status(404).json({ error: 'Review not found.' });
+      }
+  
+    
+      review.responseContent.push(...responseContent);
+  
+    
+      const updatedReview = await review.save();
+  
+      res.status(200).json(updatedReview);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  };
+
+
 module.exports = {
 
     getReviews,
     getReview,
     createReview,
     deleteReview,
-    updateReview
+    updateReview,
+    createComment
 }
