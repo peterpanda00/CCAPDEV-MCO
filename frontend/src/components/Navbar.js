@@ -1,13 +1,24 @@
 import {Link} from 'react-router-dom'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 import LoginSignUpForm from "./LoginSignup";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [showPopup, setShowPopup] = useState(false);
+  const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
+  const [userID, setUserID] = useState(props.userIDcookies)
+  console.log('Current User'+ userID)
+  console.log('Guest User'+GUEST_USERID)
+
+  useEffect(() => {
+    setUserID(Cookies.get('_id'));
+  }, [userID]);
+
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
+
     return(
 
         <nav className="untree_co--site-nav js-sticky-nav">
@@ -54,7 +65,8 @@ const Navbar = () => {
                 <button className="js-search-toggle" onClick={togglePopup}>Login</button>
               </li> */}
               <li >
-                    <LoginSignUpForm />
+             
+              {userID === GUEST_USERID ? (<> <LoginSignUpForm /> </>): null}
               </li>
               
              </ul>

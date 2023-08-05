@@ -29,8 +29,10 @@ const loginController = async (req, res) => {
     }
 
     // If login is successful, create a JWT token and send it back in the response
+    res.cookie('_id', user._id)
     const token = jwt.sign({ userId: user._id }, 'ccapdev'); 
     res.json({ message: 'Login successful', token, user: { emailAddress } });
+    
 
   } catch (error) {
     console.error('Login failed:', error.message);
