@@ -12,16 +12,17 @@ import React from 'react';
 
 
 const BookingForm = () => {
-  const [check_in_date, setCheckin] = useState(new Date("2023/07/23"));
-  const [check_out_date, setCheckout] = useState(new Date("2023/07/24"));
+  const [check_in_date, setCheckin] = useState(new Date());
+  const [check_out_date, setCheckout] = useState(new Date());
   const [num_of_guests, setNumofGuest] = useState('')
-  const [room_type, setRoomType] = useState('')
+  const [room, setRoom] = useState('')
   const [firstName, setFirst] = useState('')
   const [lastName, setLast] = useState('')
   const [contactNumber, setNumber] = useState('')
   const [emailAddress, setEmail] = useState('')
   const [specialRequest, setSpecial] = useState('')
   const [paymentMethod, setPayment] = useState('')
+
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState(null);
@@ -31,7 +32,7 @@ const BookingForm = () => {
 
   const [error, setError] = useState(null )
 
-  const [rooms, setRooms] = useState(null)
+  const [rooms, setRooms] = useState([]);
 
 
 
@@ -50,13 +51,12 @@ const BookingForm = () => {
     fetchRooms()
   }, [])
 
-  
 
   const handleSubmit = async (e) => {
   
     e.preventDefault();
 
-    const booking = {check_in_date,check_out_date,room_type,num_of_guests,firstName,
+    const booking = {check_in_date,check_out_date,room,num_of_guests,firstName,
       lastName,contactNumber,emailAddress,specialRequest,paymentMethod}
 
     const response = await fetch('/api/bookings',{
@@ -77,7 +77,7 @@ const BookingForm = () => {
     if(response.ok){
       setCheckin('')
       setCheckout('')
-      setRoomType('')
+      setRoom('')
       setNumofGuest('')
       setFirst('')
       setLast('')
@@ -95,10 +95,11 @@ const BookingForm = () => {
 
     
   }
+  
 
   const handleRoomClick = (room) => {
     setSelectedRoom(room);
-    setRoomType(room.roomName);
+    setRoom(room);
     console.log(room);
     console.log(room.roomName);
     setShowGuestDetailsForm(true);
@@ -144,11 +145,11 @@ const BookingForm = () => {
 
     
   <DateAvailability onCheckAvailability={handleCheckAvailability} />
-
+  
     {showWrapper && (
           <div className="wrapper">
             {rooms &&
-              rooms.map((room) => (
+              rooms.map((room) =>(
                 <RoomDetails
                   key={room._id}
                   room={room}
