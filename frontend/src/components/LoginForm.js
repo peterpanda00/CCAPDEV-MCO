@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 const LoginForm = ({ onClose, onSignupClick }) => {
   const [emailAddress, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [prompt, setMessage] = useState(null)
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -19,13 +20,16 @@ const LoginForm = ({ onClose, onSignupClick }) => {
     const json = await response.json( )
 
     if(!response.ok){
-        // setError(json.error)
+        setMessage(json.error)
         console.log('Login failed',json)
     }
     if(response.ok){
         setEmail('')
         setPassword('')
-        console.log('Login success', json)
+        setMessage('Login Successful')
+        console.log('Login Successful', json)
+        alert('Log in Successful')
+        window.location.reload();
     }
 
 }
@@ -34,6 +38,9 @@ const LoginForm = ({ onClose, onSignupClick }) => {
 
   return (
     <form onSubmit={handleLogin}>
+      <div className="d-flex justify-content-center">
+      {prompt && <div className="text-white">{prompt}</div>}
+    </div>
       <div className="field">
         <input type="text" placeholder="Email Address" required value={emailAddress} onChange={(e) => setEmail(e.target.value)} />
       </div>

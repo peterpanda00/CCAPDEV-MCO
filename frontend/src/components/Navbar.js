@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import {useNavigate,Link} from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import LoginSignUpForm from "./LoginSignup";
@@ -6,17 +6,55 @@ import LoginSignUpForm from "./LoginSignup";
 const Navbar = (props) => {
   const [showPopup, setShowPopup] = useState(false);
   const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
-  const [userID, setUserID] = useState(props.userIDcookies)
+  const [userID, setUserID] = useState(Cookies.get('_id'));
+  const [user, setUser] = useState(null)
+  const [userName, setUserName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [emailAddress, setEmailAddress] = useState('')
+
+  const rawUserID = Cookies.get('_id').slice(3, 27);
+
+  const navigate = useNavigate();
   console.log('Current User'+ userID)
   console.log('Guest User'+GUEST_USERID)
+  console.log('User Name' + userName)
 
   useEffect(() => {
-    setUserID(Cookies.get('_id'));
-  }, [userID]);
+    const fetchUser = async () => {
+      if (userID !== GUEST_USERID) {
+        try {
+          const response = await fetch(`/api/users/${rawUserID}`);
+          if (response.ok) {
+            const userData = await response.json();
+            setUser(userData);
+            setUserName(userData.userName);
+            setFirstName(userData.firstName);
+            setLastName(userData.lastName);
+            setEmailAddress(userData.emailAddress);
+            
+          } else {
+            console.log('Unable to fetch user data.'); 
+          }
+        } catch (error) {
+          console.log('An error occurred while fetching user data.'); 
+        }
+      }
+    };
+
+    fetchUser();
+  },[]);
 
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
+  };
+
+  const handleLogout = () => {
+    Cookies.set('_id', GUEST_USERID);
+    navigate('/');
+    alert('Log Out Successful')
+    window.location.reload();
   };
 
     return(
@@ -52,23 +90,30 @@ const Navbar = (props) => {
               </li>
               <li><a href="/memories">Memories</a></li>
             <li><a href="/contact">Contact</a></li>
-            <li><a href="/booking">Booking</a></li>
+            <li><a href="/booking"><strong>Booking</strong></a></li>
             
             </ul>
           </div>
           <div className="icons-wrap text-md-right">
             <ul className="icons-top d-none d-lg-block">
-              <li className="mr-5 mt-4" style={{zIndex: 'auto'}}>
-                <a href="#" className="js-search-toggle"><span className="icon-search2" /></a>
-              </li>
-              {/* <li className="mr-5 mt-4" style={{ zIndex: 'auto' }}>
-                <button className="js-search-toggle" onClick={togglePopup}>Login</button>
-              </li> */}
               <li >
-             
-              {userID === GUEST_USERID ? (<> <LoginSignUpForm /> </>): null}
+              {userID === GUEST_USERID ? <LoginSignUpForm /> : (
+                  <>
+                  <button type="button" className="custom-button dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  {userName} 
+                  </button>
+                  <ul className="dropdown-menu" >
+                    
+                    <li><p style={{ fontSize: '12px' }}><strong>Full Name:</strong> {lastName},{firstName}</p></li>
+                    <li><p style={{ fontSize: '12px' }}><strong>Email:</strong> {emailAddress}</p></li>
+                    <li><button onClick={handleLogout} className="dropdown-item custom-button">Log Out</button></li>
+                    
+                  </ul>
+
+                </>
+              )}
+
               </li>
-              
              </ul>
             {/* Mobile Toggle */}
             <a href="#" className="d-block d-lg-none burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">

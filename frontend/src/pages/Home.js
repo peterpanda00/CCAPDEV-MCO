@@ -1,21 +1,21 @@
 import Navbar from "../components/Navbar";
 import Cookies from 'js-cookie';
+import {useState } from 'react';
 
 
 
 const Home = () => {
-  //const userId = useState(Cookies.get('_id')) 
-  
 
-  
-var userID;
+
+var userID, userName,emailAddress,firstName,lastName;
 console.log("TEST: " + Cookies.get('_id') )
 if (Cookies.get('_id') !== undefined && Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb') {
   userID = Cookies.get('_id').slice(3, 27);
+  
 } else {
   userID = Cookies.get('_id');
+  
 }
-console.log("TEST: " + userID)
 
 
     return(
@@ -44,7 +44,7 @@ console.log("TEST: " + userID)
                     <div className="site-mobile-inner" />
                   </nav>
                   <div className="untree_co--site-wrap">
-                   <Navbar userIDcookies="64ccfc4bc4db8bceaaec9ecb"/>
+                   <Navbar userIDcookies={userID}/>
                     <div className="untree_co--site-main">
                       <div className="owl-carousel owl-hero">
                         <div className="untree_co--site-hero overlay" style={{backgroundImage: 'url("images/slider_1.png")'}}>

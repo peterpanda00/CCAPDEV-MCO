@@ -1,7 +1,17 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
+import Cookies from 'js-cookie';
 
 
 const MemoriesForm = () => {
+
+    const [userID, setUserID] = useState(Cookies.get('_id'));
+    const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
+    const rawUserID = Cookies.get('_id').slice(3, 27);
+    var registered = false;
+
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+
     const [userName, setName] = useState('')
     const [datePosted, setDate] = useState('')
     const [revContent, content] = useState('')
@@ -48,15 +58,40 @@ const MemoriesForm = () => {
       
     }
 
+    useEffect(() => {
+        const fetchUser = async () => {
+          if (userID !== GUEST_USERID) {
+            try {
+              const response = await fetch(`/api/users/${rawUserID}`);
+              if (response.ok) {
+                const userData = await response.json();
+                setFirstName(userData.firstName);
+                setLastName(userData.lastName);
+                setName(`${userData.firstName} ${userData.lastName}`);
+                
+                registered=true;
+                
+              } else {
+                console.log('Unable to fetch user data.'); 
+              }
+            } catch (error) {
+              console.log('An error occurred while fetching user data.'); 
+            }
+          }
+        };
+    
+        fetchUser();
+      },[]);
+
     const handleImage = async (event) => {
         event.preventDefault();
         const file = event.target.files[0];
     
-        // Get the secure URL from your server
+        
         const { url } = await fetch("/s3Url").then((res) => res.json());
         console.log(url);
     
-        // Post the image directly to the S3 bucket
+     
         await fetch(url, {
           method: "PUT",
           headers: {
@@ -76,15 +111,25 @@ const MemoriesForm = () => {
     return (
         <div className="post-form">
         
+        <form className="memForm" id="memForm" onSubmit={handleSubmit}>
+        {userID === GUEST_USERID ? (
+                <>
+                    <form className="memForm" id="memForm" onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        placeholder="Your Name"
+                        onChange={(e) => setName(e.target.value)}
+                        value={userName}
+                    />
+                    </form>
+                </>
+                ) : (
+                
+                <>
+                    <h2>{firstName} {lastName}</h2>
+                </>
+                )}
 
-            <form className="memForm" id="memForm" onSubmit={handleSubmit}>
-                <input 
-                    type="text" 
-                    placeholder="Your Name"
-                    onChange={(e) => setName(e.target.value)}
-                    value={userName}
-                    
-                />
                 <textarea 
                     placeholder="Write your post here" 
                     defaultValue={""}

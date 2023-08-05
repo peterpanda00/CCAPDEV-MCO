@@ -44,7 +44,7 @@ const loginController = async (req, res) => {
 const signupController = async (req, res) => {
   try {
     // Perform signup logic here using req.body
-    const { emailAddress, password, firstName, lastName, contactNumber, confirmPassword } = req.body;
+    const { userName,emailAddress, password, firstName, lastName, contactNumber } = req.body;
 
     // Check if the user already exists in the database
     const existingUser = await User.findOne({ emailAddress });
@@ -57,17 +57,18 @@ const signupController = async (req, res) => {
 
     // Create a new user in the database with the provided information
     const newUser = await User.create({
+      userName,
       emailAddress,
       password: hashedPassword,
       firstName,
       lastName,
-      contactNumber,
-      confirmPassword
+      contactNumber
     });
 
     // If signup is successful, create a JWT token and send it back in the response
+    res.cookie('_id', newUser._id);
     const token = jwt.sign({ userId: newUser._id }, 'ccapdev');
-    res.json({ message: 'Signup successful', token, user: { emailAddress, firstName, lastName, contactNumber,confirmPassword } });
+    res.json({ message: 'Signup successful', token, user: { userName,emailAddress, firstName, lastName, contactNumber} });
 
   } catch (error) {
     console.error('Signup failed:', error.message);
