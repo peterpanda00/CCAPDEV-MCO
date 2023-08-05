@@ -30,14 +30,14 @@ const getBooking = async(req,res)=>{
 //Create New Booking
 const createBooking = async(req,res) => {
 
-    const {check_in_date,check_out_date,room_type,num_of_guests,firstName,
+    const {check_in_date,check_out_date,room,num_of_guests,firstName,
         lastName,contactNumber,emailAddress,specialRequest,paymentMethod} = req.body
     
     // Add document to database
     try{
         const booking = await Booking.create({check_in_date,
                                             check_out_date,
-                                            room_type,
+                                            room,
                                             num_of_guests,
                                             firstName,
                                             lastName,

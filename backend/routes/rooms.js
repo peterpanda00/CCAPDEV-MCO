@@ -25,4 +25,5 @@ router.delete('/:id', deleteRoom)
 // UPDATE a room
 router.patch('/:id', updateRoom)
 
+
 module.exports = router

@@ -43,9 +43,9 @@ app.use('/api/bookings/',bookingRoutes)
 app.use('/api/contacts/',contactRoutes)
 app.use('/api/users/',usersRoutes)
 app.use('/api/reviews/',reviewsRoutes)
-app.use('/api/rooms/',roomRoutes)
 app.use('/api/login/', loginRoutes);
 app.use('/api/signup/', signupRoutes);
+app.use('/api/rooms/',roomRoutes)
 app.get('/')
 
 

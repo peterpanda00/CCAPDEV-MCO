@@ -4,8 +4,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import "../component-style.css"; 
 
 const DateAvailability = ({ onCheckAvailability  }) => {
-    const [check_in_date, setCheckin] = useState(new Date("2023/07/23"));
-    const [check_out_date, setCheckout] = useState(new Date("2023/07/24"));
+    const [check_in_date, setCheckin] = useState(new Date());
+    const [check_out_date, setCheckout] = useState(new Date());
     const [num_of_guests, setNumofGuest] = useState('')
 
     const handleAvailabilityCheck = (e) => {
@@ -20,6 +20,7 @@ const DateAvailability = ({ onCheckAvailability  }) => {
        
         onCheckAvailability(availabilityData);
       };
+
 
    
 

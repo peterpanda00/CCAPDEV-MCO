@@ -11,10 +11,11 @@ const bookingSchema = new Schema({
         type: Date,
         required:true
     },
-    room_type: {
-        type: String,
-        required:true
-    },
+    room: {
+        type: Schema.Types.ObjectId,
+        ref: 'Room',
+        required: true,
+      },
     num_of_guests: {
         type: Number,
         required:true
