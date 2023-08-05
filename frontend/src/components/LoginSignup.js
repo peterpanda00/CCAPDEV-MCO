@@ -33,7 +33,7 @@ function LoginSignUpForm() {
                 <SignupForm onClose={togglePopup} onLoginClick={handleLoginClick} />
               )}
               <div className="field">
-              <button onClick={togglePopup} >Close</button>
+              <button onClick={togglePopup} className='close-button'>&times;</button>
               </div>
             </div>
           </div>

@@ -415,10 +415,32 @@ input[type="radio"] {
   color: #fff; 
 }
 
+/* Style for the custom button */
+.custom-button {
+  background-color: #605753; /* Set your desired background color */
+  color: white; /* Set text color */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
 
+/* Hover effect for the custom button */
+.custom-button:hover {
+  background-color: #7f716b; /* Set a slightly darker color for hover effect */
+}
 
-     
-
+.close-button {
+  position: absolute;
+  top: 10px; /* Adjust the top value to position vertically */
+  right: 10px; /* Adjust the right value to position horizontally */
+  background-color: transparent;
+  color: white; /* Change color to your preference */
+  border: none;
+  font-size: 50px; /* Adjust font size */
+  cursor: pointer;
+}
 
 
 
