@@ -104,19 +104,19 @@ const Memories = () => {
               <div className="col-md-4 pr-md-5">
                 <h3>Our Story</h3>
                 <p>Situated in the heart of Manila, Park Avenue Guesthouse 2443 stands out with its captivating Hispanic architecture and rich historical designs, creating a space that sparks curiosity and ignites the imagination.</p>              
-                <p><a href="about.html" className="readmore">Read more</a></p>
+                <p><a href="/about" className="readmore">Read more</a></p>
               </div>
               <div className="col-md-8 ml-auto">
                 <div className="row">
                   <div className="col-md-3">
                     <h3>Navigation</h3>
                     <ul className="list-unstyled">
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="rooms.html">Rooms</a></li>
-                      <li className="active"><a href="about.html">Our Story</a></li>
-                      <li><a href="memories.html">Memories</a></li>
-                      <li><a href="#">Contact</a></li>
-                      <li><a href="booking.html">Book Now</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">Our Story</a></li>
+                    <li><a href="/rooms">Rooms</a></li>
+                    <li><a href="/memories">Memories</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/booking">Book Now</a></li>
                     </ul>
                   </div>
                   <div className="col-md-9 ml-auto">

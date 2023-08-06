@@ -155,7 +155,7 @@ const MemoriesForm = () => {
                     <input type="file" id="imageInput" onChange={handleImage}/>
                 </div>
                 
-                <button disabled={true}>Submit</button>
+                <button>Submit</button>
             </form>
             {error && <div className="text-black">{error}</div>}
         </div>

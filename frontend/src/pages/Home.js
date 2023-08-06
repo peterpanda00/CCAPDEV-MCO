@@ -68,7 +68,7 @@ console.log('User Effect' + userID)
                                     <p> Welcome to Park Avenue 2443 Guesthouse, where Spanish elegance meets modern comfort in the heart of Pasay. Immerse yourself in our captivating retreat, offering meticulously designed rooms, 
                                       serene courtyards, and a charming onsite restaurant.</p>
                                   </div>
-                                  <a href="booking.html" className="btn btn-medium btn-outline-arrow light-hover btn-pill position-relative"><span>Book Now</span>            
+                                  <a href="/booking" className="btn btn-medium btn-outline-arrow light-hover btn-pill position-relative"><span>Book Now</span>            
                                     <svg className="arrow-icon" width={18} height={20} style={{top: '20px'}}>
                                       <use xlinkHref="#arrow-icon" />
                                     </svg>
@@ -127,7 +127,7 @@ console.log('User Effect' + userID)
                               <h2 className="suite-title">Imperial King</h2>
                               <div className="suite-excerpt">
                                 <p>Indulge in the lavish King Bedroom at Park Avenue Guesthouse 2443. This elegant retreat features a spacious king-sized bed, tasteful decor, and modern amenities. Relax in style, enjoy stunning views, and experience the ultimate in comfort and luxury during your stay.</p>
-                                <p><a href="rooms.html" className="readmore">Room Details</a></p>
+                                <p><a href="/rooms" className="readmore">Room Details</a></p>
                               </div>
                             </div>
                           </div>
@@ -148,7 +148,7 @@ console.log('User Effect' + userID)
                               <h2 className="suite-title">Family Room</h2>
                               <div className="suite-excerpt pr-5">
                                 <p>Experience comfort and togetherness in the inviting Family Room at Park Avenue Guesthouse 2443. This spacious retreat is tastefully decorated and equipped with modern amenities, ensuring a delightful stay for your entire family.</p>
-                                <p><a href="rooms.html" className="readmore">Room Details</a></p>
+                                <p><a href="/rooms" className="readmore">Room Details</a></p>
                               </div>
                             </div>
                           </div>
@@ -262,19 +262,19 @@ console.log('User Effect' + userID)
                           <div className="col-md-4 pr-md-5">
                             <h3>Our Story</h3>
                             <p>Situated in the heart of Manila, Park Avenue Guesthouse 2443 stands out with its captivating Hispanic architecture and rich historical designs, creating a space that sparks curiosity and ignites the imagination.</p>         
-                            <a href="about.html" className="readmore">Read more</a><p />
+                            <a href="/about" className="readmore">Read more</a><p />
                           </div>
                           <div className="col-md-8 ml-auto">
                             <div className="row">
                               <div className="col-md-3">
                                 <h3>Navigation</h3>
                                 <ul className="list-unstyled">
-                                  <li className="active"><a href="index.html">Home</a></li>
-                                  <li><a href="about.html">Our Story</a></li>
-                                  <li><a href="rooms.html">Rooms</a></li>
-                                  <li><a href="memories.html">Memories</a></li>
-                                  <li><a href="contact.html">Contact</a></li>
-                                  <li><a href="booking.html">Book Now</a></li>
+                                  <li className="active"><a href="/">Home</a></li>
+                                  <li><a href="/about">Our Story</a></li>
+                                  <li><a href="/rooms">Rooms</a></li>
+                                  <li><a href="/memories">Memories</a></li>
+                                  <li><a href="/contact">Contact</a></li>
+                                  <li><a href="/booking">Book Now</a></li>
                                 </ul>
                               </div>
                               <div className="col-md-9 ml-auto">
