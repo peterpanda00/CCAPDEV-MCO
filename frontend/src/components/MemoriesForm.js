@@ -4,15 +4,9 @@ import Cookies from 'js-cookie';
 
 const MemoriesForm = () => {
 
-    const [userID, setUserID] = useState(Cookies.get('_id'));
-    const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
-    const rawUserID = Cookies.get('_id').slice(3, 27);
-    var disablePost;
-    
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-
     const [userName, setName] = useState('')
     const [datePosted, setDate] = useState('')
     const [revContent, content] = useState('')
@@ -20,8 +14,48 @@ const MemoriesForm = () => {
     const [responseDatePosted, resDate] = useState('')
     const [responseContent, resContent] = useState('')
     const [error, setError] = useState(null)
-
     const [imageUrl, setImageUrl] = useState(null);
+
+    const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
+    const [userID, setUserID] = useState(''); 
+
+    useEffect(() => {
+    if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
+      var userID = (Cookies.get('_id').slice(3,27))
+      setUserID((Cookies.get('_id').slice(3,27)))
+      console.log('Slice' + userID)
+    }
+    else if (Cookies.get('_id') !== undefined){
+      var userID = (Cookies.get('_id'))
+      setUserID((Cookies.get('_id')))
+    }
+    else{
+      var userID = '64ccfc4bc4db8bceaaec9ecb'
+      setUserID('64ccfc4bc4db8bceaaec9ecb')
+      console.log(userID)
+    }
+
+    const fetchUser = async () => {
+      if (userID !== GUEST_USERID) {
+        try {
+          const response = await fetch(`/api/users/${userID}`);
+          if (response.ok) {
+            const userData = await response.json();
+            setFirstName(userData.firstName);
+            setLastName(userData.lastName);
+            setName(`${userData.firstName} ${userData.lastName}`);
+            
+          } else {
+            console.log('Unable to fetch user data.'); 
+          }
+        } catch (error) {
+          console.log('An error occurred while fetching user data.'); 
+        }
+      }
+    };
+
+    fetchUser();
+}, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -59,31 +93,7 @@ const MemoriesForm = () => {
       
     }
 
-    useEffect(() => {
-        disablePost=true;
-        const fetchUser = async () => {
-          if (userID !== GUEST_USERID) {
-            try {
-              const response = await fetch(`/api/users/${rawUserID}`);
-              if (response.ok) {
-                const userData = await response.json();
-                setFirstName(userData.firstName);
-                setLastName(userData.lastName);
-                setName(`${userData.firstName} ${userData.lastName}`);
-                
-                disablePost=false;
-                
-              } else {
-                console.log('Unable to fetch user data.'); 
-              }
-            } catch (error) {
-              console.log('An error occurred while fetching user data.'); 
-            }
-          }
-        };
     
-        fetchUser();
-      },[]);
 
 
 

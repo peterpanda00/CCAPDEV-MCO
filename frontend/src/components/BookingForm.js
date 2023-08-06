@@ -17,14 +17,6 @@ import React from 'react';
 
 const BookingForm = () => {
 
-  const [userID, setUserID] = useState(Cookies.get('_id'));
-  const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
-  const rawUserID = Cookies.get('_id').slice(3, 27);
-  var registered = false;
-
-
-
-
   const [check_in_date, setCheckin] = useState(new Date());
   const [check_out_date, setCheckout] = useState(new Date());
   const [num_of_guests, setNumofGuest] = useState('1')
@@ -47,12 +39,29 @@ const BookingForm = () => {
 
   const [rooms, setRooms] = useState([]);
 
+  const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
+  const [userID, setUserID] = useState(''); 
 
   useEffect(() => {
+    if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
+      var userID = (Cookies.get('_id').slice(3,27))
+      setUserID((Cookies.get('_id').slice(3,27)))
+      console.log('Slice' + userID)
+    }
+    else if (Cookies.get('_id') !== undefined){
+      var userID = (Cookies.get('_id'))
+      setUserID((Cookies.get('_id')))
+    }
+    else{
+      var userID = '64ccfc4bc4db8bceaaec9ecb'
+      setUserID('64ccfc4bc4db8bceaaec9ecb')
+      console.log(userID)
+    }
+
     const fetchUser = async () => {
       if (userID !== GUEST_USERID) {
         try {
-          const response = await fetch(`/api/users/${rawUserID}`);
+          const response = await fetch(`/api/users/${userID}`);
           if (response.ok) {
             const userData = await response.json();
             setFirst(userData.firstName);
@@ -60,7 +69,7 @@ const BookingForm = () => {
             setEmail(userData.emailAddress);
             setNumber(userData.contactNumber);
             
-            registered=true;
+           
             
           } else {
             console.log('Unable to fetch user data.'); 
@@ -72,9 +81,7 @@ const BookingForm = () => {
     };
 
     fetchUser();
-  },[]);
-
-
+}, []);
 
 
   

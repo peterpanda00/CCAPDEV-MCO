@@ -1,21 +1,32 @@
 import Navbar from "../components/Navbar";
 import Cookies from 'js-cookie';
-import {useState } from 'react';
+import {useState,useEffect } from 'react';
 
 
 
 const Home = () => {
 
 
-var userID, userName,emailAddress,firstName,lastName;
-console.log("TEST: " + Cookies.get('_id') )
-if (Cookies.get('_id') !== undefined && Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb') {
-  userID = Cookies.get('_id').slice(3, 27);
-  
-} else {
-  userID = Cookies.get('_id');
-  
-}
+const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
+const [userID, setUserID] = useState('');
+useEffect(() => {
+    if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
+      var userID = (Cookies.get('_id').slice(3,27))
+      setUserID((Cookies.get('_id').slice(3,27)))
+      console.log('Slice' + userID)
+    }
+    else if (Cookies.get('_id') !== undefined){
+      var userID = (Cookies.get('_id'))
+      setUserID((Cookies.get('_id')))
+    }
+    else{
+      var userID = '64ccfc4bc4db8bceaaec9ecb'
+      setUserID('64ccfc4bc4db8bceaaec9ecb')
+      console.log(userID)
+    }
+}, []);
+
+console.log('User Effect' + userID)
 
 
     return(

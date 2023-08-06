@@ -6,25 +6,39 @@ import LoginSignUpForm from "./LoginSignup";
 const Navbar = (props) => {
   const [showPopup, setShowPopup] = useState(false);
   const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
-  const [userID, setUserID] = useState(Cookies.get('_id'));
+  const [userID, setUserID] = useState('');
   const [user, setUser] = useState(null)
   const [userName, setUserName] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [emailAddress, setEmailAddress] = useState('')
 
-  const rawUserID = Cookies.get('_id').slice(3, 27);
 
   const navigate = useNavigate();
   console.log('Current User'+ userID)
-  console.log('Guest User'+GUEST_USERID)
+  console.log('Guest User'+ GUEST_USERID)
   console.log('User Name' + userName)
 
   useEffect(() => {
+    if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
+      var userID = (Cookies.get('_id').slice(3,27))
+      setUserID((Cookies.get('_id').slice(3,27)))
+      console.log('Slice' + userID)
+    }
+    else if (Cookies.get('_id') !== undefined){
+      var userID = (Cookies.get('_id'))
+      setUserID((Cookies.get('_id')))
+    }
+    else{
+      var userID = '64ccfc4bc4db8bceaaec9ecb'
+      setUserID('64ccfc4bc4db8bceaaec9ecb')
+      console.log(userID)
+    }
+
     const fetchUser = async () => {
       if (userID !== GUEST_USERID) {
         try {
-          const response = await fetch(`/api/users/${rawUserID}`);
+          const response = await fetch(`/api/users/${userID}`);
           if (response.ok) {
             const userData = await response.json();
             setUser(userData);
@@ -43,7 +57,9 @@ const Navbar = (props) => {
     };
 
     fetchUser();
-  },[]);
+}, []);
+
+  
 
 
   const togglePopup = () => {
