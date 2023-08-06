@@ -10,10 +10,10 @@ const contactRoutes = require('./routes/contacts')
 const usersRoutes = require('./routes/users')
 const reviewsRoutes = require('./routes/reviews')
 const roomRoutes = require('./routes/rooms')
-const loginRoutes = require('./routes/loginRoutes')
-const signupRoutes= require('./routes/signupRoutes')
+const loginRoutes = require('./routes/login')
+const signupRoutes= require('./routes/signup')
 
-//const authRoutes = require('./routes/authRoutes');
+
 // express app
 const app = express()
 

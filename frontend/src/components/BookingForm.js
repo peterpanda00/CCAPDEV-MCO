@@ -30,6 +30,8 @@ const BookingForm = () => {
 
   const [isFormFilled, setIsFormFilled] = useState(false);
 
+  const [searched, setIsSearched] = useState(false);
+
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState(null);
@@ -39,6 +41,7 @@ const BookingForm = () => {
 
   const [error, setError] = useState(null )
   const [message, setMessage] = useState('')
+  const [bookingMessage, setBookingMessage] = useState('')
 
   const [rooms, setRooms] = useState([]);
 
@@ -118,8 +121,17 @@ const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
     const data = await response.json();
     setRooms(data);
     setShowWrapper(true);
+    setIsSearched(true);
     
+  }else {
+    setShowWrapper(false);
+    const errorResponse = await response.json();
+    setBookingMessage(errorResponse.error)
+    console.log('Error:', errorResponse.error); 
+    setIsSearched(true);
   }
+
+  
 };
 
 
@@ -135,7 +147,7 @@ const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
     } else {
       setIsFormFilled(false);
     }
-    console.log('isFormFilled:', isFormFilled); // Add this line
+    console.log('isFormFilled:', isFormFilled); 
   };
 
 
@@ -178,10 +190,6 @@ const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
       window.location.reload(true);
       
     }
-
-
-
-    
   }
   
 
@@ -237,7 +245,18 @@ const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
   setCheckout={setCheckout}
   setNumofGuest={setNumofGuest}
   onSearch={handleSearch} />
-  
+
+
+{rooms.length === 0 && searched==true ? (
+        <>
+        <div id="post-container">
+          <h2>{bookingMessage}</h2>
+          <h2 style={{ textAlign: 'center' }}>No Available Rooms. Check other dates.</h2>
+        </div>
+        </>
+        
+      ) : (
+    <>
     {showWrapper && (
           <div className="wrapper">
             {rooms.map((room) => (
@@ -249,10 +268,11 @@ const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
               ))}
           </div>
         )}
+    </>
+      )}
 
 
-
-      
+          
 {showGuestDetailsForm && (
 
       <section id="contact" className="overflow-hidden margin-small"> 
