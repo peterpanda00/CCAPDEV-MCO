@@ -1,4 +1,5 @@
 const Booking = require('../models/bookingModel')
+const Room = require('../models/roomModel');
 const mongoose = require('mongoose')
 
 //Get all bookings
@@ -26,6 +27,7 @@ const getBooking = async(req,res)=>{
 
 }
 
+{/*
 
 //Create New Booking
 const createBooking = async(req,res) => {
@@ -45,6 +47,19 @@ const createBooking = async(req,res) => {
                                             emailAddress,
                                             specialRequest,
                                             paymentMethod})
+  
+        const bookedRoom = await Room.findById(room);
+        bookedRoom.roomNumbers.forEach((roomNumber) => {
+        roomNumber.unavailableDates.push(
+            new Date(check_in_date),
+            new Date(check_out_date)
+        );
+        });
+
+        await bookedRoom.save();
+
+        
+        await bookedRoom.save();
         res.status(200).json(booking)
 
     }catch(error){
@@ -52,6 +67,72 @@ const createBooking = async(req,res) => {
 
     }
 }
+
+*/}
+
+const createBooking = async (req, res) => {
+    const {
+      check_in_date,
+      check_out_date,
+      room,
+      num_of_guests,
+      firstName,
+      lastName,
+      contactNumber,
+      emailAddress,
+      specialRequest,
+      paymentMethod,
+    } = req.body;
+  
+    try {
+      
+      const bookedRoom = await Room.findById(room);
+  
+ 
+      const availableRoomNumber = bookedRoom.roomNumbers.find((roomNumber) => {
+        const unavailableDates = roomNumber.unavailableDates;
+        return (
+          unavailableDates.every(
+            (unavailableDate) =>
+              new Date(check_in_date) >= unavailableDate ||
+              new Date(check_out_date) <= unavailableDate
+          )
+        );
+      });
+  
+      if (!availableRoomNumber) {
+        return res.status(400).json({ error: 'No available rooms for selected dates.' });
+      }
+  
+  
+      const booking = await Booking.create({
+        check_in_date,
+        check_out_date,
+        room,
+        num_of_guests,
+        firstName,
+        lastName,
+        contactNumber,
+        emailAddress,
+        specialRequest,
+        paymentMethod,
+      });
+  
+     
+      availableRoomNumber.unavailableDates.push(
+        new Date(check_in_date),
+        new Date(check_out_date)
+      );
+  
+    
+      await bookedRoom.save();
+  
+      res.status(200).json(booking);
+    } catch (error) {
+      res.status(500).json({ error: 'Error creating booking.' });
+    }
+  };
+
 
 //Delete a Booking
 const deleteBooking = async (req,res) =>{
