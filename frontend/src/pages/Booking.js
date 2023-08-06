@@ -1,8 +1,12 @@
+import React, { useEffect } from 'react';
 import Navbar from "../components/Navbar";
 import BookingForm from "../components/BookingForm";
 
 
 const Booking = () => {
+  useEffect(() => {
+    document.title = 'Book Now - Park Avenue';
+  }, []);
     return(
 
 <div>

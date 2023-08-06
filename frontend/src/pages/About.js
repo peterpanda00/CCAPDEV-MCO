@@ -1,6 +1,12 @@
+import React, { useEffect } from 'react';
 import Navbar from "../components/Navbar";
 
+
 const About = () => {
+  useEffect(() => {
+    document.title = 'Our Story - Park Avenue';
+  }, []);
+
     return(
                 <div>
                   <div id="untree_co--overlayer" />

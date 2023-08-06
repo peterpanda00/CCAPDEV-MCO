@@ -46,7 +46,7 @@ const ReviewDetails = ({ review,  onDelete  }) => {
       }
     };
 
-    fetchUser();
+    fetchUser();  
 }, []);
 
   

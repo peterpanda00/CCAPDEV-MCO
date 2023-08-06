@@ -17,6 +17,7 @@ const Memories = () => {
     }
 
     fetchReviews()
+      document.title = 'Memories - Park Avenue';
   }, [])
 
   const handleDeletePost = async (postId) => {

@@ -1,6 +1,10 @@
+import React, { useEffect } from 'react';
 import Navbar from "../components/Navbar";
 
 const Rooms = () => {
+  useEffect(() => {
+    document.title = 'Rooms - Park Avenue';
+  }, []);
   
     return(
 

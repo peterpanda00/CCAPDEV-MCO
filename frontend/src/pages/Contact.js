@@ -1,7 +1,11 @@
+import React, { useEffect } from 'react';
 import Navbar from "../components/Navbar";
 import ContactForm from "../components/Contactform";
 
 const Contact = () => {
+  useEffect(() => {
+    document.title = 'Contact Us - Park Avenue';
+  }, []);
     return(
 
 <div>
