@@ -99,6 +99,7 @@ const createComment = async (req, res) => {
     const { id } = req.params 
   
     const { responseContent } = req.body;
+    console.log('Received request body:', req.body);
     console.log(req.file);
   
     try {

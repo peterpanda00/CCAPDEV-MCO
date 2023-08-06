@@ -20,7 +20,13 @@ const reviewSchema = new Schema({
         type: Number, 
     },
     responseContent: {
-        type: [String], default: []
+        type: [
+          {
+            userName: { type: String },
+            comment: { type: String},
+          },
+        ],
+        default: [],
     }
 }, {timestamps: true}) 
 

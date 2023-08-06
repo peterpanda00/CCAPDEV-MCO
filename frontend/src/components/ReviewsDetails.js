@@ -1,12 +1,19 @@
 import { useEffect, useState }from 'react'
+import Cookies from 'js-cookie';
 
 const ReviewDetails = ({ review,  onDelete  }) => {
 
 
-  const [userName, setUserName] = useState([]) 
-  const [responseContent, setComment] = useState([]) 
-  const [comments, setAllComments] = useState('')
+  const [responseName, setResponseName] = useState('') 
+  const [comment, setComment] = useState('') 
+  const [responseContent, setResponse] = useState([]) 
   const [error, setError] = useState(null )
+
+  const [userID, setUserID] = useState(Cookies.get('_id'));
+  const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
+  const rawUserID = Cookies.get('_id').slice(3, 27);
+  //var disableComment = true;
+
   
 
   const handleDelete = () => {
@@ -16,11 +23,20 @@ const ReviewDetails = ({ review,  onDelete  }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const comment = {responseContent}; 
+    console.log(responseName)
+    console.log(comment)
+    
+
+    const newComment = {
+      userName: responseName, 
+      comment: comment, 
+    };
+    console.log(newComment)
+    const commentsArray = [newComment];
 
     const response = await fetch(`/api/reviews/${review._id}/comments`,{
       method:'POST',
-      body:JSON.stringify( comment ),  
+      body:JSON.stringify({ responseContent: commentsArray }),  
       headers:{
         'Content-Type':'application/json'
       }
@@ -31,18 +47,41 @@ const ReviewDetails = ({ review,  onDelete  }) => {
     if(!response.ok){
 
       setError(json.error)
+      
 
     }
     if(response.ok){
       setComment('')
-      
-
       setError(null)
       console.log('Comment posted',json)
+      window.location.reload()
     }
     
   }
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      if (userID !== GUEST_USERID) {
+        try {
+          const response = await fetch(`/api/users/${rawUserID}`);
+          if (response.ok) {
+            const userData = await response.json();
+            setResponseName(userData.userName);
+
+          
+            //disableComment=false;
+            
+          } else {
+            console.log('Unable to fetch user data.'); 
+          }
+        } catch (error) {
+          console.log('An error occurred while fetching user data.'); 
+        }
+      }
+    };
+
+    fetchUser();
+  },[]);
 
 
   return (
@@ -78,11 +117,18 @@ const ReviewDetails = ({ review,  onDelete  }) => {
         </div>
       )}
 
-      <p>{review.createdAt}</p>
+      {/*
+          <p>{getTime(review.createdAt)}</p>
+          */}
+      
+
+      <p><strong>Comments</strong></p>
       
       <div>
-        {review.responseContent.map((comment) => (
-          <div className="post-container">{comment}</div>
+        {review.responseContent.map((comment,index) => (
+          <div key={index} className="post-container">
+            <p><strong>{comment.userName}</strong>: {comment.comment}</p>
+            </div>
         ))}
       </div>
 
@@ -92,9 +138,10 @@ const ReviewDetails = ({ review,  onDelete  }) => {
                     className="post-container"
                     placeholder="Write your comment here" 
                     defaultValue={""}
-                    onChange={(e) => setComment([e.target.value])} 
-                    value={responseContent}
+                    onChange={(e) => setComment(e.target.value)} 
+                    value={comment}
                     required
+                    //disabled={disableComment}
                 />
                 <button className="btn btn-pill btn-small btn-dark">Submit</button>
           </form>
