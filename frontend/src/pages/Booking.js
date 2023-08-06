@@ -3,9 +3,6 @@ import BookingForm from "../components/BookingForm";
 
 
 const Booking = () => {
-  useEffect(() => {
-    document.title = "Book Now - Park Avenue";
-  }, []);
     return(
 
 <div>

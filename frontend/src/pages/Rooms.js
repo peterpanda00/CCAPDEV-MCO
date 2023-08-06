@@ -1,9 +1,7 @@
 import Navbar from "../components/Navbar";
 
 const Rooms = () => {
-  useEffect(() => {
-    document.title = "Rooms - Park Avenue";
-  }, []);
+  
     return(
 
 <div>
