@@ -117,15 +117,28 @@ const ReviewDetails = ({ review,  onDelete  }) => {
     
   }
 
- 
-
 
   return (
-    <div id="post-container">
-
-    <button className="btn btn-pill btn-small btn-dark margin-small" onClick={handleDelete}>Delete Post</button>
-      <h4>
+    <div id="post-container" style={{ position: 'relative' }}>
+      <h4 style={{ display: 'flex', alignItems: 'center' }}>
         <strong>{review.userName}</strong>
+        <button
+          className="btn btn-pill btn-small btn-dark"
+          onClick={handleDelete}
+          style={{
+            position: 'absolute',
+            top: '10px',
+            right: '40px',
+            fontWeight: 'bold',
+            fontSize: '15px',
+            background: 'none', 
+            border: 'none',
+            color: 'gray',
+            cursor: 'pointer',
+          }}
+        >
+          Delete Post
+        </button>
       </h4>
       
       <p>{review.revContent}</p>
@@ -159,29 +172,65 @@ const ReviewDetails = ({ review,  onDelete  }) => {
       
 
       <p><strong>Comments</strong></p>
-      
+
       <div>
-        {review.responseContent.map((comment,index) => (
-          <div key={index} className="post-container">
-            <p><strong>{comment.userName}</strong>: {comment.comment} <button onClick={() => handleDeleteComment(review._id, comment._id)}>&times;</button></p>
-            
+        {review.responseContent.map((comment, index) => (
+          <div
+            key={index}
+            className="post-container"
+            style={{
+              border: '1px solid #ccc',
+              borderRadius: '5px',
+              padding: '10px',
+              marginBottom: '10px',
+              boxShadow: '0 0 5px rgba(0, 0, 0, 0.2)',
+              background: '#ECECEC', 
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            <p style={{ flex: 1 }}>
+              <strong>{comment.userName}</strong>: {comment.comment}
+            </p>
+            <button
+              onClick={() => handleDeleteComment(review._id, comment._id)}
+              style={{
+                fontWeight: 'bold',
+                textDecoration: 'underline',
+                border: 'none',
+                background: 'none',
+                cursor: 'pointer',
+                fontSize: 'small', 
+                color: 'gray'
+              }}
+            >
+              Delete
+            </button>
           </div>
         ))}
       </div>
 
       
       <form className="post-container commentForm" id="commentForm" onSubmit={handleSubmit}>
-              <textarea 
-                    className="post-container"
-                    placeholder="Write your comment here" 
-                    defaultValue={""}
-                    onChange={(e) => setComment(e.target.value)} 
-                    value={comment}
-                    required
-                    //disabled={disableComment}
-                />
-                <button className="btn btn-pill btn-small btn-dark">Submit</button>
-          </form>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <textarea
+            style={{
+              width: '100%',
+              height: '100px',
+              border: '1px solid #ccc',
+              padding: '5px',
+              resize: 'none',
+              marginBottom: '10px',
+            }}
+            placeholder="Write your comment here"
+            defaultValue={""}
+            onChange={(e) => setComment(e.target.value)}
+            value={comment}
+            required
+          />
+          <button className="btn btn-pill btn-small btn-dark" style={{ marginTop: '10px' }}>Submit</button>
+        </div>
+      </form>
     </div>
   );
 };
