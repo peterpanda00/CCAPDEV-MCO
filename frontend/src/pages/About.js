@@ -1,6 +1,9 @@
 import Navbar from "../components/Navbar";
 
 const About = () => {
+  useEffect(() => {
+    document.title = "About - Park Avenue";
+  }, []);
     return(
                 <div>
                   <div id="untree_co--overlayer" />

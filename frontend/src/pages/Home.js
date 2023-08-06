@@ -24,6 +24,7 @@ useEffect(() => {
       setUserID('64ccfc4bc4db8bceaaec9ecb')
       console.log(userID)
     }
+    document.title = "Home - Park Avenue";
 }, []);
 
 console.log('User Effect' + userID)
