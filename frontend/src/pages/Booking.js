@@ -160,9 +160,7 @@ const Booking = () => {
                 <li><a href="/rooms">Rooms</a></li>
                 <li><a href="/memories">Memories</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <li><a href="/booking">Book Now</a></li>
-                  <li className="active"><a href="booking.html">Book Now</a></li>
-                </ul>
+                <li><a href="/booking">Book Now</a></li>                </ul>
               </div>
               <div className="col-md-9 ml-auto">
                 <div className="row mb-3">
