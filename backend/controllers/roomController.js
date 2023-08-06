@@ -86,6 +86,38 @@ const updateRoom = async(req,res) =>{
 
 }
 
+const searchRooms = async (req, res) => {
+    const { checkIn, checkOut } = req.query;
+  
+    if (!checkIn || !checkOut) {
+      return res.status(400).json({ error: 'Check-in and check-out dates are required.' });
+    }
+  
+    try {
+      const checkInDate = new Date(checkIn);
+      const checkOutDate = new Date(checkOut);
+  
+      // Find rooms that have available dates within the selected date range
+      const availableRooms = await Room.find({
+        roomNumbers: {
+          $elemMatch: {
+            unavailableDates: {
+              $not: {
+                $elemMatch: {
+                  $gte: checkInDate,
+                  $lt: checkOutDate,
+                },
+              },
+            },
+          },
+        },
+      });
+  
+      res.status(200).json(availableRooms);
+    } catch (error) {
+      res.status(500).json({ error: 'Error fetching available rooms.' });
+    }
+  };
   
 
 
@@ -96,5 +128,6 @@ module.exports = {
     getRoom,
     createRoom,
     deleteRoom,
-    updateRoom
+    updateRoom,
+    searchRooms
 }
