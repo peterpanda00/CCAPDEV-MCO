@@ -6,7 +6,7 @@ import "../component-style.css";
 const DateAvailability = ({ onCheckAvailability  }) => {
     const [check_in_date, setCheckin] = useState(new Date());
     const [check_out_date, setCheckout] = useState(new Date());
-    const [num_of_guests, setNumofGuest] = useState('')
+    const [num_of_guests, setNumofGuest] = useState('1')
 
     const handleAvailabilityCheck = (e) => {
         e.preventDefault();
@@ -20,6 +20,8 @@ const DateAvailability = ({ onCheckAvailability  }) => {
        
         onCheckAvailability(availabilityData);
       };
+
+     
 
 
    

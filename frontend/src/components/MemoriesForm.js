@@ -7,7 +7,8 @@ const MemoriesForm = () => {
     const [userID, setUserID] = useState(Cookies.get('_id'));
     const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
     const rawUserID = Cookies.get('_id').slice(3, 27);
-    var registered = false;
+    var disablePost;
+    
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -59,6 +60,7 @@ const MemoriesForm = () => {
     }
 
     useEffect(() => {
+        disablePost=true;
         const fetchUser = async () => {
           if (userID !== GUEST_USERID) {
             try {
@@ -69,7 +71,7 @@ const MemoriesForm = () => {
                 setLastName(userData.lastName);
                 setName(`${userData.firstName} ${userData.lastName}`);
                 
-                registered=true;
+                disablePost=false;
                 
               } else {
                 console.log('Unable to fetch user data.'); 
@@ -143,7 +145,7 @@ const MemoriesForm = () => {
                     <input type="file" id="imageInput" onChange={handleImage}/>
                 </div>
                 
-                <button>Submit</button>
+                <button disabled={true}>Submit</button>
             </form>
             {error && <div className="text-black">{error}</div>}
         </div>

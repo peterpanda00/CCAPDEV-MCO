@@ -4,17 +4,39 @@ import Cookies from 'js-cookie';
 const ReviewDetails = ({ review,  onDelete  }) => {
 
 
-  const [responseName, setResponseName] = useState('') 
+  const [responseName, setResponseName] = useState('Anonymous') 
   const [comment, setComment] = useState('') 
+  const [comments, setComments] = useState('') 
   const [responseContent, setResponse] = useState([]) 
   const [error, setError] = useState(null )
 
   const [userID, setUserID] = useState(Cookies.get('_id'));
   const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
   const rawUserID = Cookies.get('_id').slice(3, 27);
-  //var disableComment = true;
-
   
+
+  const handleDeleteComment = async (reviewId, commentId) => {
+    try {
+      const response = await fetch(`/api/reviews/${reviewId}/comments/${commentId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        
+        console.log('Comment deleted successfully.');
+        window.location.reload()
+      } else {
+       
+        console.error('Failed to delete comment');
+      }
+    } catch (error) {
+      console.error('An error occurred while deleting the comment:', error);
+    }
+  };
+
 
   const handleDelete = () => {
     onDelete(review._id);
@@ -127,8 +149,9 @@ const ReviewDetails = ({ review,  onDelete  }) => {
       <div>
         {review.responseContent.map((comment,index) => (
           <div key={index} className="post-container">
-            <p><strong>{comment.userName}</strong>: {comment.comment}</p>
-            </div>
+            <p><strong>{comment.userName}</strong>: {comment.comment} <button onClick={() => handleDeleteComment(review._id, comment._id)}>&times;</button></p>
+            
+          </div>
         ))}
       </div>
 

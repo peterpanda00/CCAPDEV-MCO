@@ -42,7 +42,7 @@ const LoginForm = ({ onClose, onSignupClick }) => {
       {prompt && <div className="text-white">{prompt}</div>}
     </div>
       <div className="field">
-        <input type="text" placeholder="Email Address" required value={emailAddress} onChange={(e) => setEmail(e.target.value)} />
+        <input type="email" placeholder="Email Address" required value={emailAddress} onChange={(e) => setEmail(e.target.value)} />
       </div>
       <div className="field">
         <input type="password" placeholder="Password" required value={password} onChange={(e) => setPassword(e.target.value)} />

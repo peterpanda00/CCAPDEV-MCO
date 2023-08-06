@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import BookingForm from "../components/BookingForm";
-import CustomDatePicker from "../components/CustomDatePicker";
+
 
 const Booking = () => {
     return(

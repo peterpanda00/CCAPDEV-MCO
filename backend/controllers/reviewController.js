@@ -45,7 +45,7 @@ const createReview = async(req,res) => {
         res.status(200).json(review)
 
     }catch(error){
-        res.status(400).json({error:error.message})
+        res.status(400).json({ error: 'Review Posted Unsuccessfully. Fill up all fields.' })
 
     }
 }
@@ -99,7 +99,6 @@ const createComment = async (req, res) => {
     const { id } = req.params 
   
     const { responseContent } = req.body;
-    console.log('Received request body:', req.body);
     console.log(req.file);
   
     try {
@@ -122,6 +121,40 @@ const createComment = async (req, res) => {
     }
   };
 
+ 
+const deleteComment = async (req, res) => {
+  const { reviewId, commentId } = req.params;
+
+  console.log('Review ID:', reviewId);
+  console.log('Comment ID:', commentId);
+
+
+  try {
+    const review = await Review.findById(reviewId);
+
+    if (!review) {
+      return res.status(404).json({ error: 'Review not found.' });
+    }
+
+    const commentIndex = review.responseContent.findIndex((comment) => comment._id.toString() === commentId);
+
+    if (commentIndex === -1) {
+      return res.status(404).json({ error: 'Comment not found in the review.' });
+    }
+
+    review.responseContent.splice(commentIndex, 1);
+
+    await review.save();
+
+    res.status(200).json({ message: 'Comment deleted successfully.' });
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred while deleting the comment.' });
+  }
+};
+
+
+  
+
 
 module.exports = {
 
@@ -130,5 +163,6 @@ module.exports = {
     createReview,
     deleteReview,
     updateReview,
-    createComment
+    createComment,
+    deleteComment
 }

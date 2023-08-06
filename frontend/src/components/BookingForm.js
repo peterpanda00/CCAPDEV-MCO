@@ -3,7 +3,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import "../component-style.css"; 
 import RoomDetails from "../components/RoomDetails";
 import DateAvailability from "../components/DateAvailability";
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 import Modal from 'react-modal';
+
+import Cookies from 'js-cookie';
 
 
 
@@ -12,13 +16,22 @@ import React from 'react';
 
 
 const BookingForm = () => {
+
+  const [userID, setUserID] = useState(Cookies.get('_id'));
+  const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
+  const rawUserID = Cookies.get('_id').slice(3, 27);
+  var registered = false;
+
+
+
+
   const [check_in_date, setCheckin] = useState(new Date());
   const [check_out_date, setCheckout] = useState(new Date());
-  const [num_of_guests, setNumofGuest] = useState('')
+  const [num_of_guests, setNumofGuest] = useState('1')
   const [room, setRoom] = useState('')
   const [firstName, setFirst] = useState('')
   const [lastName, setLast] = useState('')
-  const [contactNumber, setNumber] = useState('')
+  const [contactNumber, setNumber] = useState()
   const [emailAddress, setEmail] = useState('')
   const [specialRequest, setSpecial] = useState('')
   const [paymentMethod, setPayment] = useState('')
@@ -33,6 +46,33 @@ const BookingForm = () => {
   const [error, setError] = useState(null )
 
   const [rooms, setRooms] = useState([]);
+
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      if (userID !== GUEST_USERID) {
+        try {
+          const response = await fetch(`/api/users/${rawUserID}`);
+          if (response.ok) {
+            const userData = await response.json();
+            setFirst(userData.firstName);
+            setLast(userData.lastName);
+            setEmail(userData.emailAddress);
+            setNumber(userData.contactNumber);
+            
+            registered=true;
+            
+          } else {
+            console.log('Unable to fetch user data.'); 
+          }
+        } catch (error) {
+          console.log('An error occurred while fetching user data.'); 
+        }
+      }
+    };
+
+    fetchUser();
+  },[]);
 
 
 
@@ -86,7 +126,8 @@ const BookingForm = () => {
       setSpecial('')
       setPayment('')
       setError(null)
-      console.log('Booking success',json)
+      console.log('Booking successful',json)
+      alert('Booking successful')
       window.location.reload(true);
       
     }
@@ -176,10 +217,25 @@ const BookingForm = () => {
               <h2>Fill out the details</h2>
               <p>Kindly complete all the necessary details.</p>
               <form action className="contact-form my-5">
+
+              {userID === GUEST_USERID ? (
+                <>
                 <input type="text" name="first name" placeholder="First Name" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" onChange={(e) => setFirst(e.target.value)}/>
-                <input type="text" name="last name" placeholder="Last name" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" onChange={(e) => setLast(e.target.value)}/>
-                <input type="tel" name="contact number" id="phone" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" onChange={(e) => setNumber(e.target.value)}/>
-                <input type="text" name="email" placeholder="Email Address" className="text-dark w-100 border-0 bg-transparent fs-4 mt-3 mb-4" onChange={(e) => setEmail(e.target.value)}/>
+                <input type="text" name="last name" placeholder="Last Name" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" onChange={(e) => setLast(e.target.value)}/>
+                <PhoneInput type="tel" international countryCallingCodeEditable={false} defaultCountry="PH" name="contact number" placeholder="Phone Number" id="phone" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" onChange={setNumber}/>
+                <input type="email" name="email" placeholder="Email Address" className="text-dark w-100 border-0 bg-transparent fs-4 mt-3 mb-4" onChange={(e) => setEmail(e.target.value)}/>
+                </>
+                ) : (
+                <>
+                    <h2>{firstName}</h2>
+                    <h2>{lastName}</h2>
+                    <h2>{contactNumber}</h2>
+                    <h2>{emailAddress}</h2>
+                </>
+                )}
+
+               
+                
                 <textarea name="request" placeholder="Special Request" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" defaultValue={""} onChange={(e) => setSpecial(e.target.value)}/>
                 <div className="form-group">
                   <label htmlFor="payment-method" className="h3">Payment Method</label>
@@ -250,7 +306,7 @@ const BookingForm = () => {
                 <p>Check-in Date: {formatDate(check_in_date)}</p>
                 <p>Check-out Date: {formatDate(check_out_date)}</p>
                 <p>Number of Guests: {num_of_guests}</p>
-                <p>Guest Name: {firstName}, {lastName}</p>
+                <p>Guest Name: {firstName} {lastName}</p>
                 <p>Contact Number: {contactNumber}</p>
                 <p>Email Address: {emailAddress}</p>
                 <p>Special Request: {specialRequest}</p>

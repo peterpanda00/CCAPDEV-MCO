@@ -55,7 +55,7 @@ const SignupForm = ({ onClose, onLoginClick }) => {
         <input type="userName" placeholder="User Name" required value={userName} onChange={(e) => setUserName(e.target.value)} />
       </div>
       <div className="field">
-        <input type="text" placeholder="Email Address" required value={emailAddress} onChange={(e) => setEmail(e.target.value)} />
+        <input type="email"  placeholder="Email Address" required value={emailAddress} onChange={(e) => setEmail(e.target.value)} />
       </div>
       <div className="field">
         <input type="text" placeholder="First Name" required value={firstName} onChange={(e) => setFirstName(e.target.value)} />
@@ -64,7 +64,7 @@ const SignupForm = ({ onClose, onLoginClick }) => {
         <input type="text" placeholder="Last Name" required value={lastName} onChange={(e) => setLastName(e.target.value)} />
       </div>
       <div className="field">
-        <input type="text" placeholder="Contact Number" required value={contactNumber} onChange={(e) => setContactNumber(e.target.value)} />
+        <input type="number" placeholder="Contact Number" required value={contactNumber} onChange={(e) => setContactNumber(e.target.value)} />
       </div>
       <div className="field">
         <input type="password" placeholder="Password" required value={password} onChange={(e) => setPassword(e.target.value)} />

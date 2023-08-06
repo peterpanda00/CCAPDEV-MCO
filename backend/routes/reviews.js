@@ -7,7 +7,8 @@ const {
     getReviews,
     deleteReview,
     updateReview,
-    createComment
+    createComment,
+    deleteComment
 
 } = require('../controllers/reviewController')
 
@@ -28,7 +29,10 @@ router.delete('/:id', deleteReview)
 // UPDATE a review
 router.patch('/:id', updateReview)
 
-// UPDATE a review
+// POST a comment
 router.post('/:id/comments', createComment)
+
+// DELETE a comment
+router.delete('/:reviewId/comments/:commentId', deleteComment);
 
 module.exports = router
