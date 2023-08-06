@@ -3,29 +3,14 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import "../component-style.css"; 
 
-const DateAvailability = ({ onCheckAvailability  }) => {
-    const [check_in_date, setCheckin] = useState(new Date());
-    const [check_out_date, setCheckout] = useState(new Date());
-    const [num_of_guests, setNumofGuest] = useState('1')
+const DateAvailability = ({ check_in_date, check_out_date, num_of_guests, setCheckin,setCheckout,setNumofGuest, onSearch}) => {
+  
 
-    const handleAvailabilityCheck = (e) => {
-        e.preventDefault();
-
-        const availabilityData = {
-          check_in_date,
-          check_out_date,
-          num_of_guests,
-        };
-        
-       
-        onCheckAvailability(availabilityData);
+      const handleSearchClick = () => {
+        onSearch();
       };
 
-     
-
-
-   
-
+  
   return (
 
 <section id="booking-wrap" className="padding-large">
@@ -70,10 +55,11 @@ const DateAvailability = ({ onCheckAvailability  }) => {
           </div>
         </div>
         <button
+          type="button"
           className="btn btn-arrow btn-pill btn-medium btn-dark position-relative"
           style={{ backgroundColor: '#605753', borderColor: '#605753' }}
           id="checkAvailabilityButton"
-          onClick={handleAvailabilityCheck}
+          onClick={handleSearchClick}
         >
           <span>Check availability</span>
         </button>

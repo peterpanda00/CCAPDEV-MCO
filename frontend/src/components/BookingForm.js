@@ -88,18 +88,39 @@ const BookingForm = () => {
 
 
   
-  useEffect(() => {
-    const fetchRooms= async () => {
-      const response = await fetch('/api/rooms/')
-      const json = await response.json()
+const handleSearch = async (e) => {
 
-      if(response.ok){
-        setRooms(json)
-      }
-    }
+  
+const formattedCheckInDate = check_in_date.toLocaleDateString('en-PH');
+const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
 
-    fetchRooms()
-  }, [])
+  console.log(check_in_date)
+  console.log(check_out_date)
+  console.log(num_of_guests)
+
+  console.log(formattedCheckInDate)
+  console.log(formattedCheckOutDate)
+
+
+ 
+  const response = await fetch(`/api/rooms/search?checkIn=${formattedCheckInDate}&checkOut=${formattedCheckOutDate}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      checkIn: check_in_date,
+      checkOut: check_out_date,
+    }),
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    setRooms(data);
+    setShowWrapper(true);
+    
+  }
+};
 
 
   const checkFormFilled = () => {
@@ -172,15 +193,7 @@ const BookingForm = () => {
     setShowGuestDetailsForm(true);
   };
 
-  const handleCheckAvailability = (availabilityData) => {
-    const { check_in_date, check_out_date, num_of_guests } = availabilityData;
 
-    setCheckin(check_in_date);
-    setCheckout(check_out_date);
-    setNumofGuest(num_of_guests);
-    console.log({check_in_date,check_out_date,num_of_guests})
-    setShowWrapper(true);
-  };
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -216,12 +229,18 @@ const BookingForm = () => {
 
 
     
-  <DateAvailability onCheckAvailability={handleCheckAvailability} />
+  <DateAvailability 
+  check_in_date={check_in_date}
+  check_out_date={check_out_date}
+  num_of_guests={num_of_guests} 
+  setCheckin={setCheckin}
+  setCheckout={setCheckout}
+  setNumofGuest={setNumofGuest}
+  onSearch={handleSearch} />
   
     {showWrapper && (
           <div className="wrapper">
-            {rooms &&
-              rooms.map((room) =>(
+            {rooms.map((room) => (
                 <RoomDetails
                   key={room._id}
                   room={room}

@@ -4,7 +4,8 @@ const {
     getRoom,
     deleteRoom,
     createRoom,
-    updateRoom
+    updateRoom,
+    searchRooms
 
 } = require('../controllers/roomController')
 
@@ -24,6 +25,9 @@ router.delete('/:id', deleteRoom)
 
 // UPDATE a room
 router.patch('/:id', updateRoom)
+
+// SEARCH a room
+router.post('/search', searchRooms);
 
 
 module.exports = router
