@@ -28,6 +28,8 @@ const BookingForm = () => {
   const [specialRequest, setSpecial] = useState('')
   const [paymentMethod, setPayment] = useState('')
 
+  const [isFormFilled, setIsFormFilled] = useState(false);
+
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState(null);
@@ -36,6 +38,7 @@ const BookingForm = () => {
   const [showWrapper, setShowWrapper] = useState(false);
 
   const [error, setError] = useState(null )
+  const [message, setMessage] = useState('')
 
   const [rooms, setRooms] = useState([]);
 
@@ -97,6 +100,22 @@ const BookingForm = () => {
 
     fetchRooms()
   }, [])
+
+
+  const checkFormFilled = () => {
+    if (
+      firstName !== '' &&
+      lastName !== '' &&
+      contactNumber !== '' &&
+      emailAddress !== '' &&
+      paymentMethod !== "Select a payment method"
+    ) {
+      setIsFormFilled(true);
+    } else {
+      setIsFormFilled(false);
+    }
+    console.log('isFormFilled:', isFormFilled); // Add this line
+  };
 
 
   const handleSubmit = async (e) => {
@@ -168,7 +187,12 @@ const BookingForm = () => {
   };
 
   const handleConfirmation =()=>{
-    setIsModalOpen(true);
+    if (isFormFilled) {
+      setIsModalOpen(true);
+    } else {
+      setError("Fill up all missing fields.")
+    }
+    
   }
 
   const formatDate = (date) => {
@@ -227,10 +251,54 @@ const BookingForm = () => {
 
               {userID === GUEST_USERID ? (
                 <>
-                <input type="text" name="first name" placeholder="First Name" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" onChange={(e) => setFirst(e.target.value)}/>
-                <input type="text" name="last name" placeholder="Last Name" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" onChange={(e) => setLast(e.target.value)}/>
-                <PhoneInput type="tel" international countryCallingCodeEditable={false} defaultCountry="PH" name="contact number" placeholder="Phone Number" id="phone" className="text-dark w-100 border-0 bg-transparent fs-4 mb-4" onChange={setNumber}/>
-                <input type="email" name="email" placeholder="Email Address" className="text-dark w-100 border-0 bg-transparent fs-4 mt-3 mb-4" onChange={(e) => setEmail(e.target.value)}/>
+                  <input
+                    type="text"
+                    name="first name"
+                    placeholder="First Name"
+                    className="text-dark w-100 border-0 bg-transparent fs-4 mb-4"
+                    onChange={(e) => {
+                      setFirst(e.target.value);
+                      checkFormFilled();
+                    }}
+                  />
+
+                  <input
+                    type="text"
+                    name="last name"
+                    placeholder="Last Name"
+                    className="text-dark w-100 border-0 bg-transparent fs-4 mb-4"
+                    onChange={(e) => {
+                      setLast(e.target.value);
+                      checkFormFilled();
+                    }}
+                  />
+
+                  <PhoneInput
+                    type="tel"
+                    international
+                    countryCallingCodeEditable={false}
+                    defaultCountry="PH"
+                    name="contact number"
+                    placeholder="Phone Number"
+                    id="phone"
+                    className="text-dark w-100 border-0 bg-transparent fs-4 mb-4"
+                    onChange={number => {
+                      setNumber(number);
+                      checkFormFilled();
+                    }}
+                  />
+
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    className="text-dark w-100 border-0 bg-transparent fs-4 mt-3 mb-4"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      checkFormFilled();
+                    }}
+                  />
+
                 </>
                 ) : (
                 <>
@@ -247,15 +315,24 @@ const BookingForm = () => {
                 <div className="form-group">
                   <label htmlFor="payment-method" className="h3">Payment Method</label>
                   <p className="subheading">*Over the counter payment</p>
-                  <select className="form-control" id="payment-method" onChange={(e) => setPayment(e.target.value)}>
-                    <option value>Select a payment method</option>
-                    <option value="Credit/Debit Card">Credit/Debit Card</option>
-                    <option value="GCash">GCash</option>
-                    <option value="Cash">Cash</option>
-                  </select>
+                  <select
+                      className="form-control"
+                      id="payment-method"
+                      onChange={(e) => {
+                        setPayment(e.target.value);
+                        checkFormFilled();
+                      }}
+                    >
+                      <option value>Select a payment method</option>
+                      <option value="Credit/Debit Card">Credit/Debit Card</option>
+                      <option value="GCash">GCash</option>
+                      <option value="Cash">Cash</option>
+                    </select>
+
                 </div>
+                <p>{message}</p>
               </form>
-              <button onClick={handleConfirmation} type="button" className="btn btn-arrow btn-pill btn-medium btn-dark position-relative" style={{backgroundColor: '#605753', borderColor: '#605753'}} id="guest-detail-btn" data-toggle="modal">
+              <button onClick={handleConfirmation} type="button" disabled={!isFormFilled || paymentMethod === 'Select a payment method'} className="btn btn-arrow btn-pill btn-medium btn-dark position-relative" style={{backgroundColor: '#605753', borderColor: '#605753'}} id="guest-detail-btn" data-toggle="modal">
                 <span>Book Now<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enableBackground="new 0 0 36.1 25.8" xmlSpace="preserve"><g>
                       <line fill="none" stroke="#FFFFFF" strokeWidth={3} strokeMiterlimit={10} x1={0} y1="12.9" x2={34} y2="12.9" />
                       <polyline fill="none" stroke="#FFFFFF" strokeWidth={3} strokeMiterlimit={10} points="22.2,1.1 34,12.9 22.2,24.7   ">                
@@ -273,8 +350,7 @@ const BookingForm = () => {
       </section> 
       )}
 
-
-      <Modal
+<Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         contentLabel="Booking Details"
