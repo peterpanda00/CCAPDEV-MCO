@@ -32,7 +32,7 @@ const ReviewDetails = ({ review,  onDelete  }) => {
     const fetchUser = async () => {
       if (userID !== GUEST_USERID) {
         try {
-          const response = await fetch(`/api/users/${userID}`);
+          const response = await fetch(`http://localhost:4000/api/users/${userID}`);
           if (response.ok) {
             const userData = await response.json();
             setResponseName(userData.userName);
@@ -53,7 +53,7 @@ const ReviewDetails = ({ review,  onDelete  }) => {
 
   const handleDeleteComment = async (reviewId, commentId) => {
     try {
-      const response = await fetch(`/api/reviews/${reviewId}/comments/${commentId}`, {
+      const response = await fetch(`http://localhost:4000/api/reviews/${reviewId}/comments/${commentId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ const ReviewDetails = ({ review,  onDelete  }) => {
     console.log(newComment)
     const commentsArray = [newComment];
 
-    const response = await fetch(`/api/reviews/${review._id}/comments`,{
+    const response = await fetch(`http://localhost:4000/api/reviews/${review._id}/comments`,{
       method:'POST',
       body:JSON.stringify({ responseContent: commentsArray }),  
       headers:{

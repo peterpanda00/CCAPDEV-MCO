@@ -38,7 +38,7 @@ const Navbar = (props) => {
     const fetchUser = async () => {
       if (userID !== GUEST_USERID) {
         try {
-          const response = await fetch(`/api/users/${userID}`);
+          const response = await fetch(`http://localhost:4000/api/users/${userID}`);
           if (response.ok) {
             const userData = await response.json();
             setUser(userData);
@@ -58,6 +58,21 @@ const Navbar = (props) => {
 
     fetchUser();
 }, []);
+
+
+   useEffect(() => {
+    const handleTabClose = (event) => {
+
+      handleLogout();
+    };
+
+    window.addEventListener('beforeunload', handleTabClose);
+
+
+    return () => {
+      window.removeEventListener('beforeunload', handleTabClose);
+    };
+  }, []);
 
   
 

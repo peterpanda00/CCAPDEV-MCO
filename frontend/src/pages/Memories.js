@@ -8,7 +8,7 @@ const Memories = () => {
   
   useEffect(() => {
     const fetchReviews = async () => {
-      const response = await fetch('/api/reviews/')
+      const response = await fetch('http://localhost:4000/api/reviews/')
       const json = await response.json()
 
       if(response.ok){
@@ -23,7 +23,7 @@ const Memories = () => {
   const handleDeletePost = async (postId) => {
     try {
       
-      const response = await fetch(`/api/reviews/${postId}`, {
+      const response = await fetch(`http://localhost:4000/api/reviews/${postId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

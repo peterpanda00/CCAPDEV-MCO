@@ -38,7 +38,7 @@ const MemoriesForm = () => {
     const fetchUser = async () => {
       if (userID !== GUEST_USERID) {
         try {
-          const response = await fetch(`/api/users/${userID}`);
+          const response = await fetch(`http://localhost:4000/api/users/${userID}`);
           if (response.ok) {
             const userData = await response.json();
             setFirstName(userData.firstName);
@@ -65,7 +65,7 @@ const MemoriesForm = () => {
         
         const review = {userName, datePosted:formattedDate, revContent, reviewImg:imageUrl}
 
-        const response = await fetch('/api/reviews/', {
+        const response = await fetch('http://localhost:4000/api/reviews/', {
             method: 'POST',
             body:JSON.stringify(review),  
             headers:{
@@ -102,7 +102,7 @@ const MemoriesForm = () => {
         const file = event.target.files[0];
     
         
-        const { url } = await fetch("/s3Url").then((res) => res.json());
+        const { url } = await fetch("http://localhost:4000/s3Url").then((res) => res.json());
         console.log(url);
     
      
@@ -122,6 +122,7 @@ const MemoriesForm = () => {
     
        
       };
+
     return (
         <div className="post-form">
         
@@ -152,10 +153,10 @@ const MemoriesForm = () => {
                     required
                 />
                 <div>
-                    <input type="file" id="imageInput" onChange={handleImage}/>
+                    <input type="file" id="imageInput" onChange={handleImage} onclick={handleImage}/>
                 </div>
                 
-                <button>Submit</button>
+                <button onclick={handleImage}>Submit</button>
             </form>
             {error && <div className="text-black">{error}</div>}
         </div>
