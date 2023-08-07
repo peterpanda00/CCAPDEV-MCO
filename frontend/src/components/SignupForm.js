@@ -21,7 +21,8 @@ const SignupForm = ({ onClose, onLoginClick }) => {
       body:JSON.stringify(formData),  
       headers:{
         'Content-Type':'application/json'
-      }
+      },
+      credentials: 'include'
     })
   const json = await response.json( )
 

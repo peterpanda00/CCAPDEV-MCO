@@ -60,20 +60,6 @@ const Navbar = (props) => {
 }, []);
 
 
-   useEffect(() => {
-    const handleTabClose = (event) => {
-
-      handleLogout();
-    };
-
-    window.addEventListener('beforeunload', handleTabClose);
-
-
-    return () => {
-      window.removeEventListener('beforeunload', handleTabClose);
-    };
-  }, []);
-
   
 
 
