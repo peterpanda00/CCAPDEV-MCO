@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import LoginSignUpForm from "./LoginSignup";
 
-import jwt from 'jsonwebtoken';
+
 
 const Navbar = (props) => {
   const [showPopup, setShowPopup] = useState(false);
@@ -21,22 +21,66 @@ const Navbar = (props) => {
 
 
   
-
+  {/*
     useEffect(() => {
 
-       const token = sessionStorage.getItem('token');
+      const token = sessionStorage.getItem('token');
 
-       const decodedUserId = decodeToken(token);
+      const decodedUserId = decodeToken(token);
 
 
-      if(decodedUserId  !== '64ccfc4bc4db8bceaaec9ecb' && decodedUserId  !== undefined){
-        var userID = decodedUserId 
-        setUserID(userID)
+     if(decodedUserId  !== '64ccfc4bc4db8bceaaec9ecb' && decodedUserId  !== undefined){
+       var userID = decodedUserId 
+       setUserID(userID)
+       
+     }
+     else if (decodedUserId !== undefined){
+       var userID = (decodedUserId)
+       setUserID(decodedUserId)
+     }
+     else{
+       var userID = '64ccfc4bc4db8bceaaec9ecb'
+       setUserID('64ccfc4bc4db8bceaaec9ecb')
+      
+     }
+ 
+     const fetchUser = async () => {
+       if (userID !== GUEST_USERID) {
+         try {
+           const response = await fetch(`https://park-avenue-guesthouse-2443.onrender.com/api/users/${userID}`);
+           if (response.ok) {
+             const userData = await response.json();
+             setUser(userData);
+             setUserName(userData.userName);
+             setFirstName(userData.firstName);
+             setLastName(userData.lastName);
+             setEmailAddress(userData.emailAddress);
+             
+           } else {
+             console.log('Unable to fetch user data.'); 
+           }
+         } catch (error) {
+           console.log('An error occurred while fetching user data.'); 
+         }
+       }
+     };
+ 
+     fetchUser();
+ }, []);
+
+
+
+*/}
+    useEffect(() => {
+
+       if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
+        var userID = (Cookies.get('_id').slice(3,27))
+        setUserID((Cookies.get('_id').slice(3,27)))
         
       }
-      else if (decodedUserId !== undefined){
-        var userID = (decodedUserId)
-        setUserID(decodedUserId)
+      else if (Cookies.get('_id') !== undefined){
+        var userID = (Cookies.get('_id'))
+        setUserID((Cookies.get('_id')))
       }
       else{
         var userID = '64ccfc4bc4db8bceaaec9ecb'
@@ -67,6 +111,9 @@ const Navbar = (props) => {
   
       fetchUser();
   }, []);
+
+
+
 
 
 const decodeToken = () => {
