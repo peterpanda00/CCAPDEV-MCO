@@ -48,6 +48,35 @@ const BookingForm = () => {
   const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
   const [userID, setUserID] = useState(''); 
 
+  const [areDatesValid, setAreDatesValid] = useState(false);
+
+  const [dateErrorMessage, setDateErrorMessage] = useState('');
+
+
+  const calculateDateDifference = () => {
+    const checkInDateWithoutTime = new Date(check_in_date, check_in_date, check_in_date);
+    const checkOutDateWithoutTime = new Date(check_out_date, check_out_date, check_out_date);
+  
+    const oneDayInMillis = 24 * 60 * 60 * 1000;
+    const differenceInMillis = checkOutDateWithoutTime - checkInDateWithoutTime;
+  
+    if (differenceInMillis < oneDayInMillis) {
+      setAreDatesValid(false);
+      setDateErrorMessage('Check-out date should be at least 1 day after the check-in date.');
+    } else {
+      setAreDatesValid(true);
+      setDateErrorMessage('');
+    }
+  };
+  
+  
+
+  
+  useEffect(() => {
+    calculateDateDifference();
+  }, [check_in_date, check_out_date]);
+  
+
   useEffect(() => {
     if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
       var userID = (Cookies.get('_id').slice(3,27))
@@ -207,14 +236,14 @@ const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
     setIsModalOpen(false);
   };
 
-  const handleConfirmation =()=>{
-    if (isFormFilled) {
+  const handleConfirmation = () => {
+    if (isFormFilled && areDatesValid) {
       setIsModalOpen(true);
     } else {
-      setError("Fill up all missing fields.")
+      setError("Fill up all missing fields or ensure that the dates are at least 1 day apart.");
     }
-    
-  }
+  };
+  
 
   const formatDate = (date) => {
     if (date instanceof Date) {
@@ -370,8 +399,9 @@ const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
 
                 </div>
                 <p>{message}</p>
+
               </form>
-              <button onClick={handleConfirmation} type="button" disabled={!isFormFilled || paymentMethod === 'Select a payment method'} className="btn btn-arrow btn-pill btn-medium btn-dark position-relative" style={{backgroundColor: '#605753', borderColor: '#605753'}} id="guest-detail-btn" data-toggle="modal">
+              <button onClick={handleConfirmation} type="button" disabled={!isFormFilled || paymentMethod === 'Select a payment method' || !areDatesValid} className="btn btn-arrow btn-pill btn-medium btn-dark position-relative" style={{backgroundColor: '#605753', borderColor: '#605753'}} id="guest-detail-btn" data-toggle="modal">
                 <span>Book Now<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36.1 25.8" enableBackground="new 0 0 36.1 25.8" xmlSpace="preserve"><g>
                       <line fill="none" stroke="#FFFFFF" strokeWidth={3} strokeMiterlimit={10} x1={0} y1="12.9" x2={34} y2="12.9" />
                       <polyline fill="none" stroke="#FFFFFF" strokeWidth={3} strokeMiterlimit={10} points="22.2,1.1 34,12.9 22.2,24.7   ">                
