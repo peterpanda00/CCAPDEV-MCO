@@ -24,7 +24,7 @@ app.use(express.json())
 
 // cors 
 app.use(cors({
-  origin:'https://park-avenue.vercel.app/',
+  origin:'https://park-avenue.vercel.app',
   credentials: true
 }));
 
