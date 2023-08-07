@@ -8,7 +8,7 @@ const Memories = () => {
   
   useEffect(() => {
     const fetchReviews = async () => {
-      const response = await fetch('http://localhost:4000/api/reviews/')
+      const response = await fetch('https://park-avenue-guesthouse-2443.onrender.com/api/reviews/')
       const json = await response.json()
 
       if(response.ok){
@@ -23,7 +23,7 @@ const Memories = () => {
   const handleDeletePost = async (postId) => {
     try {
       
-      const response = await fetch(`http://localhost:4000/api/reviews/${postId}`, {
+      const response = await fetch(`https://park-avenue-guesthouse-2443.onrender.com/api/reviews/${postId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

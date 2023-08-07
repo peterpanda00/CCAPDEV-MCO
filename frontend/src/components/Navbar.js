@@ -35,7 +35,7 @@ const Navbar = (props) => {
     const fetchUser = async () => {
       if (userID !== GUEST_USERID) {
         try {
-          const response = await fetch(`http://localhost:4000/api/users/${userID}`);
+          const response = await fetch(`https://park-avenue-guesthouse-2443.onrender.com/api/users/${userID}`);
           if (response.ok) {
             const userData = await response.json();
             setUser(userData);

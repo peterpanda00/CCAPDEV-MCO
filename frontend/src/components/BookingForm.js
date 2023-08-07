@@ -96,7 +96,7 @@ const BookingForm = () => {
     const fetchUser = async () => {
       if (userID !== GUEST_USERID) {
         try {
-          const response = await fetch(`http://localhost:4000/api/users/${userID}`);
+          const response = await fetch(`https://park-avenue-guesthouse-2443.onrender.com/api/users/${userID}`);
           if (response.ok) {
             const userData = await response.json();
             setFirst(userData.firstName);
@@ -127,7 +127,7 @@ const formattedCheckInDate = check_in_date.toLocaleDateString('en-PH');
 const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
 
  
-  const response = await fetch(`http://localhost:4000/api/rooms/search?checkIn=${formattedCheckInDate}&checkOut=${formattedCheckOutDate}`, {
+  const response = await fetch(`https://park-avenue-guesthouse-2443.onrender.com/api/rooms/search?checkIn=${formattedCheckInDate}&checkOut=${formattedCheckOutDate}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -179,7 +179,7 @@ const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
     const booking = {check_in_date,check_out_date,room,num_of_guests,firstName,
       lastName,contactNumber,emailAddress,specialRequest,paymentMethod}
 
-    const response = await fetch('http://localhost:4000/api/bookings',{
+    const response = await fetch('https://park-avenue-guesthouse-2443.onrender.com/api/bookings',{
       method:'POST',
       body:JSON.stringify(booking),  
       headers:{

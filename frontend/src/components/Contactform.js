@@ -14,7 +14,7 @@ const ContactForm = () => {
 
     const contact = {name,emailAddress,subject,message}
 
-    const response = await fetch('http://localhost:4000/api/contacts',{
+    const response = await fetch('https://park-avenue-guesthouse-2443.onrender.com/api/contacts',{
       method:'POST',
       body:JSON.stringify(contact),  
       headers:{

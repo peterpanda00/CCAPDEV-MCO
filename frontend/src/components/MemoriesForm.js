@@ -41,7 +41,7 @@ const MemoriesForm = () => {
     const fetchUser = async () => {
       if (userID !== GUEST_USERID) {
         try {
-          const response = await fetch(`http://localhost:4000/api/users/${userID}`);
+          const response = await fetch(`https://park-avenue-guesthouse-2443.onrender.com/api/users/${userID}`);
           if (response.ok) {
             const userData = await response.json();
             setFirstName(userData.firstName);
@@ -68,7 +68,7 @@ const MemoriesForm = () => {
         
         const review = {userName, datePosted:formattedDate, revContent, reviewImg:imageUrl}
 
-        const response = await fetch('http://localhost:4000/api/reviews/', {
+        const response = await fetch('https://park-avenue-guesthouse-2443.onrender.com/api/reviews/', {
             method: 'POST',
             body:JSON.stringify(review),  
             headers:{
@@ -107,7 +107,7 @@ const MemoriesForm = () => {
       if (file) {
           setImageLoading(true); 
 
-          const { url } = await fetch("http://localhost:4000/s3Url").then((res) => res.json());
+          const { url } = await fetch("https://park-avenue-guesthouse-2443.onrender.com/s3Url").then((res) => res.json());
 
           await fetch(url, {
               method: "PUT",

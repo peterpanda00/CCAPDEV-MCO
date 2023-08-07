@@ -16,7 +16,7 @@ const SignupForm = ({ onClose, onLoginClick }) => {
     event.preventDefault();
     // Perform signup logic here
     const formData = { userName, emailAddress, password, firstName, lastName, contactNumber};
-    const response = await fetch('http://localhost:4000/api/signup',{
+    const response = await fetch('https://park-avenue-guesthouse-2443.onrender.com/api/signup',{
       method:'POST',
       body:JSON.stringify(formData),  
       headers:{
