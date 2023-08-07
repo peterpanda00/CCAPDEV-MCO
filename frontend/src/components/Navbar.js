@@ -121,6 +121,8 @@ useEffect(() => {
 
   const userId = sessionStorage.getItem('userId');
 
+  console.log(sessionStorage.getItem('userId'))
+
   if(userId !== '64ccfc4bc4db8bceaaec9ecb' && userId !== undefined){
    setUserID(userId)
    
@@ -199,7 +201,7 @@ const decodeToken = () => {
   };
 
   const handleLogout = () => {
-    Cookies.set('_id', GUEST_USERID);
+    sessionStorage.removeItem('userId');
     navigate('/');
     alert('Log Out Successful')
     window.location.reload();
