@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import LoginSignUpForm from "./LoginSignup";
 
+import jwt from 'jsonwebtoken';
+
 const Navbar = (props) => {
   const [showPopup, setShowPopup] = useState(false);
   const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
