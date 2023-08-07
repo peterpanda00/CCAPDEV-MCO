@@ -128,11 +128,11 @@ useEffect(() => {
    
  }
  else if (userId !== undefined){
-   var userID = (userId)
+ 
    setUserID(userId)
  }
  else{
-   var userID = '64ccfc4bc4db8bceaaec9ecb'
+
    setUserID('64ccfc4bc4db8bceaaec9ecb')
   
  }
