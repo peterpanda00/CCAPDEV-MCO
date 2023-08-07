@@ -8,7 +8,7 @@ import LoginSignUpForm from "./LoginSignup";
 const Navbar = (props) => {
   const [showPopup, setShowPopup] = useState(false);
   const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
-  const [userID, setUserID] = useState('');
+  const [userID, setUserID] = useState('64ccfc4bc4db8bceaaec9ecb');
   const [user, setUser] = useState(null)
   const [userName, setUserName] = useState('')
   const [firstName, setFirstName] = useState('')
