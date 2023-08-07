@@ -30,7 +30,7 @@ const loginController = async (req, res) => {
 
     // If login is successful, create a JWT token and send it back in the response
     res.cookie('_id', user._id, { domain: '.park-avenue.vercel.app' });
-    const token = jwt.sign({ userId: user._id }, null);
+    const token = jwt.sign({ userId: user._id }, 'ccapdev'); 
     res.json({ message: 'Login successful', token, user: { emailAddress } });
     
 
