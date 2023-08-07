@@ -253,7 +253,7 @@ const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
   return (
 
   
-<div class="container">
+<div className="container">
 
 
     

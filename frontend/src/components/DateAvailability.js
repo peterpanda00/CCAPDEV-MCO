@@ -21,7 +21,7 @@ const DateAvailability = ({ check_in_date, check_out_date, num_of_guests, setChe
       </div>
     </div>
     <div className="row">
-      <form action className="booking-form d-flex flex-wrap align-items-center">
+      <form className="booking-form d-flex flex-wrap align-items-center">
         <div className="booking-content d-flex flex-wrap col-lg-8">
           <div className="booking-item">
             <label htmlFor="date-in" className="text-uppercase d-block">Arrival</label>
