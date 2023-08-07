@@ -8,7 +8,7 @@ import LoginSignUpForm from "./LoginSignup";
 const Navbar = (props) => {
   const [showPopup, setShowPopup] = useState(false);
   const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
-  const [userID, setUserID] = useState('64ccfc4bc4db8bceaaec9ecb');
+  const [userID, setUserID] = useState('');
   const [user, setUser] = useState(null)
   const [userName, setUserName] = useState('')
   const [firstName, setFirstName] = useState('')
@@ -21,58 +21,8 @@ const Navbar = (props) => {
 
 
   
-  {/*
-    useEffect(() => {
-
-      const token = sessionStorage.getItem('token');
-
-      const decodedUserId = decodeToken(token);
 
 
-     if(decodedUserId  !== '64ccfc4bc4db8bceaaec9ecb' && decodedUserId  !== undefined){
-       var userID = decodedUserId 
-       setUserID(userID)
-       
-     }
-     else if (decodedUserId !== undefined){
-       var userID = (decodedUserId)
-       setUserID(decodedUserId)
-     }
-     else{
-       var userID = '64ccfc4bc4db8bceaaec9ecb'
-       setUserID('64ccfc4bc4db8bceaaec9ecb')
-      
-     }
- 
-     const fetchUser = async () => {
-       if (userID !== GUEST_USERID) {
-         try {
-           const response = await fetch(`https://park-avenue-guesthouse-2443.onrender.com/api/users/${userID}`);
-           if (response.ok) {
-             const userData = await response.json();
-             setUser(userData);
-             setUserName(userData.userName);
-             setFirstName(userData.firstName);
-             setLastName(userData.lastName);
-             setEmailAddress(userData.emailAddress);
-             
-           } else {
-             console.log('Unable to fetch user data.'); 
-           }
-         } catch (error) {
-           console.log('An error occurred while fetching user data.'); 
-         }
-       }
-     };
- 
-     fetchUser();
- }, []);
-
-
-
-*/}
-
-{/*
 
   useEffect(() => {
 
@@ -115,93 +65,12 @@ const Navbar = (props) => {
    fetchUser();
 }, []);
 
-*/}
-
-useEffect(() => {
-
-  const userId = sessionStorage.getItem('userId');
-
-  console.log(sessionStorage.getItem('userId'))
-
-  if(userId !== '64ccfc4bc4db8bceaaec9ecb' && userId !== undefined){
-   setUserID(userId)
-   
- }
- else if (userId !== undefined){
- 
-   setUserID(userId)
- }
- else{
-
-   setUserID('64ccfc4bc4db8bceaaec9ecb')
-  
- }
-
- const fetchUser = async () => {
-   if (userID !== GUEST_USERID) {
-     try {
-       const response = await fetch(`https://park-avenue-guesthouse-2443.onrender.com/api/users/${userID}`);
-       if (response.ok) {
-         const userData = await response.json();
-         setUser(userData);
-         setUserName(userData.userName);
-         setFirstName(userData.firstName);
-         setLastName(userData.lastName);
-         setEmailAddress(userData.emailAddress);
-         
-       } else {
-         console.log('Unable to fetch user data.'); 
-       }
-     } catch (error) {
-       console.log('An error occurred while fetching user data.'); 
-     }
-   }
- };
-
- fetchUser();
-}, []);
-    
-
-
-
-
- {/*
-const decodeToken = () => {
-
-
-  try {
-
-    const decodedToken = jwt.verify(token, 'ccapdev');
-
-   
-    if (decodedToken) {
-
-      const userId = decodedToken.userId;
-      console.log('Decoded user ID:', userId);
-      return userId; 
-    } else {
-      console.log('Invalid or expired token.');
-      return null;
-    }
-  } catch (error) {
-    console.error('Error decoding token:', error.message);
-    return null;
-  }
-};
-
-*/}
-
-
-
- 
-
-
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem('userId');
+    Cookies.set('_id', GUEST_USERID);
     navigate('/');
     alert('Log Out Successful')
     window.location.reload();
