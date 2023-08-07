@@ -6,6 +6,7 @@ import Booking from './pages/Booking';
 import Memories from './pages/Memories';
 import Rooms from './pages/Rooms';
 import Contact from './pages/Contact';
+import MeetTheTeam from './pages/MeetTheTeam';
 import Navbar from './components/Navbar';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/memories" element={<Memories />} />
           <Route path="/rooms" element={<Rooms />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/meettheteam" element={<MeetTheTeam />} />
         </Routes>
       </div>
     </div>

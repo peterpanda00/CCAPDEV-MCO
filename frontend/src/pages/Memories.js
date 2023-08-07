@@ -118,6 +118,7 @@ const Memories = () => {
                     <li><a href="/memories">Memories</a></li>
                     <li><a href="/contact">Contact</a></li>
                     <li><a href="/booking">Book Now</a></li>
+                    <li><a href="/meettheteam">Meet The Team</a></li>
                     </ul>
                   </div>
                   <div className="col-md-9 ml-auto">
@@ -133,14 +134,7 @@ const Memories = () => {
                         </p>
                       </div>
                     </div>
-                    <h3 className="mb-0">Join our newsletter</h3>
-                    <p>Be the first to know our latest updates and news!</p>
-                    <form action="#" method className="form-subscribe">
-                      <div className="form-group d-flex">
-                        <input type="email" className="form-control mr-2" placeholder="Enter your email" />
-                        <input type="submit" defaultValue="Subscribe" className="btn btn-black px-4 text-white" />
-                      </div>
-                    </form>
+                   
                   </div>
                 </div>
               </div>

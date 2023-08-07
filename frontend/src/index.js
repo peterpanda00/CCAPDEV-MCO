@@ -8,6 +8,7 @@ import Rooms from './pages/Rooms';
 import Memories from './pages/Memories';
 import Booking from './pages/Booking';
 import Contact from './pages/Contact';
+import MeetTheTeam from './pages/MeetTheTeam';
 
 import {
   createBrowserRouter,
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path:"contact",
     element:<Contact/>
+  },
+  {
+    path:"meettheteam",
+    element:<MeetTheTeam/>
   }
 
 

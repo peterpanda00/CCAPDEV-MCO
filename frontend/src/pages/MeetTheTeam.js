@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import Navbar from "../components/Navbar";
 
 
-const About = () => {
+const MeetTheTeam = () => {
   useEffect(() => {
-    document.title = 'Our Story - Park Avenue';
+    document.title = 'Meet the Team - Park Avenue';
   }, []);
 
     return(
@@ -37,10 +37,8 @@ const About = () => {
                           <div className="row align-items-center">
                             <div className="col-md-9">
                               <div className="site-hero-contents" data-aos="fade-up">
-                                <h6 className="hero-heading text-white" style={{fontWeight: 'lighter'}}>Our Story</h6>
-                                <div className="sub-text w-75">
-                                  <p>It's nice to be back in the neighborhood!</p>
-                                </div>
+                                <h6 className="hero-heading text-white" style={{fontWeight: 'lighter'}}>Meet The Team!</h6>
+                        
                               </div>
                             </div>
                           </div>
@@ -50,7 +48,7 @@ const About = () => {
                         <div className="container-fluid px-md-0">
                           <div className="row justify-content-center text-center pt-0 pb-5">  
                             <div className="col-lg-6 section-heading" data-aos="fade-up">
-                              <h3 className="text-center">Our Story</h3>
+                              <h3 className="text-center">Meet The Team</h3>
                             </div>
                           </div>
                           {/* Background */}
@@ -62,81 +60,145 @@ const About = () => {
                               <div className="col-md-5">
                                 <div className="row justify-content-center">
                                   <div className="col-md-8 py-5">
-                                    <h3 className="display-4 heading">Our Background</h3>
+                                    <h3 className="display-4 heading">About us</h3>
                                     <div className="room-exerpt" data-aos="fade-up">
-                                      <p>Nestled in a serene compound near Libertad, Pasay, Park Avenue Guesthouse 2443 showcases a rich history traced back to its 1920s origins. Since its opening in February 2017, it has garnered attention from both local and foreign nationals seeking a cozy and distinctive place to stay for a night or an extended period.</p>                  
-                                      <p>With its unique offerings and warm hospitality, Park Avenue Guesthouse 2443 has become particularly popular among foreign guests, solidifying its status as the only known guesthouse in the area. Its welcoming atmosphere, attention to detail in renovations, and convenient location make it an inviting choice for visitors looking for a peaceful and comfortable stay.</p>  
+                                      <br></br>
+                                      <p> 
+
+                                          Welcome to the web development team of Park Avenue Guesthouse 2443! We are a dynamic and talented group of 
+                                          individuals passionate 
+                                          about crafting exceptional web applications 
+                                          that will elevate the guest experience and showcase the true essence of 
+                                          Park Avenue Guesthouse 2443.
+                                        
+                                        </p>                  
+                                      
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          {/* History */}
-                          <div className="container-fluid px-md-0">
-                            <div className="row no-gutters align-items-stretch room-animate site-section">
-                              <div className="col-md-7 img-wrap" data-jarallax-element={-100}>
-                                <div className="bg-image h-100" style={{backgroundColor: '#efefef', backgroundImage: 'url("images/parkavehistory.jpg")'}} />
-                              </div>
-                              <div className="col-md-5">
-                                <div className="row justify-content-center">
-                                  <div className="col-md-8 py-5">
-                                    <h3 className="display-4 heading">Our History</h3>
-                                    <div className="room-exerpt" data-aos="fade-up">
-                                      <p>Park Avenue Guesthouse 2443, formerly known as the Trinidad household, has a rich history dating back to its original construction in the 1920s. Built by Mr. Wenceslao Trinidad, a prominent Filipino Bureau of Internal Revenue collector, the house was relocated to Pasay City after World War II. Today, it stands as a cherished historical landmark within the compound, representing one of the oldest residences in Manila.</p>                  
-                                      <p>Under new ownership in 2015, the Trinidad house underwent a meticulous restoration to recapture its authentic charm. Now operating as Park Avenue Guesthouse 2443, it offers a serene haven with a peaceful neighborhood atmosphere. Its convenient location, only 6.6 kilometers from the airport and nestled in bustling Manila, makes it an ideal base for exploring the captivating attractions in the surrounding area.</p>
-                                    </div>
-                                  </div>
-                                </div>
+                          
+                          <div className="untree_co--site-section">
+                        <div className="container">
+                          <div className="container pt-0 pb-5">
+                            <div className="row justify-content-center text-center">  
+                              <div className="col-lg-4 section-heading" data-aos="fade-up">
+                                <h3 className="text-center">References</h3>
                               </div>
                             </div>
                           </div>
-                          {/* Vision */}
-                          <div className="container-fluid px-md-0">
-                            <div className="row no-gutters align-items-stretch room-animate site-section">
-                              <div className="col-md-7 order-md-2 img-wrap" data-jarallax-element={-100}>
-                                <div className="bg-image h-100" style={{backgroundColor: '#efefef', backgroundImage: 'url("images/parkaveview.jpg")'}} />
-                              </div>
-                              <div className="col-md-5">
-                                <div className="row justify-content-center">
-                                  <div className="col-md-8 py-5">
-                                    <h3 className="display-4 heading">Our Vision</h3>
-                                    <div className="room-exerpt" data-aos="fade-up">
-                                      <p> We are driven by a clear vision - to be the premier destination for travelers seeking an authentic Philippine experience. We strive to preserve the historical relics and rich cultural heritage that define the country, while providing exceptional hospitality and personalized service. With genuine warmth, our goal is to showcase the captivating beauty and diverse wonders of our country through our unique accommodations and locally-inspired offerings.</p>
-                                      <p>In our pursuit of excellence, we are committed to leading the way in sustainable tourism, making a positive impact on the environment and the communities we are privileged to serve. We extend a heartfelt invitation to join us on this remarkable journey.</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          {/* CSR */}
-                          <div className="container-fluid px-md-0">
-                            <div className="row no-gutters align-items-stretch room-animate site-section">
-                              <div className="col-md-7 img-wrap" data-jarallax-element={-100}>
-                                <div className="bg-image h-100" style={{backgroundColor: '#efefef', backgroundImage: 'url("images/parkavetree.jpg")'}} />
-                              </div>
-                              <div className="col-md-5">
-                                <div className="row justify-content-center">
-                                  <div className="col-md-8 py-5">
-                                    <h3 className="display-4 heading">Our CSR Initiatives</h3>
-                                    <div className="room-exerpt" data-aos="fade-up">
-                                      <p>At our guesthouse, we are deeply committed to creating a positive impact on society and the environment through our Corporate Social Responsibility (CSR) program. We prioritize sustainability by implementing eco-friendly practices, such as waste reduction, energy and water conservation, and responsible sourcing. Preserving the history, relics, and culture of our community is of utmost importance to us.</p>                  
-                                      <p>In addition to our environmental efforts, we actively support local initiatives focused on education, health, and social welfare. By giving back to our community, we strive to make a lasting and positive impact on the lives of those in need. Our comprehensive CSR program reflects our unwavering dedication to preserving the environment, supporting the community, and ensuring a sustainable future for generations to come.</p>
-                                    </div>
-                                  </div>
-                                </div>
+                          <div className="row custom-row-02192 align-items-stretch">
+                            <div className="col-md-4 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay={100}>
+                              <div className="media-29191 text-center h-100">
+                                
+                                <h3>Main Architecture</h3>
+                                <h6>MongoDB</h6>
+                                <p><a href="https://www.mongodb.com">https://www.mongodb.com/</a> <br></br>
+                                    Author: MongoDB, Inc. </p>
+                                <p></p>
+                                <br></br>
+                                <h6>Express</h6>
+                                <p> <a href="https://expressjs.com/">https://expressjs.com/</a> <br></br>
+                                    Author: StrongLoop, IBM, and various ⁴</p>
+                                <br></br>
+                                <h6>Node JS</h6>
+                                <p><a href="https://nodejs.org/ ">https://nodejs.org/ </a><br></br>
+                                    Author: OpenJS Foundation</p>
+
+                                <h6>React</h6>
+                                <p><a href="https://react.dev/ ">https://react.dev/ </a><br></br>
+                                    Author: Meta</p>
                               </div>
                             </div>
+                            <div className="col-md-4 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay={200}>
+                              <div className="media-29191 text-center h-100">
+                                
+                                <h3>Front End</h3>
+                                <h6>React</h6>
+                                <p><a href="https://react.dev/">https://react.dev/</a> <br></br>
+                                Author: Meta</p>
+                                <p></p>
+                                <br></br>
+                                <h6>BootStrap</h6>
+                                <p> <a href="https://getbootstrap.com/">https://getbootstrap.com/</a> <br></br>
+                                    Author: Twitter</p>
+                                <br></br>
+                                <h6>Swiper</h6>
+                                <p><a href="https://swiperjs.com/ ">https://swiperjs.com/</a><br></br>
+                                     Author: Vladimir Kharlampidi</p>
+                                <br></br>
+                                <h6>Owl-Carousel</h6>
+                                <p><a href="https://owlcarousel2.github.io/OwlCarousel2/ ">https://owlcarousel2... </a><br></br>
+                                    Author: David Deutsch</p>
+                              
+                              </div>
+                            </div>
+                            <div className="col-md-4 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay={100}>
+                              <div className="media-29191 text-center h-100">
+
+                              <h3>Back End</h3>
+                                <h6>Cookie Parser</h6>
+                                <p><a href="https://registry.npmjs.org/cookie-parser/-/cookie-parser-1.4.6.tgz">https://registry.npmjs.org/cookie-parser/-/cookie-parser-1.4.6.tgz</a> <br></br>
+                                    Version: 1.4.6 </p>
+                                <p></p>
+                                <br></br>
+                                <h6>Nodemon</h6>
+                                <p> <a href=" https://registry.npmjs.org/nodemon/-/nodemon-3.0.1.tgz/"> https://registry.npmjs.org/..</a> <br></br>
+                                    Version: 3.0.1</p>
+                                <br></br>
+                                <h6>JSON Web Token</h6>
+                                <p><a href="https://github.com/auth0/node-jsonwebtoken ">https://github.com/auth0/node-jsonwebtoken</a><br></br>
+                                     Author: Auth0</p>
+                                <br></br>
+                                <h6>Bcrypt</h6>
+                                <p><a href="https://registry.npmjs.org/bcrypt/-/bcrypt-5.1.0.tgz "> https://registry.npmjs.org/bcrypt/.. </a><br></br>
+                                    Version: 5.1.0</p>
+                                <br></br>
+                                <h6>Multer</h6>
+                                <p><a href="https://registry.npmjs.org/multer/-/multer-1.4.5-lts.1.tgz ">https://registry.npmjs.org/.. </a><br></br>
+                                    Version: 1.4.5-lts.1</p>
+                                
+                              </div>
+                            </div>
+                            <div className="col-md-4 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay={200}>
+                              <div className="media-29191 text-center h-100">
+
+                              <h3>Back End</h3>
+                                <h6>AWS-SDK</h6>
+                                <p><a href="https://www.npmjs.com/package/aws-sdk">https://www.npmjs.com/aws-sdk</a> <br></br>
+                                    Version: 2.143 </p>
+                                <p></p>
+                                <br></br>
+                                <h6>Dotenv</h6>
+                                <p> <a href="https://registry.npmjs.org/dotenv/-/dotenv-16.3.1.tgz">https://registry.npmjs.org/dotenv/..</a> <br></br>
+                                      Version: 16.3.1</p>
+                                <br></br>
+                                <h6>Express-Session</h6>
+                                <p><a href="https://registry.npmjs.org/express-session/-/express-session-1.17.3.tgz ">https://registry.npmjs.org/express...</a><br></br>
+                                      Version: 1.17.3 </p>
+                                <br></br>
+                                <h6>CORS</h6>
+                                <p><a href="https://www.npmjs.com/package/cors">https://www.npmjs.com/package/cors</a><br></br>
+                                    Version: 2.8.5</p>
+                                
+                              </div>
+                            </div>
+                          
                           </div>
+                        </div>
+                      </div>
+
+
+
+
+
+                         
                         </div>
                         <div className="untree_co--site-section pt-0">
                           <div className="row justify-content-center">
-                            <video width={1000} height={567} controls>
-                              <source src="images/parkavevid.mp4" type="video/mp4" />
-                              <source src="movie.ogg" type="video/ogg" />
-                              Your browser does not support the video tag.
-                            </video>
+                          
                           </div>
                         </div>
                       </div></main>
@@ -159,7 +221,6 @@ const About = () => {
                                   <li><a href="/memories">Memories</a></li>
                                   <li><a href="/contact">Contact</a></li>
                                   <li><a href="/booking">Book Now</a></li>
-                                  <li><a href="/meettheteam">Meet The Team</a></li>
                                 </ul>
                               </div>
                               <div className="col-md-9 ml-auto">
@@ -175,7 +236,14 @@ const About = () => {
                                     </p>
                                   </div>
                                 </div>
-                              
+                                <h3 className="mb-0">Join our newsletter</h3>
+                                <p>Be the first to know our latest updates and news!</p>
+                                <form action="#" method className="form-subscribe">
+                                  <div className="form-group d-flex">
+                                    <input type="email" className="form-control mr-2" placeholder="Enter your email" />
+                                    <input type="submit" defaultValue="Subscribe" className="btn btn-black px-4 text-white" />
+                                  </div>
+                                </form>
                               </div>
                             </div>
                           </div>
@@ -231,4 +299,4 @@ const About = () => {
 }
 
 
-export default About;
+export default MeetTheTeam;
