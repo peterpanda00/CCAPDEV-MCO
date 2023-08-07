@@ -24,7 +24,7 @@ app.use(express.json())
 
 // cors 
 app.use(cors({
-  origin:'http://localhost:3000',
+  origin:'https://park-avenue-hvwav4cig-peterpanda00.vercel.app',
   credentials: true
 }));
 
