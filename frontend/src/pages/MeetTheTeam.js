@@ -57,6 +57,18 @@ const MeetTheTeam = () => {
                               <div className="col-md-7 order-md-2 img-wrap" data-jarallax-element={-100}>
                                 <div className="bg-image h-100" style={{backgroundColor: '#efefef', backgroundImage: 'url("images/parkaveday.jpg")'}} />
                               </div>
+                              <div className="container-fluid px-md-0">
+                                <div className="row justify-content-center text-center pt-0 pb-5">
+                                  <div className="col-lg-12" data-aos="fade-up">
+                                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '20px 0' }}>
+                                      <img src="images/johanna.png" alt="Johanna" style={{ maxWidth: '200px', height: 'auto', margin: '0 10px' }} />
+                                      <img src="images/jilliane.png" alt="Jilliane" style={{ maxWidth: '200px', height: 'auto', margin: '0 10px' }} />
+                                      <img src="images/alroy.png" alt="Alroy" style={{ maxWidth: '200px', height: 'auto', margin: '0 10px' }} />
+                                      <img src="images/jiliana.png" alt="Jiliana" style={{ maxWidth: '200px', height: 'auto', margin: '0 10px' }} />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                               <div className="col-md-5">
                                 <div className="row justify-content-center">
                                   <div className="col-md-8 py-5">
@@ -80,111 +92,108 @@ const MeetTheTeam = () => {
                             </div>
                           </div>
                           
-                          <div className="untree_co--site-section">
-                        <div className="container">
-                          <div className="container pt-0 pb-5">
-                            <div className="row justify-content-center text-center">  
-                              <div className="col-lg-4 section-heading" data-aos="fade-up">
-                                <h3 className="text-center">References</h3>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="row custom-row-02192 align-items-stretch">
-                            <div className="col-md-4 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay={100}>
-                              <div className="media-29191 text-center h-100">
-                                
-                                <h3>Main Architecture</h3>
-                                <h6>MongoDB</h6>
-                                <p><a href="https://www.mongodb.com">https://www.mongodb.com/</a> <br></br>
-                                    Author: MongoDB, Inc. </p>
-                                <p></p>
-                                <br></br>
-                                <h6>Express</h6>
-                                <p> <a href="https://expressjs.com/">https://expressjs.com/</a> <br></br>
-                                    Author: StrongLoop, IBM, and various ⁴</p>
-                                <br></br>
-                                <h6>Node JS</h6>
-                                <p><a href="https://nodejs.org/ ">https://nodejs.org/ </a><br></br>
-                                    Author: OpenJS Foundation</p>
+         
 
-                                <h6>React</h6>
-                                <p><a href="https://react.dev/ ">https://react.dev/ </a><br></br>
-                                    Author: Meta</p>
-                              </div>
-                            </div>
-                            <div className="col-md-4 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay={200}>
-                              <div className="media-29191 text-center h-100">
-                                
-                                <h3>Front End</h3>
-                                <h6>React</h6>
-                                <p><a href="https://react.dev/">https://react.dev/</a> <br></br>
-                                Author: Meta</p>
-                                <p></p>
-                                <br></br>
-                                <h6>BootStrap</h6>
-                                <p> <a href="https://getbootstrap.com/">https://getbootstrap.com/</a> <br></br>
-                                    Author: Twitter</p>
-                                <br></br>
-                                <h6>Swiper</h6>
-                                <p><a href="https://swiperjs.com/ ">https://swiperjs.com/</a><br></br>
-                                     Author: Vladimir Kharlampidi</p>
-                                <br></br>
-                                <h6>Owl-Carousel</h6>
-                                <p><a href="https://owlcarousel2.github.io/OwlCarousel2/ ">https://owlcarousel2... </a><br></br>
-                                    Author: David Deutsch</p>
-                              
-                              </div>
-                            </div>
-                            <div className="col-md-4 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay={100}>
-                              <div className="media-29191 text-center h-100">
+                            <div className="untree_co--site-section">
+                              <div className="container">
+                                <div className="container pt-0 pb-5">
+                                  <div className="row justify-content-center text-center">  
+                                    <div className="col-lg-4 section-heading" data-aos="fade-up">
+                                      <h3 className="text-center">References</h3>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="row custom-row-02192 align-items-stretch">
+                                  <div className="col-md-6 col-lg-6 mb-5" data-aos="fade-up" data-aos-delay={100}>
+                                    <div className="media-29191 text-center h-100">
+                                      <h3>Main Architecture</h3>
+                                      <h6>MongoDB</h6>
+                                      <p><a href="https://www.mongodb.com">https://www.mongodb.com/</a> <br></br>
+                                          Author: MongoDB, Inc. </p>
+                                      <p></p>
+                                      <br></br>
+                                      <h6>Express</h6>
+                                      <p> <a href="https://expressjs.com/">https://expressjs.com/</a> <br></br>
+                                          Author: StrongLoop, IBM, and various ⁴</p>
+                                      <br></br>
+                                      <h6>Node JS</h6>
+                                      <p><a href="https://nodejs.org/ ">https://nodejs.org/ </a><br></br>
+                                          Author: OpenJS Foundation</p>
 
-                              <h3>Back End</h3>
-                                <h6>Cookie Parser</h6>
-                                <p><a href="https://registry.npmjs.org/cookie-parser/-/cookie-parser-1.4.6.tgz">https://registry.npmjs.org/cookie-parser/-/cookie-parser-1.4.6.tgz</a> <br></br>
-                                    Version: 1.4.6 </p>
-                                <p></p>
-                                <br></br>
-                                <h6>Nodemon</h6>
-                                <p> <a href=" https://registry.npmjs.org/nodemon/-/nodemon-3.0.1.tgz/"> https://registry.npmjs.org/..</a> <br></br>
-                                    Version: 3.0.1</p>
-                                <br></br>
-                                <h6>JSON Web Token</h6>
-                                <p><a href="https://github.com/auth0/node-jsonwebtoken ">https://github.com/auth0/node-jsonwebtoken</a><br></br>
-                                     Author: Auth0</p>
-                                <br></br>
-                                <h6>Bcrypt</h6>
-                                <p><a href="https://registry.npmjs.org/bcrypt/-/bcrypt-5.1.0.tgz "> https://registry.npmjs.org/bcrypt/.. </a><br></br>
-                                    Version: 5.1.0</p>
-                                <br></br>
-                                <h6>Multer</h6>
-                                <p><a href="https://registry.npmjs.org/multer/-/multer-1.4.5-lts.1.tgz ">https://registry.npmjs.org/.. </a><br></br>
-                                    Version: 1.4.5-lts.1</p>
-                                
-                              </div>
-                            </div>
-                            <div className="col-md-4 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay={200}>
-                              <div className="media-29191 text-center h-100">
+                                      <h6>React</h6>
+                                      <p><a href="https://react.dev/ ">https://react.dev/ </a><br></br>
+                                          Author: Meta</p>
+                                    </div>
+                                  </div>
+                                  <div className="col-md-6 col-lg-6 mb-5" data-aos="fade-up" data-aos-delay={200}>
+                                    <div className="media-29191 text-center h-100">
+                                      <h3>Front End</h3>
+                                      <h6>React</h6>
+                                      <p><a href="https://react.dev/">https://react.dev/</a> <br></br>
+                                      Author: Meta</p>
+                                      <p></p>
+                                      <br></br>
+                                      <h6>BootStrap</h6>
+                                      <p> <a href="https://getbootstrap.com/">https://getbootstrap.com/</a> <br></br>
+                                          Author: Twitter</p>
+                                      <br></br>
+                                      <h6>Swiper</h6>
+                                      <p><a href="https://swiperjs.com/ ">https://swiperjs.com/</a><br></br>
+                                          Author: Vladimir Kharlampidi</p>
+                                      <br></br>
+                                      <h6>Owl-Carousel</h6>
+                                      <p><a href="https://owlcarousel2.github.io/OwlCarousel2/ ">https://owlcarousel2... </a><br></br>
+                                          Author: David Deutsch</p>
+                                    </div>
+                                  </div>
+                                  <div className="col-md-6 col-lg-6 mb-5" data-aos="fade-up" data-aos-delay={300}>
+                                    <div className="media-29191 text-center h-100">
+                                      <h3>Back End</h3>
+                                      <h6>Cookie Parser</h6>
+                                      <p><a href="https://registry.npmjs.org/cookie-parser/-/cookie-parser-1.4.6.tgz">https://registry.npmjs.org/cookie-parser/-/cookie-parser-1.4.6.tgz</a> <br></br>
+                                          Version: 1.4.6 </p>
+                                      <p></p>
+                                      <br></br>
+                                      <h6>Nodemon</h6>
+                                      <p> <a href=" https://registry.npmjs.org/nodemon/-/nodemon-3.0.1.tgz/"> https://registry.npmjs.org/..</a> <br></br>
+                                          Version: 3.0.1</p>
+                                      <br></br>
+                                      <h6>JSON Web Token</h6>
+                                      <p><a href="https://github.com/auth0/node-jsonwebtoken ">https://github.com/auth0/node-jsonwebtoken</a><br></br>
+                                          Author: Auth0</p>
+                                      <br></br>
+                                      <h6>Bcrypt</h6>
+                                      <p><a href="https://registry.npmjs.org/bcrypt/-/bcrypt-5.1.0.tgz "> https://registry.npmjs.org/bcrypt/.. </a><br></br>
+                                          Version: 5.1.0</p>
+                                      <br></br>
+                                      <h6>Multer</h6>
+                                      <p><a href="https://registry.npmjs.org/multer/-/multer-1.4.5-lts.1.tgz ">https://registry.npmjs.org/.. </a><br></br>
+                                          Version: 1.4.5-lts.1</p>
+                                    </div>
+                                  </div>
+                                  <div className="col-md-6 col-lg-6 mb-5" data-aos="fade-up" data-aos-delay={400}>
+                                    <div className="media-29191 text-center h-100">
+                                      <h3>Back End</h3>
+                                      <h6>AWS-SDK</h6>
+                                      <p><a href="https://www.npmjs.com/package/aws-sdk">https://www.npmjs.com/aws-sdk</a> <br></br>
+                                          Version: 2.143 </p>
+                                      <p></p>
+                                      <br></br>
+                                      <h6>Dotenv</h6>
+                                      <p> <a href="https://registry.npmjs.org/dotenv/-/dotenv-16.3.1.tgz">https://registry.npmjs.org/dotenv/..</a> <br></br>
+                                            Version: 16.3.1</p>
+                                      <br></br>
+                                      <h6>Express-Session</h6>
+                                      <p><a href="https://registry.npmjs.org/express-session/-/express-session-1.17.3.tgz ">https://registry.npmjs.org/express...</a><br></br>
+                                            Version: 1.17.3 </p>
+                                      <br></br>
+                                      <h6>CORS</h6>
+                                      <p><a href="https://www.npmjs.com/package/cors">https://www.npmjs.com/package/cors</a><br></br>
+                                          Version: 2.8.5</p>
+                                    </div>
+                                  </div>
+          
 
-                              <h3>Back End</h3>
-                                <h6>AWS-SDK</h6>
-                                <p><a href="https://www.npmjs.com/package/aws-sdk">https://www.npmjs.com/aws-sdk</a> <br></br>
-                                    Version: 2.143 </p>
-                                <p></p>
-                                <br></br>
-                                <h6>Dotenv</h6>
-                                <p> <a href="https://registry.npmjs.org/dotenv/-/dotenv-16.3.1.tgz">https://registry.npmjs.org/dotenv/..</a> <br></br>
-                                      Version: 16.3.1</p>
-                                <br></br>
-                                <h6>Express-Session</h6>
-                                <p><a href="https://registry.npmjs.org/express-session/-/express-session-1.17.3.tgz ">https://registry.npmjs.org/express...</a><br></br>
-                                      Version: 1.17.3 </p>
-                                <br></br>
-                                <h6>CORS</h6>
-                                <p><a href="https://www.npmjs.com/package/cors">https://www.npmjs.com/package/cors</a><br></br>
-                                    Version: 2.8.5</p>
-                                
-                              </div>
-                            </div>
                           
                           </div>
                         </div>
