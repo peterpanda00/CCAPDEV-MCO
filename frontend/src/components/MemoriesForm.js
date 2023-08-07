@@ -23,7 +23,7 @@ const MemoriesForm = () => {
     if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
       var userID = (Cookies.get('_id').slice(3,27))
       setUserID((Cookies.get('_id').slice(3,27)))
-      console.log('Slice' + userID)
+      
     }
     else if (Cookies.get('_id') !== undefined){
       var userID = (Cookies.get('_id'))
@@ -32,7 +32,7 @@ const MemoriesForm = () => {
     else{
       var userID = '64ccfc4bc4db8bceaaec9ecb'
       setUserID('64ccfc4bc4db8bceaaec9ecb')
-      console.log(userID)
+    
     }
 
     const fetchUser = async () => {

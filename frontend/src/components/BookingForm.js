@@ -81,7 +81,7 @@ const BookingForm = () => {
     if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
       var userID = (Cookies.get('_id').slice(3,27))
       setUserID((Cookies.get('_id').slice(3,27)))
-      console.log('Slice' + userID)
+      
     }
     else if (Cookies.get('_id') !== undefined){
       var userID = (Cookies.get('_id'))
@@ -90,7 +90,7 @@ const BookingForm = () => {
     else{
       var userID = '64ccfc4bc4db8bceaaec9ecb'
       setUserID('64ccfc4bc4db8bceaaec9ecb')
-      console.log(userID)
+     
     }
 
     const fetchUser = async () => {
@@ -126,14 +126,6 @@ const handleSearch = async (e) => {
 const formattedCheckInDate = check_in_date.toLocaleDateString('en-PH');
 const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
 
-  console.log(check_in_date)
-  console.log(check_out_date)
-  console.log(num_of_guests)
-
-  console.log(formattedCheckInDate)
-  console.log(formattedCheckOutDate)
-
-
  
   const response = await fetch(`http://localhost:4000/api/rooms/search?checkIn=${formattedCheckInDate}&checkOut=${formattedCheckOutDate}`, {
     method: 'POST',
@@ -156,7 +148,7 @@ const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
     setShowWrapper(false);
     const errorResponse = await response.json();
     setBookingMessage(errorResponse.error)
-    console.log('Error:', errorResponse.error); 
+    //console.log('Error:', errorResponse.error); 
     setIsSearched(true);
   }
 
@@ -176,7 +168,7 @@ const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
     } else {
       setIsFormFilled(false);
     }
-    console.log('isFormFilled:', isFormFilled); 
+   
   };
 
 
@@ -225,8 +217,7 @@ const formattedCheckOutDate = check_out_date.toLocaleDateString('en-PH');
   const handleRoomClick = (room) => {
     setSelectedRoom(room);
     setRoom(room);
-    console.log(room);
-    console.log(room.roomName);
+    
     setShowGuestDetailsForm(true);
   };
 

@@ -17,7 +17,7 @@ const ReviewDetails = ({ review,  onDelete  }) => {
     if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
       var userID = (Cookies.get('_id').slice(3,27))
       setUserID((Cookies.get('_id').slice(3,27)))
-      console.log('Slice' + userID)
+      
     }
     else if (Cookies.get('_id') !== undefined){
       var userID = (Cookies.get('_id'))
@@ -26,7 +26,7 @@ const ReviewDetails = ({ review,  onDelete  }) => {
     else{
       var userID = '64ccfc4bc4db8bceaaec9ecb'
       setUserID('64ccfc4bc4db8bceaaec9ecb')
-      console.log(userID)
+      
     }
 
     const fetchUser = async () => {
@@ -81,15 +81,11 @@ const ReviewDetails = ({ review,  onDelete  }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    console.log(responseName)
-    console.log(comment)
-    
-
     const newComment = {
       userName: responseName, 
       comment: comment, 
     };
-    console.log(newComment)
+    
     const commentsArray = [newComment];
 
     const response = await fetch(`http://localhost:4000/api/reviews/${review._id}/comments`,{

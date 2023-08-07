@@ -32,7 +32,7 @@ const getReview = async(req,res)=>{
 const createReview = async(req,res) => {
 
     const {userName,datePosted,revContent,reviewImg,responseDatePosted,responseContent} = req.body
-    console.log(req.file)
+  
     
     // Add document to database
     try{
@@ -99,7 +99,7 @@ const createComment = async (req, res) => {
     const { id } = req.params 
   
     const { responseContent } = req.body;
-    console.log(req.file);
+
   
     try {
       
@@ -125,10 +125,7 @@ const createComment = async (req, res) => {
 const deleteComment = async (req, res) => {
   const { reviewId, commentId } = req.params;
 
-  console.log('Review ID:', reviewId);
-  console.log('Comment ID:', commentId);
-
-
+ 
   try {
     const review = await Review.findById(reviewId);
 
