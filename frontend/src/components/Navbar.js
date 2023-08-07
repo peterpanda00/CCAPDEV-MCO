@@ -86,23 +86,6 @@ const Navbar = (props) => {
               <li><a href="/about">Our Story</a></li>
               <li className="has-children">
                 <a href="/rooms">Rooms</a>
-                <ul className="dropdown">
-                  <li>
-                    <a href="/rooms">Single Room</a>
-                  </li>
-                  <li>
-                    <a href="/rooms">Superior Twin</a>
-                  </li>
-                  <li>
-                    <a href="/rooms">Deluxe Queen</a>
-                  </li>
-                  <li>
-                    <a href="/rooms">Imperial King</a>
-                  </li>
-                  <li>
-                    <a href="/rooms">Family Room</a>
-                  </li>
-                </ul>
               </li>
               <li><a href="/memories">Memories</a></li>
             <li><a href="/contact">Contact</a></li>
