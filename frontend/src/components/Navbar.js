@@ -115,7 +115,7 @@ const Navbar = (props) => {
 
 
 
-
+ {/*
 const decodeToken = () => {
 
 
@@ -138,6 +138,8 @@ const decodeToken = () => {
     return null;
   }
 };
+
+*/}
 
 
 
