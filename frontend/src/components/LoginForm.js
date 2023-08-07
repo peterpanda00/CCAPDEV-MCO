@@ -25,15 +25,17 @@ const LoginForm = ({ onClose, onSignupClick }) => {
         console.log('Login failed',json)
     }
     if(response.ok){
-      if (json.token) {
-        sessionStorage.setItem('token', json.token);
-      }
+      
         setEmail('')
         setPassword('')
         setMessage('Login Successful')
         console.log('Login Successful', json)
         alert('Log in Successful')
-        window.location.reload();
+
+      const userId = json.userID; 
+      sessionStorage.setItem('userId', userId);
+
+      window.location.reload();
     }
 
 }
