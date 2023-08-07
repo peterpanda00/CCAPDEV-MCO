@@ -32,7 +32,7 @@ const MeetTheTeam = () => {
                     <Navbar></Navbar>
                     
                     <main className="untree_co--site-main">
-                      <div className="untree_co--site-hero inner-page bg-light" style={{backgroundColor: '#efefef', backgroundImage: 'url("images/parkavefview.png")'}}> {/* not working*/}
+                      <div className="untree_co--site-hero inner-page bg-light" style={{backgroundColor: '#efefef', backgroundImage: 'url("images/parkavetree.jpg")'}}> {/* not working*/}
                         <div className="container">
                           <div className="row align-items-center">
                             <div className="col-md-9">
@@ -55,7 +55,7 @@ const MeetTheTeam = () => {
                           <div className="container-fluid px-md-0">
                             <div className="row no-gutters align-items-stretch room-animate site-section">
                               <div className="col-md-7 order-md-2 img-wrap" data-jarallax-element={-100}>
-                                <div className="bg-image h-100" style={{backgroundColor: '#efefef', backgroundImage: 'url("images/parkaveday.jpg")'}} />
+                                <div className="bg-image h-100" style={{backgroundColor: '#efefef', backgroundImage: 'url("images/facade.jpg")'}} />
                               </div>
                               <div className="container-fluid px-md-0">
                                 <div className="row justify-content-center text-center pt-0 pb-5">
