@@ -1,5 +1,6 @@
 const { generateUploadURL } = require('./s3.js');
 
+const cors = require('cors')
 require('dotenv').config()
 
 const express = require('express')
@@ -14,11 +15,17 @@ const loginRoutes = require('./routes/login')
 const signupRoutes= require('./routes/signup')
 
 
+
 // express app
 const app = express()
 
 // middleware
 app.use(express.json())
+
+// cors 
+app.use(cors({
+  origin:'http://localhost:3000'
+}));
 
 
 app.use((req, res, next) => {

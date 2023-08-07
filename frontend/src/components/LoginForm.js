@@ -10,7 +10,7 @@ const LoginForm = ({ onClose, onSignupClick }) => {
     event.preventDefault();
     // Perform login logic here
     const formData = {emailAddress,password};
-    const response = await fetch('/api/login',{
+    const response = await fetch('http://localhost:4000/api/login',{
         method:'POST',
         body:JSON.stringify(formData),  
         headers:{
