@@ -31,6 +31,9 @@ const SignupForm = ({ onClose, onLoginClick }) => {
       console.log('Signup failed',json)
     }
   if(response.ok){
+    if (json.token) {
+      sessionStorage.setItem('token', json.token);
+    }
       setUserName('')
       setEmail('')
       setPassword('')
