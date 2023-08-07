@@ -102,11 +102,11 @@ const Navbar = (props) => {
                   <button type="button" className="custom-button dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                   {userName} 
                   </button>
-                  <ul className="dropdown-menu" >
+                  <ul className="dropdown-menu" style={{ backgroundColor: '#ECECEC' }}>
                     
-                    <li><p style={{ fontSize: '12px' }}><strong>Full Name:</strong> {lastName},{firstName}</p></li>
-                    <li><p style={{ fontSize: '12px' }}><strong>Email:</strong> {emailAddress}</p></li>
-                    <li><button onClick={handleLogout} className="dropdown-item custom-button">Log Out</button></li>
+                    <li><p style={{ fontSize: '12px', marginLeft: '10px', marginBottom: '5px' }}><strong>Name:</strong> {firstName} {lastName}</p></li>
+                    <li><p style={{ fontSize: '12px', marginLeft: '10px', marginBottom: '5px' }}><strong>Email:</strong> {emailAddress}</p></li>
+                    <li style={{ marginLeft: '45px', textAlign: 'center' }}><button onClick={handleLogout} className="dropdown-item custom-button">Log Out</button></li>
                     
                   </ul>
 
