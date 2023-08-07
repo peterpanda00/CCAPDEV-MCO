@@ -16,6 +16,9 @@ const MemoriesForm = () => {
     const [error, setError] = useState(null)
     const [imageUrl, setImageUrl] = useState(null);
 
+    const [isImageLoading, setImageLoading] = useState(false);
+
+
     const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
     const [userID, setUserID] = useState(''); 
 
@@ -98,30 +101,31 @@ const MemoriesForm = () => {
 
 
     const handleImage = async (event) => {
-        event.preventDefault();
-        const file = event.target.files[0];
-    
-        
-        const { url } = await fetch("http://localhost:4000/s3Url").then((res) => res.json());
-        console.log(url);
-    
-     
-        await fetch(url, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-          body: file,
-        });
-    
-        const imageUrl = url.split('?')[0];
-        console.log({imageUrl});
-        setImageUrl(imageUrl);
-        setImage(imageUrl);
-        console.log({reviewImg});
-    
-       
-      };
+      event.preventDefault();
+      const file = event.target.files[0];
+
+      if (file) {
+          setImageLoading(true); 
+
+          const { url } = await fetch("http://localhost:4000/s3Url").then((res) => res.json());
+
+          await fetch(url, {
+              method: "PUT",
+              headers: {
+                  "Content-Type": "multipart/form-data",
+              },
+              body: file,
+          });
+
+          const imageUrl = url.split('?')[0];
+          setImageUrl(imageUrl);
+          setImage(imageUrl);
+          setImageLoading(false); 
+      } else {
+          setImageUrl('');
+          setImage('');
+      }
+  };
 
     return (
         <div className="post-form">
@@ -156,7 +160,9 @@ const MemoriesForm = () => {
                     <input type="file" id="imageInput" onChange={handleImage} onclick={handleImage}/>
                 </div>
                 
-                <button onclick={handleImage}>Submit</button>
+                <button onClick={handleSubmit} disabled={isImageLoading}>
+                    {isImageLoading ? "Loading..." : "Submit"}
+                </button>
             </form>
             {error && <div className="text-black">{error}</div>}
         </div>
