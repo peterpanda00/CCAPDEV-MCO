@@ -29,6 +29,8 @@ const Navbar = (props) => {
 
     setToken((sessionStorage.getItem('userId')))
 
+    console.log('Direct' + sessionStorage.getItem('userId') )
+
     console.log('Token' + token)
 
     if (token != null){
