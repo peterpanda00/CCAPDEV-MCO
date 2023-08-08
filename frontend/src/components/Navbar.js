@@ -8,7 +8,7 @@ import LoginSignUpForm from "./LoginSignup";
 const Navbar = (props) => {
   const [showPopup, setShowPopup] = useState(false);
   const GUEST_USERID = '64ccfc4bc4db8bceaaec9ecb'
-  const [userID, setUserID] = useState('64ccfc4bc4db8bceaaec9ecb');
+  const userID = '';
   const [user, setUser] = useState(null)
   const [userName, setUserName] = useState('')
   const [firstName, setFirstName] = useState('')
@@ -34,10 +34,10 @@ const Navbar = (props) => {
 
 
     if (userId && userId !== '64ccfc4bc4db8bceaaec9ecb') {
-      setUserID(userId); 
+      userID = userId; 
     } else {
       sessionStorage.setItem('userId', GUEST_USERID);
-      setUserID(GUEST_USERID); 
+      userID = userId; 
     }
 
     console.log('Current User ID' + userID)
