@@ -34,11 +34,15 @@ useEffect(() => {
                     </symbol>
                   </svg>
                   <div id="untree_co--overlayer" />
-                  <div className="loader">
+                  {/*
+                    <div className="loader">
                     <div className="spinner-border text-primary" role="status">
                       <span className="sr-only">Loading...</span>
                     </div>
                   </div>
+
+                  */}
+                  
                   <nav className="untree_co--site-mobile-menu">
                     <div className="close-wrap d-flex">
                       <a href="#" className="d-flex ml-auto js-menu-toggle">
