@@ -56,7 +56,7 @@ const MemoriesForm = () => {
     };
 
     fetchUser();
-}, []);
+}, [userID]);
 
 
 

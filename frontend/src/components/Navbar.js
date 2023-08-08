@@ -58,7 +58,7 @@ const Navbar = (props) => {
    };
 
    fetchUser();
-}, []);
+}, [userID]);
 
   const togglePopup = () => {
     setShowPopup(!showPopup);

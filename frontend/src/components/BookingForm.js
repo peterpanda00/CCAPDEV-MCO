@@ -111,7 +111,7 @@ useEffect(() => {
     };
 
     fetchUser();
-}, []);
+}, [userID]);
 
 
 
