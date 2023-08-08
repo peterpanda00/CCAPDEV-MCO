@@ -42,7 +42,7 @@ const SignupForm = ({ onClose, onLoginClick }) => {
       console.log('Signup success', json)
       alert('Signup Successful')
 
-      const userId = json.userID; 
+      const userId = json.NewUser; 
       sessionStorage.setItem('userId', userId);
 
       window.location.reload();
