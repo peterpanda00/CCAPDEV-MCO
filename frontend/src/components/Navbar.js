@@ -14,7 +14,6 @@ const Navbar = (props) => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [emailAddress, setEmailAddress] = useState('')
-  const [token, setToken] = useState('');
 
 
   const navigate = useNavigate();
@@ -27,22 +26,18 @@ const Navbar = (props) => {
 
   useEffect(() => {
 
-    setToken((sessionStorage.getItem('userId')))
+    const userId = sessionStorage.getItem('userId');
 
     console.log('Direct' + sessionStorage.getItem('userId') )
 
-    console.log('Token' + token)
+    console.log('Token' + userId)
 
-    if (token != null){
 
-      setUserID(token)
-  
-    } else if(token == null){
-      setUserID('64ccfc4bc4db8bceaaec9ecb')
-    }else{
-  
-      setUserID('64ccfc4bc4db8bceaaec9ecb')
-  
+    if (userId && userId !== '64ccfc4bc4db8bceaaec9ecb') {
+      setUserID(userId); 
+    } else {
+      sessionStorage.setItem('userId', GUEST_USERID);
+      setUserID(GUEST_USERID); 
     }
 
     console.log('Current User ID' + userID)

@@ -13,23 +13,22 @@ const [token, setToken] = useState('');
 
 useEffect(() => {
 
-  setToken(sessionStorage.getItem('userId'))
+  const userId = sessionStorage.getItem('userId');
 
-  console.log('Token' + token)
+  console.log('Direct' + sessionStorage.getItem('userId') )
 
-  if (token != null){
+  console.log('Token' + userId)
 
-    setUserID(token)
 
-  } else if(token == null){
-    setUserID('64ccfc4bc4db8bceaaec9ecb')
-  }else{
+    if (userId && userId !== '64ccfc4bc4db8bceaaec9ecb') {
+      setUserID(userId); 
+    } else {
+      sessionStorage.setItem('userId', GUEST_USERID);
+      setUserID(GUEST_USERID); 
+    }
 
-    setUserID('64ccfc4bc4db8bceaaec9ecb')
-
-  }
-
-  console.log('Current User ID' + userID)
+    console.log('Current User ID' + userID)
+    console.log('Guest ID' + GUEST_USERID)
 
   {/*
 
