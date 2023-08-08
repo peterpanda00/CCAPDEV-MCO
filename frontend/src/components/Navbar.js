@@ -44,6 +44,7 @@ const Navbar = (props) => {
     }
 
     console.log('Current User ID' + userID)
+    console.log('Guest ID' + GUEST_USERID)
 
     {/*
 
