@@ -8,7 +8,7 @@ const Home = () => {
 
 
 const GUEST_USERID = '64ccfc4bc4db8bceaaec9ecb'
-const userID = '';
+const [userID, setUserID] = useState('');
 const [token, setToken] = useState('');
 
 useEffect(() => {
@@ -21,14 +21,15 @@ useEffect(() => {
 
 
     if (userId && userId !== '64ccfc4bc4db8bceaaec9ecb') {
-      userID = userId; 
+      setUserID(userId); 
     } else {
       sessionStorage.setItem('userId', GUEST_USERID);
-      userID = userId; 
+      setUserID(GUEST_USERID); 
     }
 
     console.log('Current User ID' + userID)
     console.log('Guest ID' + GUEST_USERID)
+
   {/*
 
   if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
