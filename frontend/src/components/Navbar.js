@@ -28,11 +28,6 @@ const Navbar = (props) => {
 
     const userId = sessionStorage.getItem('userId');
 
-    console.log('Direct' + sessionStorage.getItem('userId') )
-
-    console.log('Token' + userId)
-
-
     if (userId && userId !== '64ccfc4bc4db8bceaaec9ecb') {
       setUserID(userId); 
     } else {
@@ -40,31 +35,7 @@ const Navbar = (props) => {
       setUserID(GUEST_USERID); 
     }
 
-    console.log('Current User ID' + userID)
-    console.log('Guest ID' + GUEST_USERID)
-
-    {/*
-
-    if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
-     var userID = (Cookies.get('_id').slice(3,27))
-     setUserID((Cookies.get('_id').slice(3,27)))
-     
-   }
-   else if (Cookies.get('_id') !== undefined){
-     var userID = (Cookies.get('_id'))
-     setUserID((Cookies.get('_id')))
-   }
-   else{
-     var userID = '64ccfc4bc4db8bceaaec9ecb'
-     setUserID('64ccfc4bc4db8bceaaec9ecb')
-    
-   }
-
-
-  */}
-
-    
-
+  
    const fetchUser = async () => {
      if (userID !== GUEST_USERID) {
        try {
@@ -95,7 +66,6 @@ const Navbar = (props) => {
 
   const handleLogout = () => {
     sessionStorage.removeItem('userId')
-    //Cookies.set('_id', GUEST_USERID);
     navigate('/');
     alert('Log Out Successful')
     window.location.reload();

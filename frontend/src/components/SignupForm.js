@@ -31,9 +31,7 @@ const SignupForm = ({ onClose, onLoginClick }) => {
       console.log('Signup failed',json)
     }
   if(response.ok){
-    if (json.token) {
-      sessionStorage.setItem('token', json.token);
-    }
+    
       setUserName('')
       setEmail('')
       setPassword('')
@@ -43,7 +41,12 @@ const SignupForm = ({ onClose, onLoginClick }) => {
       setMessage('Signup success')
       console.log('Signup success', json)
       alert('Signup Successful')
+
+      const userId = json.userID; 
+      sessionStorage.setItem('userId', userId);
+
       window.location.reload();
+      
       
     }
   }

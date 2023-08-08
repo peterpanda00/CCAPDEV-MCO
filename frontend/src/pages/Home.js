@@ -15,46 +15,15 @@ useEffect(() => {
 
   const userId = sessionStorage.getItem('userId');
 
-  console.log('Direct' + sessionStorage.getItem('userId') )
-
-  console.log('Token' + userId)
-
-
-    if (userId && userId !== '64ccfc4bc4db8bceaaec9ecb') {
-      setUserID(userId); 
-    } else {
-      sessionStorage.setItem('userId', GUEST_USERID);
-      setUserID(GUEST_USERID); 
-    }
-
-    console.log('Current User ID' + userID)
-    console.log('Guest ID' + GUEST_USERID)
-
-  {/*
-
-  if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
-      var userID = (Cookies.get('_id').slice(3,27))
-      setUserID((Cookies.get('_id').slice(3,27)))
-      console.log('Slice' + userID)
-    }
-    else if (Cookies.get('_id') !== undefined){
-      var userID = (Cookies.get('_id'))
-      setUserID((Cookies.get('_id')))
-    }
-    else{
-      var userID = '64ccfc4bc4db8bceaaec9ecb'
-      setUserID('64ccfc4bc4db8bceaaec9ecb')
-      console.log(userID)
-    }
-
-    document.title = 'Home - Park Avenue';
-    
-*/}
+  if (userId && userId !== '64ccfc4bc4db8bceaaec9ecb') {
+    setUserID(userId); 
+  } else {
+    sessionStorage.setItem('userId', GUEST_USERID);
+    setUserID(GUEST_USERID); 
+  }
     
 
 }, []);
-
-console.log('User Effect' + userID)
 
 
     return(

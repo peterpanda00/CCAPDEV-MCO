@@ -19,26 +19,22 @@ const MemoriesForm = () => {
     const [isImageLoading, setImageLoading] = useState(false);
 
 
-    const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
+    const GUEST_USERID = '64ccfc4bc4db8bceaaec9ecb'
     const [userID, setUserID] = useState(''); 
 
-    {/*
+  
 
     useEffect(() => {
-    if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
-      var userID = (Cookies.get('_id').slice(3,27))
-      setUserID((Cookies.get('_id').slice(3,27)))
-      
-    }
-    else if (Cookies.get('_id') !== undefined){
-      var userID = (Cookies.get('_id'))
-      setUserID((Cookies.get('_id')))
-    }
-    else{
-      var userID = '64ccfc4bc4db8bceaaec9ecb'
-      setUserID('64ccfc4bc4db8bceaaec9ecb')
     
+    const userId = sessionStorage.getItem('userId');
+
+    if (userId && userId !== '64ccfc4bc4db8bceaaec9ecb') {
+      setUserID(userId); 
+    } else {
+      sessionStorage.setItem('userId', GUEST_USERID);
+      setUserID(GUEST_USERID); 
     }
+
 
     const fetchUser = async () => {
       if (userID !== GUEST_USERID) {
@@ -63,7 +59,7 @@ const MemoriesForm = () => {
 }, []);
 
 
-*/}
+
     
 
     const handleSubmit = async (e) => {
