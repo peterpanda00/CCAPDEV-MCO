@@ -27,7 +27,7 @@ const Navbar = (props) => {
 
   useEffect(() => {
 
-    setToken(sessionStorage.getItem('userId'))
+    setToken((sessionStorage.getItem('userId')))
 
     console.log('Token' + token)
 
