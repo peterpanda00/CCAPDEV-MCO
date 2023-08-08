@@ -7,13 +7,14 @@ import LoginSignUpForm from "./LoginSignup";
 
 const Navbar = (props) => {
   const [showPopup, setShowPopup] = useState(false);
-  const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
-  const [userID, setUserID] = useState('');
+  const GUEST_USERID = '64ccfc4bc4db8bceaaec9ecb'
+  const [userID, setUserID] = useState('64ccfc4bc4db8bceaaec9ecb');
   const [user, setUser] = useState(null)
   const [userName, setUserName] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [emailAddress, setEmailAddress] = useState('')
+  const [token, setToken] = useState('');
 
 
   const navigate = useNavigate();
@@ -25,6 +26,26 @@ const Navbar = (props) => {
 
 
   useEffect(() => {
+
+    setToken(sessionStorage.getItem('userId'))
+
+    console.log('Token' + token)
+
+    if (token != null){
+
+      setUserID(token)
+  
+    } else if(token == null){
+      setUserID('64ccfc4bc4db8bceaaec9ecb')
+    }else{
+  
+      setUserID('64ccfc4bc4db8bceaaec9ecb')
+  
+    }
+
+    console.log('Current User ID' + userID)
+
+    {/*
 
     if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
      var userID = (Cookies.get('_id').slice(3,27))
@@ -40,6 +61,11 @@ const Navbar = (props) => {
      setUserID('64ccfc4bc4db8bceaaec9ecb')
     
    }
+
+
+  */}
+
+    
 
    const fetchUser = async () => {
      if (userID !== GUEST_USERID) {
@@ -70,7 +96,8 @@ const Navbar = (props) => {
   };
 
   const handleLogout = () => {
-    Cookies.set('_id', GUEST_USERID);
+    sessionStorage.removeItem('userId')
+    //Cookies.set('_id', GUEST_USERID);
     navigate('/');
     alert('Log Out Successful')
     window.location.reload();

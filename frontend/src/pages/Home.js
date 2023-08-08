@@ -7,10 +7,33 @@ import {useState,useEffect } from 'react';
 const Home = () => {
 
 
-const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
-const [userID, setUserID] = useState('');
+const GUEST_USERID = '64ccfc4bc4db8bceaaec9ecb'
+const [userID, setUserID] = useState('64ccfc4bc4db8bceaaec9ecb');
+const [token, setToken] = useState('');
+
 useEffect(() => {
-    if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
+
+  setToken(sessionStorage.getItem('userId'))
+
+  console.log('Token' + token)
+
+  if (token != null){
+
+    setUserID(token)
+
+  } else if(token == null){
+    setUserID('64ccfc4bc4db8bceaaec9ecb')
+  }else{
+
+    setUserID('64ccfc4bc4db8bceaaec9ecb')
+
+  }
+
+  console.log('Current User ID' + userID)
+
+  {/*
+
+  if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
       var userID = (Cookies.get('_id').slice(3,27))
       setUserID((Cookies.get('_id').slice(3,27)))
       console.log('Slice' + userID)
@@ -26,6 +49,9 @@ useEffect(() => {
     }
 
     document.title = 'Home - Park Avenue';
+    
+*/}
+    
 
 }, []);
 

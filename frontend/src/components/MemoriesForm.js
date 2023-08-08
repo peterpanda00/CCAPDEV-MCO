@@ -22,6 +22,8 @@ const MemoriesForm = () => {
     const GUEST_USERID = "64ccfc4bc4db8bceaaec9ecb"
     const [userID, setUserID] = useState(''); 
 
+    {/*
+
     useEffect(() => {
     if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
       var userID = (Cookies.get('_id').slice(3,27))
@@ -59,6 +61,10 @@ const MemoriesForm = () => {
 
     fetchUser();
 }, []);
+
+
+*/}
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault()

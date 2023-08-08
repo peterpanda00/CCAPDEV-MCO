@@ -76,8 +76,8 @@ const BookingForm = () => {
     calculateDateDifference();
   }, [check_in_date, check_out_date]);
   
-
-  useEffect(() => {
+{/*
+useEffect(() => {
     if(Cookies.get('_id') !== '64ccfc4bc4db8bceaaec9ecb' && Cookies.get('_id') !== undefined){
       var userID = (Cookies.get('_id').slice(3,27))
       setUserID((Cookies.get('_id').slice(3,27)))
@@ -117,6 +117,10 @@ const BookingForm = () => {
 
     fetchUser();
 }, []);
+
+
+
+*/}
 
 
   
