@@ -29,7 +29,7 @@ const loginController = async (req, res) => {
     }
 
     // If login is successful, create a JWT token and send it back in the response
-    //res.cookie('_id', user._id, { domain: '.park-avenue.vercel.app' });
+    res.cookie('_id', user._id, { domain: '.park-avenue.vercel.app', secure: true });
     const userID = user._id;
     const token = jwt.sign({ userId: user._id }, 'ccapdev'); 
     res.json({ message: 'Login successful', token, user: { emailAddress }, userID});
@@ -67,7 +67,7 @@ const signupController = async (req, res) => {
     });
 
     // If signup is successful, create a JWT token and send it back in the response
-    //res.cookie('_id', newUser._id, { domain: '.park-avenue.vercel.app' });
+    res.cookie('_id', newUser._id, { domain: '.park-avenue.vercel.app', secure: true });
     const NewUser = newUser._id;
     const token = jwt.sign({ userId: newUser._id }, 'ccapdev');
     res.json({ message: 'Signup successful', token, user: { userName,emailAddress, firstName, lastName, contactNumber},NewUser });
