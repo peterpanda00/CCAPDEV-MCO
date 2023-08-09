@@ -20,7 +20,7 @@ const MemoriesForm = () => {
 
 
     const GUEST_USERID = '64ccfc4bc4db8bceaaec9ecb'
-    const [userID, setUserID] = useState(''); 
+    const [userID, setUserID] = useState('64ccfc4bc4db8bceaaec9ecb'); 
 
   
 
