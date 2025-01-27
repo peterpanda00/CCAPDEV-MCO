@@ -24,11 +24,11 @@
           {
             "position": {
               "x": 240,
-              "y": 100
+              "y": 104.66666666666669
             },
             "size": {
-              "width": 112.5,
-              "height": 60
+              "width": 160,
+              "height": 85.33333333333331
             },
             "attrs": {
               "text": {
@@ -139,14 +139,17 @@
           },
           {
             "position": {
-              "x": 460,
-              "y": 100
+              "x": 500,
+              "y": 104.66666666666669
             },
             "size": {
               "width": 112.5,
               "height": 60
             },
             "attrs": {
+              "text": {
+                "text": "LDAP"
+              },
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
@@ -241,7 +244,7 @@
             "zIndex": 2,
             "data": {
               "type": "tm.Actor",
-              "name": "Actor",
+              "name": "LDAP",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -252,7 +255,7 @@
           },
           {
             "position": {
-              "x": 240,
+              "x": 263.75,
               "y": 250
             },
             "size": {
@@ -260,6 +263,9 @@
               "height": 60
             },
             "attrs": {
+              "text": {
+                "text": "Web Application"
+              },
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
@@ -354,7 +360,7 @@
             "zIndex": 3,
             "data": {
               "type": "tm.Actor",
-              "name": "Actor",
+              "name": "Web Application",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -365,7 +371,7 @@
           },
           {
             "position": {
-              "x": 460,
+              "x": 500,
               "y": 250
             },
             "size": {
@@ -373,6 +379,9 @@
               "height": 60
             },
             "attrs": {
+              "text": {
+                "text": "SQL Database"
+              },
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
@@ -467,7 +476,7 @@
             "zIndex": 4,
             "data": {
               "type": "tm.Actor",
-              "name": "Actor",
+              "name": "SQL Database",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
